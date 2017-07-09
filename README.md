@@ -1,5 +1,61 @@
 # EcommerceApp
 
+
+[Getting Started](#getting-started)
+
+[Prerequisites](#prerequisites)
+
+[Installing](#installing)
+
+[Running the tests](#running-the-tests)
+
+[Deployment](#deployment)
+
+[Authors](#authors)
+
+[License](#license)
+
+[Acknowledgments](#acknowledgments)
+
+One Paragraph of project description goes here
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+What things you need to install the software and how to install them
+
+```
+Give examples:
+Node, npm, etc.
+```
+
+### Installing
+
+A step by step series of examples that tell you have to get a development env running
+
+Say what the step will be
+
+```
+Give the example
+```
+
+And repeat
+
+```
+until finished
+```
+
+End with an example of getting some data out of the system or using it for a little demo
+
+## Running the tests
+
+Explain how to run the automated tests for this system
+
+## Angular cli
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
 
 ## Development server
@@ -26,3 +82,19 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Authors
+
+* **Zack Fanning** 
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+TBD
