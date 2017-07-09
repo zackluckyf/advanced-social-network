@@ -1,5 +1,6 @@
 # EcommerceApp
 
+Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, and Redux to create a server side rendering of a basic ecommerce site. Over engineering to the max!
 
 [Getting Started](#getting-started)
 
@@ -16,8 +17,6 @@
 [License](#license)
 
 [Acknowledgments](#acknowledgments)
-
-One Paragraph of project description goes here
 
 ## Getting Started
 
