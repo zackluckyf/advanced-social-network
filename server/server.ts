@@ -1,17 +1,25 @@
 import 'reflect-metadata';
 import 'zone.js/dist/zone-node';
-import { platformServer, renderModuleFactory } from '@angular/platform-server'
-import { enableProdMode } from '@angular/core'
-import { AppServerModuleNgFactory } from '../dist/ngfactory/src/app/app.server.module.ngfactory'
+import { platformServer, renderModuleFactory } from '@angular/platform-server';
+import { enableProdMode } from '@angular/core';
+import { AppServerModuleNgFactory } from '../dist/ngfactory/src/app/app.server.module.ngfactory';
+import * as bodyParser from 'body-parser';
 import * as express from 'express';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
+const api = require('./routes/api');
 const PORT = 4000;
 
 enableProdMode();
 
 const app = express();
+
+// Parsers for POST data
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use('/api', api);
 
 let template = readFileSync(join(__dirname, '..', 'dist', 'index.html')).toString();
 
@@ -26,6 +34,9 @@ app.set('view engine', 'html');
 app.set('views', 'src')
 
 app.get('*.*', express.static(join(__dirname, '..', 'dist')));
+
+// Set our api routes
+app.use('/api', api);
 
 app.get('*', (req, res) => {
   res.render('index', { req });
