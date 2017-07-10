@@ -4,13 +4,13 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "aot-prod-build": "ng build --prod --aot && ngc",
-    "start-server": "npm run aot-prod-build && ts-node server/server.ts",
+    "start-server": "ts-node server/server.ts",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --aot && ngc",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "prod": "npm run build && npm run start-server"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/platform-server": "^4.2.6",
     "@angular/router": "^4.0.0",
+    "axios": "^0.16.2",
     "core-js": "^2.4.1",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
