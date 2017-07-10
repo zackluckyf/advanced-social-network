@@ -1,6 +1,6 @@
 # EcommerceApp
 
-Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, and Redux to create a server side rendering of a basic ecommerce site. Over engineering to the max!
+Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angular Universal, Karma, Jasmine, Protractor, and Travis CI to create a server side rendering of a basic ecommerce site. Over engineering to the max!
 
 [Getting Started](#getting-started)
 
@@ -49,38 +49,28 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
 ## Angular cli
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
 
-## Development server
+## Development Server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
-
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Test Environment
+
+Run `npm run prod` to build the project and launch the server. 
+
+## Running The Tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ## Deployment
 
