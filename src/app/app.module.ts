@@ -3,16 +3,20 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PathNotFoundComponent } from './path-not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PathNotFoundComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ecommerce'}),
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
