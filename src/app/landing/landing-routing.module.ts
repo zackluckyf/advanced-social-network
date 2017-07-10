@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LandingShellComponent } from './landing-shell/landing-shell.component';
+import { ShellComponent } from './shell/shell.component';
 
 const routes: Routes = [
-  { path: '**', component: LandingShellComponent}
+  { path: '**', component: ShellComponent}
 ];
 
 @NgModule({

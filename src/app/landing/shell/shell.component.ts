@@ -1,12 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-landing-shell',
-  templateUrl: './landing-shell.component.html',
-  styleUrls: ['./landing-shell.component.scss'],
+  selector: 'landing-shell',
+  templateUrl: './shell.component.html',
+  styleUrls: ['./shell.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LandingShellComponent implements OnInit {
+export class ShellComponent implements OnInit {
 
   constructor() { }
 

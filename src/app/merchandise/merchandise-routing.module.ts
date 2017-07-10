@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { MerchandiseShellComponent } from './merchandise-shell/merchandise-shell.component';
+import { ShellComponent } from './shell/shell.component';
 
 const routes: Routes = [
-  { path: '**', component: MerchandiseShellComponent}
+  { path: '**', component: ShellComponent}
 ];
 
 @NgModule({
