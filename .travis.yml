@@ -1,0 +1,38 @@
+sudo: false
+dist: trusty
+language: node_js
+cache:
+  directories:
+  - node_modules
+addons:
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
+node_js:
+- '6'
+- '7'
+- node
+matrix:
+  fast_finish: true
+before_install:
+- npm install npm@5 -g
+- npm cache verify
+- npm prune
+- npm update
+install:
+- npm install
+after_install:
+- npm rebuild node-sass
+- ./node_modules/protractor/bin/webdriver-manager update
+before_script:
+- npm rebuild node-sass
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- sleep 3
+script:
+- npm run ci:travis
+deploy:
+  api_key:
+    secure: yCCfj9tnlu/wBwNTt7gHqnArQKZHJGzh5myokYnPuErz6D26R66h6qUs/5vDDUelnVxSFyFN0WG8iKv693UYEyi1v6BPqY4I7LIY40qm6GSXc9gS29kJUiosDQGUt6aKJzHJGvvudeujcK3N212ebG+VMaBnmp52izrE1Z+pF5eo0VJpHDBVnj+hlVQPhJ7F9J2PSC3/yTKTPF8O82TbLHeOWPBwKZrr5gaWFRzM+WWziEri4Nmg1VwHjrSmiyWravSRtrBG3VZdub63JerUpVjwnjm0J5VSmuQiy2iaVrxADhHIRjJGmXkQx2fqNMjsCnsK3nVn2nEkf7Ph66DH6T1S8QjWUnhxS5jQX3ivdDmGQDVwKeGCWX2Q3Mjr+9W9RAA6HND70leA1mrWh2xvXQI5Hd4nHUavNkK1PYdImWwPd9ervTqMcJa+cmqU5se0HtENKzGxLtX4xTOH/Xwbwsq3cbcwReUQmedZXIVBjScl6YDPH18Oq8M3llmXs2kpmuBWtoAAjas3R+Hx4byOXxflMHyAb/vF476Ze+CfxkM+KyRoLHbtLSk5R7HYe0pe/qiVPPLgp1gpd8NNzTYst+YNdy4qCTjocQgFSPxYtb4PvU3uEux2GRd0nElfFYKOqSFWDDoSWDJFmo2LaShGhVoJKtzElX4lA/pzailp4uA=

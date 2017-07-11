@@ -15,6 +15,8 @@ enableProdMode();
 
 const app = express();
 
+app.set('port', (process.env.PORT || PORT));
+
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
