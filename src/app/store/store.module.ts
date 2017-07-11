@@ -12,7 +12,7 @@ import { provideReduxForms } from '@angular-redux/form';
 import { createLogger } from 'redux-logger';
 
 // The top-level reducers and epics that make up our app's logic.
-interface IAppState { };
+interface IAppState { state: null };
 
 import { rootReducer } from './reducers';
 import { RootEpics } from './epics';

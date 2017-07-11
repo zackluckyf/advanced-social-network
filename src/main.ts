@@ -14,12 +14,11 @@ export function main() {
 
 if (document.readyState === 'complete') {
   main();
-}
-else {
+} else {
   document.addEventListener('DOMContentLoaded', main);
 }
 
 if(module['hot']) {
-  console.log("calling module.hot.accept()")
+  console.log('calling module.hot.accept()');
   module['hot'].accept();
 }

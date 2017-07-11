@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'ecommerce-app';
 
-  constructor(private router: Router){
+  constructor(private router: Router) {
     // console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
   }
 }
