@@ -58,6 +58,8 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo
 
+Before pushing always run `npm run all-tests` and fix everything before pushing to not break the build
+
 ## Angular cli
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
