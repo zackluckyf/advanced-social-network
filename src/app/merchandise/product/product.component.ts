@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'merchandise-product',
@@ -6,7 +6,7 @@ import { Component, OnInit, ChangeDetectionStrategy, Input, OnChanges } from '@a
   styleUrls: ['./product.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductComponent implements OnInit, OnChanges {
+export class ProductComponent implements OnInit {
 
   @Input() product: any;
 
@@ -14,10 +14,6 @@ export class ProductComponent implements OnInit, OnChanges {
 
   ngOnInit() {
 
-  }
-
-  ngOnChanges() {
-    console.log('new product: ', this.product);
   }
 
 }
