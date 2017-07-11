@@ -10,7 +10,7 @@ const routes: Routes = [
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
     { path: 'landing', loadChildren: './landing/landing.module#LandingModule' },
     { path: 'merchandise', loadChildren: './merchandise/merchandise.module#MerchandiseModule' },
-    { path: '**', pathMatch: 'full', component: PathNotFoundComponent}
+    { path: '**', component: PathNotFoundComponent, pathMatch: 'full' }
 ];
 
 @NgModule({

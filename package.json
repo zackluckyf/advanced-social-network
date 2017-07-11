@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "server": "ts-node server/server.ts",
-    "start": "ng serve -o",
+    "start": "ng serve -o -hmr",
     "build": "ng build --prod --aot && ngc",
     "test": "ng test",
     "lint": "ng lint",

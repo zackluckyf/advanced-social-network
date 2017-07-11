@@ -1,0 +1,87 @@
+// Resusable alignment classes
+
+.align {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &.align-top {
+        align-items: flex-start;
+    }
+    &.align-left {
+        justify-content: flex-start;
+    }
+    &.align-right {
+        justify-content: flex-end;
+    }
+    &.align-around {
+        justify-content: space-around;
+    }
+    &.align-baseline {
+        align-items: baseline;
+    }
+    &.align-stretch {
+        align-items: stretch;
+    }
+    &.align-center {
+        justify-content: center;
+    }
+    &.wrap {
+        flex-wrap: wrap;
+    }
+}
+
+.inline-column {
+    display: inline-flex;
+    flex-direction: column;
+    &.align-end {
+        align-items: flex-end;
+    }
+}
+.inline-row {
+    display: inline-flex;
+    &.align-baseline {
+        align-items: baseline;
+    }
+    &.justify-center {
+        justify-content: center;
+    }
+    &.justify-around {
+        justify-content: space-around;
+    }
+    &.align-center {
+        align-items: center;
+    }
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+}
+
+.vertical-top {
+    display: flex;
+    align-items: flex-start;
+}
+
+.vertical-stretch {
+    display: flex;
+    align-items: stretch;
+}
+
+.vertical-baseline {
+    display: flex;
+    align-items: baseline;
+}
+
+.vertical-bottom {
+    display: flex;
+    align-items: flex-end;  
+}
+
+.push-up {
+    margin-bottom: auto;
+}
+
+.push-right {
+    margin-left: auto;
+}
