@@ -33,7 +33,7 @@ export class StoreModule {
     // it too.
     store.configureStore(
       rootReducer,
-      {},
+      { state: null},
       [ createLogger(), ...rootEpics.createEpics() ],
       devTools.isEnabled() ? [ devTools.enhancer() ] : []);
 
