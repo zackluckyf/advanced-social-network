@@ -7,8 +7,8 @@ describe('ecommerce-app App', () => {
     page = new EcommerceAppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display title', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!!');
+    expect(page.getTitle()).toEqual('ecommerce-app');
   });
 });
