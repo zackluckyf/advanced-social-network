@@ -1,6 +1,6 @@
 # EcommerceApp
 
-Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angular Universal, Karma, Jasmine, Protractor, and Travis CI to create a server side rendering of a basic ecommerce site. Over engineering to the max!
+Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angular Universal, Angular HMR, Karma, Jasmine, Protractor, and Travis CI to create a server side rendering of a basic ecommerce site. Over engineering to the max!
 
 [Getting Started](#getting-started)
 
