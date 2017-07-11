@@ -1,6 +1,13 @@
 # EcommerceApp
 
+
 Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angular Universal, Angular HMR, Karma, Jasmine, Protractor, and Travis CI to create a server side rendering of a basic ecommerce site. Over engineering to the max!
+
+
+[![NPM version](https://img.shields.io/npm/v/ecommerce-app.svg?style=flat-square)](https://www.npmjs.com/package/ecommerce-app)
+[![Build](https://travis-ci.org/zackluckyf/ecommerce-app.svg?branch=master)](https://travis-ci.org/zackluckyf/ecommerce-app)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+
 
 [Getting Started](#getting-started)
 
