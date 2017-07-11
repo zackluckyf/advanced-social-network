@@ -18,7 +18,7 @@ if (document.readyState === 'complete') {
   document.addEventListener('DOMContentLoaded', main);
 }
 
-if(module['hot']) {
+if (module['hot']) {
   console.log('calling module.hot.accept()');
   module['hot'].accept();
 }
