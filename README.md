@@ -7,6 +7,9 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 [![NPM version](https://img.shields.io/npm/v/ecommerce-app.svg?style=flat-square)](https://www.npmjs.com/package/ecommerce-app)
 [![Build](https://travis-ci.org/zackluckyf/ecommerce-app.svg?branch=master)](https://travis-ci.org/zackluckyf/ecommerce-app)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![Dependency Status](https://david-dm.org/boennemann/badges.svg)](https://david-dm.org/boennemann/badges)
+[![DevDependency Status](https://david-dm.org/boennemann/badges/dev-status.svg)](https://david-dm.org/boennemann/badges#info=devDependencies)
+[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
 
 [Getting Started](#getting-started)
