@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "prod": "npm run build && npm start",
-    "continuous-integration": "npm run build && karma start karma.conf.js --single-run && npm start && killall node"
+    "continuous-integration": "npm run build && ng test --watch=false && npm start && killall node"
   },
   "private": true,
   "dependencies": {
