@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "prod": "npm run build && npm run server"
+    "prod": "npm run build && npm start"
   },
   "private": true,
   "dependencies": {
