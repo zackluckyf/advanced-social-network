@@ -1,10 +1,10 @@
-import { EcommerceAppPage } from './app.po';
+import { HomePage } from './app.po';
 
 describe('ecommerce-app App', () => {
-  let page: EcommerceAppPage;
+  let page: HomePage;
 
   beforeEach(() => {
-    page = new EcommerceAppPage();
+    page = new HomePage();
   });
 
   it('should display title', () => {

@@ -21,8 +21,6 @@ app.set('port', (process.env.PORT || PORT));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/api', api);
-
 let template = readFileSync(join(__dirname, '..', 'dist', 'index.html')).toString();
 
 app.engine('html', (_, options, callback) => {
