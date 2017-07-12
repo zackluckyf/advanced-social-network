@@ -1,7 +1,7 @@
-# EcommerceApp
+# Social Network
 
 
-Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angular Universal, Angular HMR, Karma, Jasmine, Protractor, and Travis CI to create a server side rendering of an ecommerce site. Development environment feels great with HMR, TypeScript, and Travis CI making changes is easy, safe, and blazing fast. Initial load time is extremely quick taking advantage of aot, redux, an on push change detection strategy, and Angular Universal to create a fantastic user experience. 
+Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angular Universal, Angular HMR, Karma, Jasmine, Protractor, and Travis CI to create a server side rendering of a feature rich social networking stie. Development environment feels great with HMR, TypeScript, and Travis CI making changes is easy, safe, and blazing fast. Initial load time is extremely quick taking advantage of aot, redux, an on push change detection strategy, and Angular Universal to create a fantastic user experience. 
 
 
 [![Build](https://travis-ci.org/zackluckyf/ecommerce-app.svg?branch=master)](https://travis-ci.org/zackluckyf/ecommerce-app)
