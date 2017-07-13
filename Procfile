@@ -1,1 +1,0 @@
-web: dist/out-tsc/server/ node server.js
