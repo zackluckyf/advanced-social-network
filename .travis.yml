@@ -36,8 +36,6 @@ before_script:
 - sleep 3
 script:
 - npm run continuous-integration
-before_deploy:
-  skip_cleanup: true
 deploy:
   provider: heroku
   api_key:
