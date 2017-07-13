@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LandingRoutingModule} from './landing-routing.module';
+import { DashboardRoutingModule} from './dashboard-routing.module';
 import { ShellComponent } from './shell/shell.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    LandingRoutingModule
+    DashboardRoutingModule
   ],
   declarations: [ShellComponent]
 })
-export class LandingModule { }
+export class DashboardModule { }

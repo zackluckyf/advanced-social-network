@@ -7,8 +7,8 @@ import { AppComponent } from './app.component';
 import { PathNotFoundComponent } from './path-not-found.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'landing', pathMatch: 'full' },
-    { path: 'landing', loadChildren: './landing/landing.module#LandingModule' },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
     { path: 'merchandise', loadChildren: './merchandise/merchandise.module#MerchandiseModule' },
     { path: '**', component: PathNotFoundComponent, pathMatch: 'full' }
 ];
