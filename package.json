@@ -8,7 +8,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ts-node server/server.ts",
+    "start": "npm run build && webpack webpack.config.js && node dist/server.js",
     "hmr": "ng serve -o -hmr",
     "build": "ng build --prod --aot && ngc",
     "test": "ng test",
@@ -61,7 +61,9 @@
     "node-sass": "^4.5.3",
     "protractor": "~5.1.2",
     "ts-node": "^3.0.6",
+    "ts-loader": "^2.0.3",
     "tslint": "~5.3.2",
-    "typescript": "~2.3.3"
+    "typescript": "~2.3.3",
+    "webpack-node-externals": "^1.5.4"
   }
 }
