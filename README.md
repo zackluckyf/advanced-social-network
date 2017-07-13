@@ -10,6 +10,7 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 [![DevDependency Status](https://david-dm.org/boennemann/badges/dev-status.svg)](https://david-dm.org/boennemann/badges#info=devDependencies)
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
+[RoadMap](#roadmap)
 
 [Getting Started](#getting-started)
 
@@ -26,6 +27,28 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 [License](#license)
 
 [Acknowledgments](#acknowledgments)
+
+## RoadMap
+
+* UI for profile page
+
+* Registration
+
+* Authentication/Login
+
+* Posts
+
+* Like Button
+
+* Chat
+
+* Pictures
+
+* User Search
+
+* Friends List/Add and Remove Friends
+
+* Video Chat
 
 ## Getting Started
 
