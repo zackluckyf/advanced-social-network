@@ -1,1 +1,1 @@
-web: sh -c 'cd ./dist/out-tsc/server/ && node server.js'
+web: dist/out-tsc/server/ node server.js
