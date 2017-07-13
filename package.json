@@ -8,7 +8,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "node dist/server.js",
+    "start": "node ./dist/server.js",
     "hmr": "ng serve -o -hmr",
     "build": "ng build --prod --aot && ngc",
     "test": "ng test",
