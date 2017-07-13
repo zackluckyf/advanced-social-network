@@ -9,6 +9,6 @@ describe('ecommerce-app App', () => {
 
   it('should display title', () => {
     page.navigateTo();
-    expect(page.getTitle()).toEqual('ecommerce-app');
+    expect(page.getTitle()).toEqual('Social Network');
   });
 });

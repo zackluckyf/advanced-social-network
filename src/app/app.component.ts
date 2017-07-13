@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'ecommerce-app';
+  title = 'Social Network';
 
   constructor(private router: Router) {
     // console.log('Routes: ', JSON.stringify(router.config, undefined, 2));

@@ -15,7 +15,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "prod": "npm run build && npm start",
-    "all-tests": "ng test --watch=false && ng e2e && ng lint",
+    "all-tests": "ng test --watch=false && ng e2e",
     "continuous-integration": "npm run build && webpack webpack.config.js && ng test --watch=false && ng e2e"
   },
   "private": true,
