@@ -36,8 +36,6 @@ before_script:
 - sleep 3
 script:
 - npm run continuous-integration
-after_script:
-  skip_cleanup: true
 before_deploy:
   skip_cleanup: true
 deploy:
