@@ -30,6 +30,10 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 ## RoadMap
 
+* Heroku working 
+
+* Heroku working with Travis
+
 * UI for profile page
 
 * Registration
