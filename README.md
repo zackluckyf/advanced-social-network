@@ -36,6 +36,12 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * <strike>Get Heroku working with Travis</strike>
 
+* <strike>Only deploy passing builds to Heroku from Travis</strike>
+
+* Setup HTTPS on Heroku
+
+* Enforce HTTPS only
+
 * UI for dashboard page
 
 * UI for profile page
