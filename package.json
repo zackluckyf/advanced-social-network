@@ -17,7 +17,7 @@
     "prod": "npm run build && npm start",
     "all-tests": "ng test --watch=false && ng e2e",
     "continuous-integration": "npm run build && ng test --watch=false && ng e2e",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run prod"
   },
   "private": true,
   "dependencies": {
