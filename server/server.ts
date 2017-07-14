@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Gzip
-app.use(compression());
+// app.use(compression());s
 
 // Set our api routes
 app.use('/api', api);
