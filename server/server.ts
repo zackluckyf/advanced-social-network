@@ -7,7 +7,8 @@ import * as bodyParser from 'body-parser';
 import * as express from 'express';
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import { compression } from 'compression';
+
+const compression = require('compression');
 
 const api = require('./routes/api');
 const PORT = 4000;
@@ -22,8 +23,8 @@ app.set('port', (process.env.PORT || PORT));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Gzip
-// app.use(compression());s
+// Compression setup
+app.use(compression());
 
 // Set our api routes
 app.use('/api', api);
