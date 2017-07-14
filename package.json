@@ -16,7 +16,8 @@
     "e2e": "ng e2e",
     "prod": "npm run build && npm start",
     "all-tests": "ng test --watch=false && ng e2e",
-    "continuous-integration": "npm run build && ng test --watch=false && ng e2e"
+    "continuous-integration": "npm run build && ng test --watch=false && ng e2e",
+    "heroku-postbuild": "npm run build"
   },
   "private": true,
   "dependencies": {
@@ -26,6 +27,8 @@
     "@angular/animations": "^4.2.6",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
+    "@angular/cli": "1.2.0",
+    "@angular/compiler-cli": "^4.0.0",
     "@angular/core": "^4.0.0",
     "@angular/forms": "^4.0.0",
     "@angular/http": "^4.0.0",
@@ -34,6 +37,7 @@
     "@angular/platform-server": "^4.2.6",
     "@angular/router": "^4.0.0",
     "axios": "^0.16.2",
+    "compression": "^1.7.0",
     "core-js": "^2.4.1",
     "redux": "^3.7.1",
     "redux-logger": "^3.0.6",
@@ -42,8 +46,6 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "1.2.0",
-    "@angular/compiler-cli": "^4.0.0",
     "@angular/language-service": "^4.0.0",
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
