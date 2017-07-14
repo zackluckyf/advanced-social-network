@@ -21,6 +21,9 @@ app.set('port', (process.env.PORT || PORT));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// Set our api routes
+app.use('/api', api);
+
 let template = readFileSync(join(__dirname, '..', 'dist', 'index.html')).toString();
 
 app.engine('html', (_, options, callback) => {
@@ -35,10 +38,7 @@ app.set('views', 'src')
 
 app.get('*.*', express.static(join(__dirname, '..', 'dist')));
 
-// Set our api routes
-app.use('/api', api);
-
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
   res.render('index', { req });
 });
 
