@@ -124,6 +124,8 @@ Run `npm run all-tests` to run all three of the above.
 
 Add additional notes about how to deploy this on a live system
 
+heroku config:set NPM_CONFIG_PRODUCTION=false helps with heroku
+
 ## Authors
 
 * **Zack Fanning** 
