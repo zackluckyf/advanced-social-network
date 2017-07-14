@@ -38,6 +38,14 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * <strike>Only deploy passing builds to Heroku from Travis</strike>
 
+* Detailed walkthrough on setup and deploy in README.md
+
+* Look into StrongLoop as a process manager for the node server
+
+* Research and use a reverse proxy
+
+* Start working on some basic api methods, use try-catch
+
 * Setup HTTPS on Heroku
 
 * Enforce HTTPS only
