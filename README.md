@@ -4,7 +4,8 @@
 Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angular Universal, Angular HMR, Karma, Jasmine, Protractor, Travis CI, and Heroku to create a server side rendering of a feature rich social networking site. Development environment feels great with HMR, TypeScript, and Travis CI making changes is easy, safe, and blazing fast. Initial load time is extremely quick taking advantage of aot, redux, an on push change detection strategy, and Angular Universal to create a fantastic user experience. Continuous Deployment setup with Heroku ensures software can be released reliably at any time.
 
 
-[![Build](https://travis-ci.org/zackluckyf/ecommerce-app.svg?branch=master)](https://travis-ci.org/zackluckyf/ecommerce-app)
+[![Build](https://travis-ci.org/zackluckyf/advanced-social-network.svg?branch=master)](https://travis-ci.org/zackluckyf/advanced-social-network)
+[![Heroku](http://zack-social-network.herokuapp.com/?app=zack-social-network&root=projects.html)]
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Dependency Status](https://david-dm.org/boennemann/badges.svg)](https://david-dm.org/boennemann/badges)
 [![DevDependency Status](https://david-dm.org/boennemann/badges/dev-status.svg)](https://david-dm.org/boennemann/badges#info=devDependencies)
