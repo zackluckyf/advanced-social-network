@@ -46,8 +46,6 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * <strike>Detailed walkthrough on setup and deploy in README.md</strike>
 
-* Setup HTTPS on Heroku
-
 * Enforce HTTPS only
 
 * Setup concurrency in Node
