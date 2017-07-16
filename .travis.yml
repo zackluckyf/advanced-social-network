@@ -11,14 +11,13 @@ addons:
     - google-chrome-stable
     
 node_js:
-- '6'
-- '7'
+- '6.9'
 matrix:
   fast_finish: true
 before_install:
 - export CHROME_BIN=chromium-browser
-- npm i -g npm@5.3
-- npm i -g angular/cli
+- npm install -g npm@5.3
+- npm install -g angular/cli
 - npm cache verify
 - npm prune
 - npm update
