@@ -12,12 +12,12 @@ const compression = require('compression');
 
 const api = require('./routes/api');
 const PORT = 4000;
+const NODE_ENV = 'development'
 
 enableProdMode();
 
 const app = express();
 
-app.set('port', (process.env.PORT || PORT));
 
 // Parsers for POST data
 app.use(bodyParser.json());
@@ -25,6 +25,34 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Compression setup
 app.use(compression());
+
+// force https
+// function requireHTTPS(req, res, next) {
+//     if (!req.secure) {
+//         //FYI this should work for local development as well
+//         return res.redirect('https://' + req.get('host') + req.url);
+//     }
+//     next();
+// }
+
+function forceSsl (req, res, next) {
+    if (req.headers['x-forwarded-proto'] !== 'https') {
+        return res.redirect(['https://', req.get('Host'), req.url].join(''));
+    }
+    return next();
+ };
+
+// set port variable
+app.set('port', (process.env.PORT || PORT));
+
+// set env variable
+app.set('env', (process.env.NODE_ENV || NODE_ENV));
+
+// if (app.get('env') === 'production') {
+app.use(forceSsl);
+// } else {
+//   app.use(requireHTTPS);
+// }
 
 // Set our api routes
 app.use('/api', api);
