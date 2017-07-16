@@ -18,6 +18,12 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 [Installing](#installing)
 
+[Development Server](#development-server)
+
+[Build](#build)
+
+[Test Environment](#test-environment)
+
 [Running the tests](#running-the-tests)
 
 [Deployment](#deployment)
@@ -27,12 +33,6 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 [License](#license)
 
 [Acknowledgments](#acknowledgments)
-
-[Development Server](#development-server)
-
-[Build](#build)
-
-[Test Environment](#test-environment)
 
 ## RoadMap
 
