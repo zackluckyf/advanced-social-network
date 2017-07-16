@@ -127,9 +127,13 @@ Run `ng lint` to lint the code.
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+**Deployments will not work on forked versions** 
 
-heroku config:set NPM_CONFIG_PRODUCTION=false helps with heroku
+heroku config:set NPM_CONFIG_PRODUCTION=false makes heroku install dev dependencies
+
+Added so flag can be flipped in production and didn't have to move cli to dependencies just for heroku
+
+Current live heroku app https://zack-social-network.herokuapp.com
 
 ## Authors
 
