@@ -9,12 +9,14 @@
   "scripts": {
     "ng": "ng",
     "start": "node ./dist/server.js",
+    "cluster": "node ./dist/cluster.js",
     "hmr": "ng serve -o -hmr",
     "build": "ng build --prod --aot && ngc && webpack webpack.config.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "prod": "npm run build && npm start",
+    "prod-cluster": "npm run build && npm run cluster",
     "all-tests": "ng test --watch=false && ng e2e",
     "continuous-integration": "npm run build && ng test --watch=false && ng e2e",
     "heroku-postbuild": "npm run build"
@@ -51,6 +53,7 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "@types/redux-logger": "^3.0.0",
+    "chalk": "^2.0.1",
     "codelyzer": "~3.0.1",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
@@ -62,8 +65,8 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "node-sass": "^4.5.3",
     "protractor": "~5.1.2",
-    "ts-node": "^3.0.6",
     "ts-loader": "^2.0.3",
+    "ts-node": "^3.0.6",
     "tslint": "~5.3.2",
     "typescript": "~2.3.3",
     "webpack-node-externals": "^1.5.4"

@@ -3,7 +3,8 @@ const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   entry: {
-    server: './server/server.ts'
+    server: './server/server.ts',
+    cluster: './server/cluster.ts'
   },
   resolve: {
     extensions: ['.ts', '.js']
