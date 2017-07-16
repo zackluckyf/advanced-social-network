@@ -3,9 +3,6 @@ dist: trusty
 language: node_js
 notifications:
   email: false
-cache:
-  directories:
-  - node_modules
 addons:
   apt:
     sources:
@@ -21,7 +18,7 @@ matrix:
 before_install:
 - export CHROME_BIN=chromium-browser
 - npm i -g npm@5.3
-- npm i -g angular/cli@1.2
+- npm i -g angular/cli
 - npm cache verify
 - npm prune
 - npm update
