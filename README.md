@@ -28,6 +28,12 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 [Acknowledgments](#acknowledgments)
 
+[Development Server](#development-server)
+
+[Build](#build)
+
+[Test Environment](#test-environment)
+
 ## RoadMap
 
 * <strike>Set up Travis CI</strike>
@@ -40,15 +46,15 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * Detailed walkthrough on setup and deploy in README.md
 
+* Setup HTTPS on Heroku
+
+* Enforce HTTPS only
+
 * Look into StrongLoop as a process manager for the node server
 
 * Research and use a reverse proxy
 
 * Start working on some basic api methods, use try-catch
-
-* Setup HTTPS on Heroku
-
-* Enforce HTTPS only
 
 * UI for dashboard page
 
@@ -78,36 +84,21 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Dependencies require Node 6.9.0 or higher, together with NPM 3 or higher.
 
-```
-Give examples:
-Node, npm, angular cli -g, etc.
-```
+After getting Node and NPM install the Angular cli
+
+`npm install -g @angular/cli`
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+Fork and then clone the repository e.g.
 
-Say what the step will be
+`git clone https://github.com/zackluckyf/advanced-social-network.git`
 
-```
-Give the example
-```
+Install the dependencies
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-Before pushing always run `npm run all-tests` and fix everything before pushing to not break the build
-
-## Angular cli
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
+`npm install`
 
 ## Development Server
 
@@ -121,7 +112,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Test Environment
 
-Run `npm run prod` to build the project and launch the server. 
+Run `npm run prod` to build the project and then build and launch the server. 
 
 ## Running The Tests
 
@@ -130,9 +121,9 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
 
-Run `ng lint` to lint the code.
+Run `npm run all-tests` to run all unit tests and end-to-end tests.
 
-Run `npm run all-tests` to run all three of the above.
+Run `ng lint` to lint the code.
 
 ## Deployment
 
