@@ -50,6 +50,8 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * Setup concurrency in Node
 
+* Setup an almost zero downtime server
+
 * Look into StrongLoop as a process manager for the node server
 
 * Research and use a reverse proxy
