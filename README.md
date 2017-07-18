@@ -48,13 +48,15 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * <strike>Enforce HTTPS only</strike>
 
-* Setup concurrency in Node
+* <strike>Setup concurrency in Node</strike>
 
 * Setup an almost zero downtime server
 
-* Look into StrongLoop as a process manager for the node server
+* Research and use a process manager for the node server to avoid reinventing a lot of things
 
 * Research and use a reverse proxy
+
+* Update TS server side code to be more current
 
 * Start working on some basic api methods, use try-catch
 
