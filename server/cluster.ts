@@ -10,7 +10,8 @@ if ( cluster.isMaster ) {
     // Since each Node.js process executes in a single thread, we want to create
     // Workers based on the number of Cores available on the operating system. This
     // way, we don't get Workers competing with each other for resources.
-    for ( var i = 0, coreCount = os.cpus().length ; i < coreCount ; i++ ) {
+    let workers = process.env.WEB_CONCURRENCY || os.cpus().length
+    for ( var i = 0; i < workers ; i++ ) {
         let worker = cluster.fork();
     }
     // When one of the Workers dies, the cluster will emit an "exit" event, which
