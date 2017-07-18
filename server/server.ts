@@ -26,14 +26,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Compression setup
 app.use(compression());
 
+// maybe only for heroku? more research needed
 function forceSsl (req, res, next) {
     if (req.headers['x-forwarded-proto'] !== 'https') {
         return res.redirect(['https://', req.get('Host'), req.url].join(''));
     }
     return next();
- };
+};
 
- app.use(forceSsl);
+if(process.env.NODE_ENV === 'production' || process.env.HEROKU){
+  app.use(forceSsl);
+}
 
 // set variables
 
