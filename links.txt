@@ -1,0 +1,3 @@
+One important result that can be achieved using workers is (almost) zero down-time servers. 
+
+https://www.sitepoint.com/how-to-create-a-node-js-cluster-for-speeding-up-your-apps/
