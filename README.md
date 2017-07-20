@@ -58,6 +58,10 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * Start working on some basic api methods, use try-catch
 
+* Setup PostgreSQL
+
+* Connect node to Postgres
+
 * UI for dashboard page
 
 * UI for profile page
