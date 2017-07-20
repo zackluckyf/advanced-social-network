@@ -8,6 +8,8 @@
   },
   "scripts": {
     "ng": "ng",
+    "apidoc": "apidoc -i server/ -o apidoc/ && http-server apidoc/",
+    "update-documentation": "apidoc -i server/ -o apidoc/",
     "start": "node ./dist/server.js",
     "cluster": "node ./dist/cluster.js",
     "hmr": "ng serve -o -hmr",

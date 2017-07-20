@@ -7,10 +7,20 @@ const API = 'https://jsonplaceholder.typicode.com';
 
 /* GET api listing. */
 router.get('/', (req, res) => {
-  res.send('api works');
+  res.send(router.stack);
 });
 
-// Get all posts
+/**
+ * @api {get} /posts/ Get all posts
+ * @apiName GetPosts
+ * @apiGroup Posts
+ * 
+ * @apiSuccess {Posts[]}  -         Array of posts.
+ * @apiSuccess {Number}   -.userId  The User ID.
+ * @apiSuccess {Number}   -.id      The ID.
+ * @apiSuccess {String}   -.title   The Title.
+ * @apiSuccess {String}   -.body    The Body.
+ */
 router.get('/posts', (req, res) => {
   // Get posts from the mock api
   // This should ideally be replaced with a service that connects to MongoDB
