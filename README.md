@@ -50,8 +50,6 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * <strike>Setup concurrency in Node</strike>
 
-* Setup an almost zero downtime server
-
 * Research and use a process manager for the node server to avoid reinventing a lot of things
 
 * Research and use a reverse proxy
