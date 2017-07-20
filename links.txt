@@ -1,3 +1,6 @@
-One important result that can be achieved using workers is (almost) zero down-time servers. 
+setting up reverse proxy using nginx
 
-https://www.sitepoint.com/how-to-create-a-node-js-cluster-for-speeding-up-your-apps/
+https://elements.heroku.com/buttons/narr/heroku-nginx-node-example
+
+https://m.alphasights.com/using-nginx-on-heroku-to-serve-single-page-apps-and-avoid-cors-5d013b171a45
+
