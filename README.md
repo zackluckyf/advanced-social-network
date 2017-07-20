@@ -50,7 +50,7 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * <strike>Setup concurrency in Node</strike>
 
-* Research and use a process manager for the node server to avoid reinventing a lot of things
+* Setup auto documentation for api generation in node
 
 * Research and use a reverse proxy
 
