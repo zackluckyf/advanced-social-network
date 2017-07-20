@@ -22,6 +22,8 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 [Build](#build)
 
+[Documentation](#documentation)
+
 [Test Environment](#test-environment)
 
 [Running the tests](#running-the-tests)
@@ -96,6 +98,10 @@ After getting Node and NPM install the Angular cli
 
 `npm install -g @angular/cli`
 
+In order to view the documentation 
+
+`npm install -g apidoc http-server`
+
 ### Installing
 
 Fork and then clone the repository e.g.
@@ -115,6 +121,14 @@ Run `npm run hmr` for a dev server with hot module replacement.
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Documentation
+
+Run `npm run apidoc` to make the documentation and launch it on port 8080. 
+
+Run `npm run update-documentation` to update the documentation.
+
+If already using that port simply update the documentation and then http-server apidoc/ -p 8004 or whatever port you prefer
 
 ## Test Environment
 
