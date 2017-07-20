@@ -7,7 +7,7 @@ const API = 'https://jsonplaceholder.typicode.com';
 
 /* GET api listing. */
 router.get('/', (req, res) => {
-  res.send(router.stack);
+  res.json(router.stack);
 });
 
 /**
