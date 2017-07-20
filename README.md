@@ -124,7 +124,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Documentation
 
-Run `npm run apidoc` to make the documentation and launch it on port 8080. 
+Run `npm run apidoc` to make the api documentation and launch it on port 8080. 
 
 Run `npm run update-documentation` to update the documentation.
 
