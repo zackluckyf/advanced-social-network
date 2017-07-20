@@ -50,7 +50,7 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * <strike>Setup concurrency in Node</strike>
 
-* Setup auto documentation for api generation in node
+* Setup auto documentation for api in node
 
 * Research and use a reverse proxy
 
