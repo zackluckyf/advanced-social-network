@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(compression());
 
 // maybe only for heroku? more research needed
-function forceSsl (req, res, next) {
+let forceSsl = (req, res, next) => {
     if (req.headers['x-forwarded-proto'] !== 'https') {
         return res.redirect(['https://', req.get('Host'), req.url].join(''));
     }
