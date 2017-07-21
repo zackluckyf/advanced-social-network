@@ -58,11 +58,11 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * <strike>Update TS server side code to be more current</strike>
 
-* Start working on some basic api methods
-
 * Setup PostgreSQL
 
 * Connect node to Postgres
+
+* Start working on some basic api methods
 
 * UI for dashboard page
 
