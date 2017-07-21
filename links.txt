@@ -4,3 +4,12 @@ https://elements.heroku.com/buttons/narr/heroku-nginx-node-example
 
 https://m.alphasights.com/using-nginx-on-heroku-to-serve-single-page-apps-and-avoid-cors-5d013b171a45
 
+https://www.nginx.com/blog/5-performance-tips-for-node-js-applications/#reverse-proxy
+
+Setup postgresql
+
+https://www.codementor.io/devops/tutorial/getting-started-postgresql-server-mac-osx
+
+Connect postgresql to node
+
+https://github.com/brianc/node-postgres
