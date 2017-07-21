@@ -58,7 +58,7 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * <strike>Update TS server side code to be more current</strike>
 
-* Start working on some basic api methods, use try-catch
+* Start working on some basic api methods
 
 * Setup PostgreSQL
 
