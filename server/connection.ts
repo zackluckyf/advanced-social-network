@@ -5,7 +5,7 @@ const CONNECTIONSTRING = process.env.DATABASE_URL;
 if(process.env.HEROKU){
     const pool = new Pool({
         connectionString: CONNECTIONSTRING,
-    })
+    });
 
     (async () => {
         const client = await pool.connect();
