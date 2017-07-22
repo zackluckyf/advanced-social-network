@@ -62,6 +62,8 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * <strike>Connect node to Postgres</strike>
 
+* Setup the ORM Sequelize
+
 * Get the node Postgres connection working in Heroku
 
 * Start working on some basic api methods
