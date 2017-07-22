@@ -41,6 +41,7 @@
     "axios": "^0.16.2",
     "compression": "^1.7.0",
     "core-js": "^2.4.1",
+    "pg": "^7.0.2",
     "redux": "^3.7.1",
     "redux-logger": "^3.0.6",
     "redux-observable": "^0.14.1",

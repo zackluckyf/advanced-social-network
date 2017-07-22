@@ -11,7 +11,9 @@ import { join } from 'path';
 const compression = require('compression');
 
 const api = require('./routes/api');
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
+
+require("./connection");
 
 enableProdMode();
 
@@ -41,7 +43,7 @@ if(process.env.NODE_ENV === 'production' || process.env.HEROKU){
 // set variables
 
 // set port variable
-app.set('port', (process.env.PORT || PORT));
+app.set('port', (PORT));
 
 // Set our api routes
 app.use('/api', api);
