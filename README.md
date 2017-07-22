@@ -58,9 +58,11 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * <strike>Update TS server side code to be more current</strike>
 
-* Setup PostgreSQL
+* <strike>Setup PostgreSQL</strike>
 
-* Connect node to Postgres
+* <strike>Connect node to Postgres</strike>
+
+* Get the node Postgres connection working in Heroku
 
 * Start working on some basic api methods
 
