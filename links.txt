@@ -8,4 +8,6 @@ https://www.nginx.com/blog/5-performance-tips-for-node-js-applications/#reverse-
 
 Connect postgresql to node
 
+https://node-postgres.com/features/connecting
+
 https://www.wlaurance.com/2016/03/node.js-postgresql-example/
