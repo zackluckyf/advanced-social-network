@@ -66,7 +66,7 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * <strike>Get basic user id parameter api method working</strike>
 
-* Refactor queries.ts into a folder with separate files based on grouping
+* <strike>Refactor queries.ts into a folder with separate files based on grouping</strike>
 
 * Start working on some basic api methods
 
