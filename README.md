@@ -5,7 +5,7 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 
 [![Build](https://travis-ci.org/zackluckyf/advanced-social-network.svg?branch=master)](https://travis-ci.org/zackluckyf/advanced-social-network)
-![Heroku](https://heroku-badge.herokuapp.com/?app=zack-social-network)
+[![Heroku](https://heroku-badge.herokuapp.com/?app=zack-social-network)](https://zack-social-network.herokuapp.com)
 [![Dependency Status](https://david-dm.org/zackluckyf/advanced-social-network.svg)](https://david-dm.org/zackluckyf/badges)
 [![DevDependency Status](https://david-dm.org/zackluckyf/advanced-social-network/dev-status.svg)](https://david-dm.org/zackluckyf/badges#info=devDependencies)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php) 
