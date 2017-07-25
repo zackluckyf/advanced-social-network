@@ -62,7 +62,7 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * Setup the ORM Sequelize
 
-* Get the node Postgres connection working in Heroku
+* <strike>Get the node Postgres connection working in Heroku</strike>
 
 * <strike>Get basic user id parameter api method working</strike>
 
