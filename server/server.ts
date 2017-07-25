@@ -13,8 +13,6 @@ const compression = require('compression');
 const api = require('./routes/api');
 const PORT = process.env.PORT || 4000;
 
-require("./connection");
-
 enableProdMode();
 
 const app = express();

@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+var db = require('../queries');
+
 // declare axios for making http requests
 const axios = require('axios');
 const API = 'https://jsonplaceholder.typicode.com';
@@ -69,6 +71,16 @@ router.get('/users', (req, res) => {
     .catch(error => {
       res.status(500).send(error)
     });
+})
+
+router.get('/user/:id', (req, res) => {
+  db.getFirstUser(req.params.id)
+    .then(firstUser => {
+      res.status(200).json(firstUser.rows[0]);
+    })
+    .catch(error => {
+      res.status(500).send(error);
+    })
 })
 
 module.exports = router;
