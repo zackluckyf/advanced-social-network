@@ -54,8 +54,6 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 * <strike>Setup auto documentation for api in node</strike>
 
-* Research and use a reverse proxy
-
 * <strike>Update TS server side code to be more current</strike>
 
 * <strike>Setup PostgreSQL</strike>
@@ -65,6 +63,10 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 * Setup the ORM Sequelize
 
 * Get the node Postgres connection working in Heroku
+
+* <strike>Get basic user id parameter api method working</strike>
+
+* Refactor queries.ts into a folder with separate files based on grouping
 
 * Start working on some basic api methods
 
