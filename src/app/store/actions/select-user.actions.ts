@@ -1,0 +1,1 @@
+export const SELECT_USER = 'api/SELECT_USER'; // action used to get a user;
