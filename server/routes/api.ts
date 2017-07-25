@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 /**
- * @api {get} /posts/ Get all posts
+ * @api {get} /posts/ Get All Posts
  * @apiName GetPosts
  * @apiGroup Posts
  * 
@@ -36,7 +36,7 @@ router.get('/posts', (req, res) => {
 });
 
 /**
- * @api {get} /users/ Get all users
+ * @api {get} /users/ Get All Users
  * @apiName GetUsers
  * @apiGroup Users
  * 
@@ -73,6 +73,19 @@ router.get('/users', (req, res) => {
     });
 })
 
+/**
+ * @api {get} /user/:id Request User Information
+ * @apiName GetUser
+ * @apiGroup Users
+ * 
+ * @apiParam {Number} id Users unique ID.
+ * 
+ * @apiSuccess {Users}    -                     User.
+ * @apiSuccess {Number}   -.id                  The ID.
+ * @apiSuccess {String}   -.first_name          The First Name.
+ * @apiSuccess {String}   -.last_name           The Last Name.
+ * 
+ */
 router.get('/user/:id', (req, res) => {
   db.getFirstUser(req.params.id)
     .then(firstUser => {
