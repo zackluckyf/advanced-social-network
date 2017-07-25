@@ -38,59 +38,59 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 ## RoadMap
 
-* <strike>Set up Travis CI</strike>
+- [x] Set up Travis CI
 
-* <strike>Get Heroku working</strike>
+- [x] Get Heroku working
 
-* <strike>Get Heroku working with Travis</strike>
+- [x] Get Heroku working with Travis
 
-* <strike>Only deploy passing builds to Heroku from Travis</strike>
+- [x] Only deploy passing builds to Heroku from Travis
 
-* <strike>Detailed walkthrough on setup and deploy in README.md</strike>
+- [x] Detailed walkthrough on setup and deploy in README.md
 
-* <strike>Enforce HTTPS only</strike>
+- [x] Enforce HTTPS only
 
-* <strike>Setup concurrency in Node</strike>
+- [x] Setup concurrency in Node
 
-* <strike>Setup auto documentation for api in node</strike>
+- [x] Setup auto documentation for api in node
 
-* <strike>Update TS server side code to be more current</strike>
+- [x] Update TS server side code to be more current
 
-* <strike>Setup PostgreSQL</strike>
+- [x] Setup PostgreSQL
 
-* <strike>Connect node to Postgres</strike>
+- [x] Connect node to Postgres
 
-* Setup the ORM Sequelize
+- [x] Get the node Postgres connection working in Heroku
 
-* <strike>Get the node Postgres connection working in Heroku</strike>
+- [x] Get basic user id parameter api method working
 
-* <strike>Get basic user id parameter api method working</strike>
+- [x] Refactor queries.ts into a folder with separate files based on grouping
 
-* <strike>Refactor queries.ts into a folder with separate files based on grouping</strike>
+- [ ] Setup the ORM Sequelize
 
-* Start working on some basic api methods
+- [ ] Start working on some basic api methods
 
-* UI for dashboard page
+- [ ] UI for dashboard page
 
-* UI for profile page
+- [ ] UI for profile page
 
-* Registration
+- [ ] Registration
 
-* Authentication/Login
+- [ ] Authentication/Login
 
-* Posts
+- [ ] Posts
 
-* Like Button
+- [ ] Like Button
 
-* Chat
+- [ ] Chat
 
-* Pictures
+- [ ] Pictures
 
-* User Search
+- [ ] User Search
 
-* Friends List/Add and Remove Friends
+- [ ] Friends List/Add and Remove Friends
 
-* Video Chat
+- [ ] Video Chat
 
 ## Getting Started
 
