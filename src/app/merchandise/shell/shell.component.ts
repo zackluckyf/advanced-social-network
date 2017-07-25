@@ -1,7 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { Observable} from 'rxjs/Observable';
-
 import { MerchandiseService } from '../merchandise.service';
 
 @Component({
@@ -14,10 +13,12 @@ export class ShellComponent implements OnInit {
 
   merchandise: Observable<any[]>;
 
+
   constructor(private merchandiseService: MerchandiseService) { }
 
   ngOnInit() {
     this.merchandise = this.merchandiseService.getAllMerchandise();
+
   }
 
 }

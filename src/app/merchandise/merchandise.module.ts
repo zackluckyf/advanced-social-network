@@ -13,7 +13,10 @@ import { ProductComponent } from './product/product.component';
     HttpModule,
     MerchandiseRoutingModule
   ],
-  declarations: [ShellComponent, ProductComponent],
+  declarations: [
+    ShellComponent, 
+    ProductComponent
+  ],
   providers: [ MerchandiseService ]
 })
 export class MerchandiseModule { }
