@@ -18,18 +18,6 @@ if(process.env.HEROKU){
     });
 }
 
-let getFirstUser = async (userId: number) => {
-    const client = await pool.connect();
-    try {
-        let res = pool.query('SELECT * FROM users WHERE id = $1', [userId]);
-        return res;
-    } catch(e) {
-        e => console.log(e.stack)
-    } finally {
-        client.release();
-    }
-}
-
 module.exports = {
-  getFirstUser: getFirstUser
+  pool: pool
 };

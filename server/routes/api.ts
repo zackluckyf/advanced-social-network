@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-var db = require('../queries');
+var queries = require('../queries/user-queries');
 
 // declare axios for making http requests
 const axios = require('axios');
@@ -87,9 +87,9 @@ router.get('/users', (req, res) => {
  * 
  */
 router.get('/user/:id', (req, res) => {
-  db.getFirstUser(req.params.id)
-    .then(firstUser => {
-      res.status(200).json(firstUser.rows[0]);
+  queries.getUser(req.params.id)
+    .then(user => {
+      res.status(200).json(user.rows[0]);
     })
     .catch(error => {
       res.status(500).send(error);
