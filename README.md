@@ -70,6 +70,8 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 - [ ] Start working on some basic api methods
 
+- [ ] Figure out a way to mock the backend when only working on the front end
+
 - [ ] UI for dashboard page
 
 - [ ] UI for profile page
