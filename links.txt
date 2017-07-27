@@ -1,7 +1,0 @@
-Setting up Sequelize
-
-http://docs.sequelizejs.com/manual/installation/getting-started
-
-figure out the testing issues at some point and change it back
-
-"continuous-integration": "npm run build && ng test --watch=false && ng e2e",
