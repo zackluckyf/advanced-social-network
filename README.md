@@ -70,7 +70,15 @@ Project utilizing Angular, Express, Node, PostgreSQL, Sequelize, Typescript, SCS
 
 - [x] Get Sequelize working with Heroku
 
-- [ ] Start working on some basic api methods
+- [x] Working basic get api method
+
+- [ ] Working basic post api method
+
+- [ ] Working basic put api method
+
+- [ ] Working basic delete api method
+
+- [ ] Create actions service in the redux store module
 
 - [ ] Figure out a way to mock the backend when only working on the front end
 
