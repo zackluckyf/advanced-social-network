@@ -12,6 +12,7 @@ const compression = require('compression');
 
 const api = require('./routes/api');
 const PORT = process.env.PORT || 4000;
+var models = require('../models').getModels();
 
 enableProdMode();
 
@@ -64,6 +65,8 @@ app.get('/*', (req, res) => {
   res.render('index', { req });
 });
 
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
-});
+models.sequelize.sync().then(() => {
+  app.listen(app.get('port'), () => {
+    console.log('Node app is running on port', app.get('port'));
+  });
+})
