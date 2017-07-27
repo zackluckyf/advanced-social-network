@@ -10,8 +10,6 @@ Project utilizing Angular, Express, Node, PostgreSQL, Sequelize, Typescript, SCS
 [![DevDependency Status](https://david-dm.org/zackluckyf/advanced-social-network/dev-status.svg)](https://david-dm.org/zackluckyf/badges#info=devDependencies)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php) 
 
-[RoadMap](#roadmap)
-
 [Getting Started](#getting-started)
 
 [Prerequisites](#prerequisites)
@@ -35,74 +33,6 @@ Project utilizing Angular, Express, Node, PostgreSQL, Sequelize, Typescript, SCS
 [License](#license)
 
 [Acknowledgments](#acknowledgments)
-
-## RoadMap
-
-- [x] Set up Travis CI
-
-- [x] Get Heroku working
-
-- [x] Get Heroku working with Travis
-
-- [x] Only deploy passing builds to Heroku from Travis
-
-- [x] Detailed walkthrough on setup and deploy in README.md
-
-- [x] Enforce HTTPS only
-
-- [x] Setup concurrency in Node
-
-- [x] Setup auto documentation for api in node
-
-- [x] Update TS server side code to be more current
-
-- [x] Setup PostgreSQL
-
-- [x] Connect node to Postgres
-
-- [x] Get the node Postgres connection working in Heroku
-
-- [x] Get basic user id parameter api method working
-
-- [x] Refactor queries.ts into a folder with separate files based on grouping
-
-- [x] Setup the ORM Sequelize
-
-- [x] Get Sequelize working with Heroku
-
-- [x] Working basic get api method
-
-- [ ] Working basic post api method
-
-- [ ] Working basic put api method
-
-- [ ] Working basic delete api method
-
-- [ ] Create actions service in the redux store module
-
-- [ ] Figure out a way to mock the backend when only working on the front end
-
-- [ ] UI for dashboard page
-
-- [ ] UI for profile page
-
-- [ ] Registration
-
-- [ ] Authentication/Login
-
-- [ ] Posts
-
-- [ ] Like Button
-
-- [ ] Chat
-
-- [ ] Pictures
-
-- [ ] User Search
-
-- [ ] Friends List/Add and Remove Friends
-
-- [ ] Video Chat
 
 ## Getting Started
 
