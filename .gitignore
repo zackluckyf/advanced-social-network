@@ -5,6 +5,8 @@
 /tmp
 /out-tsc
 /apidoc
+/migrations
+/seeders
 
 # dependencies
 /node_modules
