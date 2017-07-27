@@ -66,7 +66,9 @@ Project utilizing Angular, Express, Node, Typescript, SCSS, Webpack, Redux, Angu
 
 - [x] Refactor queries.ts into a folder with separate files based on grouping
 
-- [ ] Setup the ORM Sequelize
+- [x] Setup the ORM Sequelize
+
+- [x] Get Sequelize working with Heroku
 
 - [ ] Start working on some basic api methods
 
@@ -136,7 +138,9 @@ Run `npm run apidoc` to make the api documentation and launch it on port 8080.
 
 Run `npm run update-documentation` to update the documentation.
 
-If already using that port simply update the documentation and then http-server apidoc/ -p 8004 or whatever port you prefer
+If already using that port simply update the documentation and then http-server apidoc/ -p 8004 or whatever port you prefer.
+
+The architecture pattern flows with angular services call node/express rest api endpoints that are in server/routes/ and grouped in subfolders. Those routes call queries in server/queries grouped in the same subfolders which execute queries on the database. 
 
 ## Test Environment
 
