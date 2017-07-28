@@ -9,7 +9,9 @@ const API = 'https://jsonplaceholder.typicode.com';
 
 /* GET api listing. */
 router.get('/', (req, res) => {
-  res.json(router.stack);
+  res.json(router.stack.map(item => { 
+    return { route: item.route.path, methods: item.route.methods }
+   }));
 });
 
 /**
