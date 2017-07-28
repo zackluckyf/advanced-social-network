@@ -26,7 +26,9 @@ Project utilizing Angular, Node, Express, PostgreSQL, Sequelize, Typescript, SCS
 
 [Running the tests](#running-the-tests)
 
-[Deployment](#deployment)
+[Continuous Integration](#continuous-integration)
+
+[Continuous Deployment](#continuous-deployment)
 
 [Authors](#authors)
 
@@ -94,13 +96,19 @@ Run `npm run all-tests` to run all unit tests and end-to-end tests.
 
 Run `ng lint` to lint the code.
 
-## Deployment
+## Continuous Integration
+
+After pushing to github the project is sent to travis to be built and tested https://travis-ci.org/zackluckyf/advanced-social-network
+
+Following successful integrations the project is sent to Heroku for deployment. 
+
+## Continuous Deployment
 
 **Deployments will not work on forked versions** 
 
-heroku config:set NPM_CONFIG_PRODUCTION=false makes heroku install dev dependencies
+Used the heroku cli `heroku config:set NPM_CONFIG_PRODUCTION=false` which makes heroku install dev dependencies.
 
-Added so flag can be flipped in production and didn't have to move cli to dependencies just for heroku
+Added so flag can be flipped in non heroku production and didn't have to move Angular cli to dependencies just for heroku.
 
 Current live heroku app https://zack-social-network.herokuapp.com
 
