@@ -98,7 +98,9 @@ Run `ng lint` to lint the code.
 
 ## Continuous Integration
 
-After pushing to github the project is sent to travis to be built and tested https://travis-ci.org/zackluckyf/advanced-social-network
+After pushing to github the project is sent to travis to be built and tested.
+
+Travis CI project status https://travis-ci.org/zackluckyf/advanced-social-network
 
 Following successful integrations the project is sent to Heroku for deployment. 
 
