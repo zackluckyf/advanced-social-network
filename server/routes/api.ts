@@ -42,10 +42,10 @@ router.get('/posts', (req, res) => {
  * @apiName GetUsers
  * @apiGroup Users
  * 
- * @apiSuccess {Users[]}  -                     Array of users.
- * @apiSuccess {Users}    -                     User.
- * @apiSuccess {String}   -.first_name          The First Name.
- * @apiSuccess {String}   -.last_name           The Last Name.
+ * @apiSuccess {Users[]}  -                    Array of users.
+ * @apiSuccess {Users}    -                    User.
+ * @apiSuccess {String}   -.firstName          The First Name.
+ * @apiSuccess {String}   -.lastName           The Last Name.
  * 
  */
 router.get('/users', (req, res) => {
@@ -65,9 +65,10 @@ router.get('/users', (req, res) => {
  * 
  * @apiParam {Number} id Users unique ID.
  * 
- * @apiSuccess {Users}    -                     User.
- * @apiSuccess {String}   -.first_name          The First Name.
- * @apiSuccess {String}   -.last_name           The Last Name.
+ * @apiSuccess {Users}    -                    User.
+ * @apiSuccess {String}   -.firstName          The First Name.
+ * @apiSuccess {String}   -.lastName           The Last Name.
+ * @apiSuccess {Date}     -.birthDate          The Birth Date.
  * 
  */
 router.get('/user/:id', (req, res) => {
