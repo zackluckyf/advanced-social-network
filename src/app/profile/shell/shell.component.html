@@ -1,3 +1,5 @@
 <div>
-     {{ (userInformation | async)?.firstName }} {{ (userInformation | async)?.lastName }}
+     <div>First Name: {{ (userInformation | async)?.firstName }}</div>
+     <div>Last Name: {{ (userInformation | async)?.lastName }}</div>
+     <div>Birthday: {{ (userInformation | async)?.birthDate }}</div>
 </div>

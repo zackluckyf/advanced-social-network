@@ -3,7 +3,7 @@ let models = require('../../models').getModels();
 let getUser = async (userId: number) => {
     try {
       let res = await models.users.find({
-        attributes: [ ['first_name', 'firstName'], ['last_name', 'lastName'] ],
+        attributes: [ ['first_name', 'firstName'], ['last_name', 'lastName'], ['birth_date', 'birthDate'] ],
         where: {
           id: userId
         }

@@ -1,7 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { NgRedux, select } from '@angular-redux/store';
-import { Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/share';
 
 import { ProfileService } from '../profile.service'
 
@@ -21,8 +22,8 @@ export class ShellComponent implements OnInit {
 
     constructor(private _profileService: ProfileService) { }
 
-    ngOnInit() { 
-        this.userInformation = this._profileService.getUserInformation(1);
+    ngOnInit() {
+        this.userInformation = this._profileService.getUserInformation(1).share();
     }
     
 }
