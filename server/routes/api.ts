@@ -43,32 +43,15 @@ router.get('/posts', (req, res) => {
  * @apiGroup Users
  * 
  * @apiSuccess {Users[]}  -                     Array of users.
- * @apiSuccess {Number}   -.id                  The ID.
- * @apiSuccess {String}   -.name                The Name.
- * @apiSuccess {String}   -.username            The Username.
- * @apiSuccess {String}   -.email               The Email.
- * @apiSuccess {Object}   -.address             The Address.
- * @apiSuccess {String}   -.address.street      The Street.
- * @apiSuccess {String}   -.address.suite       The Suite.
- * @apiSuccess {String}   -.address.city        The City.
- * @apiSuccess {String}   -.address.zipcode     The Zipcode.
- * @apiSuccess {Object}   -.address.geo         The Geo.
- * @apiSuccess {String}   -.address.geo.lat     The Latitude.
- * @apiSuccess {String}   -.address.geo.lng     The Longitude.
- * @apiSuccess {String}   -.phone               The Phone.
- * @apiSuccess {String}   -.website             The Website.
- * @apiSuccess {Object}   -.company             The Company.
- * @apiSuccess {String}   -.company.name        The Company Name.
- * @apiSuccess {String}   -.company.catchPhrase The Company CatchPhrase.
- * @apiSuccess {String}   -.company.bs          The Company Business Strategy.
+ * @apiSuccess {Users}    -                     User.
+ * @apiSuccess {String}   -.first_name          The First Name.
+ * @apiSuccess {String}   -.last_name           The Last Name.
  * 
  */
 router.get('/users', (req, res) => {
-  // Get users from the mock api
-  // This should ideally be replaced with a service that connects to Postgres
-  axios.get(`${API}/users`)
+  queries.getAllUsers()
     .then(users => {
-      res.status(200).json(users.data);
+      res.status(200).json(users);
     })
     .catch(error => {
       res.status(500).send(error)
@@ -83,7 +66,6 @@ router.get('/users', (req, res) => {
  * @apiParam {Number} id Users unique ID.
  * 
  * @apiSuccess {Users}    -                     User.
- * @apiSuccess {Number}   -.id                  The ID.
  * @apiSuccess {String}   -.first_name          The First Name.
  * @apiSuccess {String}   -.last_name           The Last Name.
  * 

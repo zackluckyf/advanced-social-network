@@ -2,7 +2,7 @@ let models = require('../../models').getModels();
 
 let getUser = async (userId: number) => {
     try {
-      let res = models.users.find({
+      let res = await models.users.find({
         attributes: [ ['first_name', 'firstName'], ['last_name', 'lastName'] ],
         where: {
           id: userId
@@ -14,6 +14,18 @@ let getUser = async (userId: number) => {
     } 
 }
 
+let getAllUsers = async () => {
+  try {
+    let res = await models.users.findAll({
+        attributes: [ ['first_name', 'firstName'], ['last_name', 'lastName'] ]
+      });
+      return res;
+    } catch(e) {
+      e => console.log(e.stack)
+    } 
+}
+
 module.exports = {
-  getUser: getUser
+  getUser: getUser,
+  getAllUsers: getAllUsers
 };
