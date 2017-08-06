@@ -43,7 +43,9 @@ function getModels (force = false) {
     });
 
   let modules = [
-    require('./users.js')
+    require('./users.js'),
+    require('./posts.js'),
+    require('./comments.js'),
   ];
 
   // Initialize models

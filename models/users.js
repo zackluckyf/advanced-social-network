@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   var users = sequelize.define('users', {
     first_name: DataTypes.STRING,
@@ -9,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: (models) => {
-        // associations can be defined here
+        users.hasMany(models.posts);
+        users.hasMany(models.comments);
       }
     },
     timestamps:false

@@ -56,7 +56,7 @@ router.get('/users', (req, res) => {
     .catch(error => {
       res.status(500).send(error)
     });
-})
+});
 
 /**
  * @api {get} /user/:id Request User Information
@@ -79,6 +79,48 @@ router.get('/user/:id', (req, res) => {
     .catch(error => {
       res.status(500).send(error);
     })
-})
+});
+
+/**
+ * @api {get} /user/:id/allposts Request All User Posts
+ * @apiName GetUserPosts
+ * @apiGroup Users
+ * 
+ * @apiParam {Number} id Users unique ID.
+ * 
+ * @apiSuccess {Posts[]}  -                    Array of user Posts.
+ * @apiSuccess {String}   -.postText           The Post Text.
+ * 
+ */
+router.get('/user/:id/allposts', (req, res) => {
+  queries.getUserPosts(req.params.id)
+    .then(user => {
+      res.status(200).json(user);
+    })
+    .catch(error => {
+      res.status(500).send(error);
+    })
+});
+
+/**
+ * @api {get} /user/:id/allcomments Request All User Comments
+ * @apiName GetUserComments
+ * @apiGroup Users
+ * 
+ * @apiParam {Number} id Users unique ID.
+ * 
+ * @apiSuccess {Comments[]}  -                    Array of Comment Text.
+ * @apiSuccess {String}      -.commentText        The Comment Text.
+ * 
+ */
+router.get('/user/:id/allcomments', (req, res) => {
+  queries.getUserComments(req.params.id)
+    .then(user => {
+      res.status(200).json(user);
+    })
+    .catch(error => {
+      res.status(500).send(error);
+    })
+});
 
 module.exports = router;
