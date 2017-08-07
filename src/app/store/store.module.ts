@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 
 // Angular-redux ecosystem stuff.
 // @angular-redux/form and @angular-redux/router are optional
@@ -30,11 +30,15 @@ export class StoreModule {
     // Tell Redux about our reducers. If the Redux DevTools
     // chrome extension is available in the browser, tell Redux about
     // it too.
-    store.configureStore(
-      rootReducer,
-      initialState,
-      [ createLogger() ], 
-      devTools.isEnabled() ? [ devTools.enhancer() ] : []);
+    if(isDevMode()){
+      store.configureStore(
+        rootReducer,
+        initialState,
+        [ createLogger() ], 
+        devTools.isEnabled() ? [ devTools.enhancer() ] : []);
+    } else {
+      store.configureStore(rootReducer, initialState);
+    }
 
     // Enable syncing of Angular router state with our Redux store.
     if (ngReduxRouter) {
