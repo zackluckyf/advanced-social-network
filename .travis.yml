@@ -40,5 +40,3 @@ deploy:
   app: zack-social-network
   on:
     condition: all_branches
-after_script:
-- npm run test-psi https://zack-social-network.herokuapp.com
