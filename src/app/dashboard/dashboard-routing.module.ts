@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ShellComponent } from './shell/shell.component';
 
 const routes: Routes = [
-  { path: '**', component: ShellComponent}
+  { path: 'dashboard', component: ShellComponent}
 ];
 
 @NgModule({

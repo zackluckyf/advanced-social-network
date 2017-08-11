@@ -16,6 +16,9 @@ import { StoreModule } from './store/store.module';
 
 import { AppComponent } from './app.component';
 import { PathNotFoundComponent } from './path-not-found.component';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { MerchandiseModule } from './merchandise/merchandise.module';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { PathNotFoundComponent } from './path-not-found.component';
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ecommerce'}),
+    DashboardModule,
+    MerchandiseModule,
+    ProfileModule,
     FormsModule,
     HttpModule,
     NgReduxModule,
