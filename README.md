@@ -114,6 +114,8 @@ Added so flag can be flipped in non heroku production and didn't have to move An
 
 Current live heroku app https://zack-social-network.herokuapp.com
 
+Performance statistics http://stats.pingdom.com/zxlxk54zq2uk/3370588
+
 ## Authors
 
 * **Zack Fanning** 
