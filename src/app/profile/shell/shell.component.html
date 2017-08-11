@@ -1,5 +1,10 @@
-<div>
-     <div>First Name: {{ (userInformation | async)?.firstName }}</div>
-     <div>Last Name: {{ (userInformation | async)?.lastName }}</div>
-     <div>Birthday: {{ (userInformation | async)?.birthDate }}</div>
+<div class="margin-left">
+    <div>
+        <div>First Name: {{ (userInformation | async)?.firstName }}</div>
+        <div>Last Name: {{ (userInformation | async)?.lastName }}</div>
+        <div>Birthday: {{ (userInformation | async)?.birthDate }}</div>
+    </div>
+    <div>
+        <input type="text" name="delete" [(ngModel)]="name"><button (click)="deleteUser()" class=".btn .btn-danger">Delete User</button>
+    </div>
 </div>

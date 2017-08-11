@@ -123,4 +123,24 @@ router.get('/user/:id/allcomments', (req, res) => {
     })
 });
 
+/**
+ * @api {delete} /user/:name Delete User
+ * @apiName DeleteUser
+ * @apiGroup Users
+ * 
+ * @apiParam {name} a user's name.
+ * 
+ * @apiSuccess {Success}      -.success        Success object.
+ * 
+ */
+router.delete('/user/:name', (req, res) => {
+  queries.deleteUser(req.params.name)
+    .then(success => {
+      res.status(200).json(success);
+    })
+    .catch(error => {
+      res.status(500).send(error);
+    })
+});
+
 module.exports = router;

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { NgRedux } from '@angular-redux/store';
@@ -21,6 +21,14 @@ export class ProfileService {
     getUserInformation(user: number): Observable<any>{
         return this.http.get(`/api/user/${user}`)
                         .map(res => res.json());
+    }
+
+    deleteUser(name: string): Observable<any>{
+        let headers= new Headers();
+
+        return this.http.delete(`/api/user/${name}`, new RequestOptions({
+            headers: headers
+        }))
     }
 
 }

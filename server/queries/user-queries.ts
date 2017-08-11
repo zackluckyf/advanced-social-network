@@ -53,9 +53,23 @@ let getUserComments = async (userId: number) => {
   };
 }
 
+let deleteUser = async (name: string) => {
+  try {
+    let res = await models.test_data.destroy({
+      where: {
+        name: name
+      }
+    });
+    return res;
+  } catch(e) {
+    e => console.log(e.stack)
+  };
+}
+
 module.exports = {
   getUser: getUser,
   getAllUsers: getAllUsers,
   getUserPosts: getUserPosts,
-  getUserComments: getUserComments
+  getUserComments: getUserComments,
+  deleteUser: deleteUser
 };

@@ -19,11 +19,17 @@ export class ShellComponent implements OnInit {
 
     selectedUser: number;
     userInformation: Observable<any>;
+    name: string;
 
     constructor(private _profileService: ProfileService) { }
 
     ngOnInit() {
         this.userInformation = this._profileService.getUserInformation(1).share();
+    }
+
+    deleteUser(){
+        this._profileService.deleteUser(this.name).subscribe(data => console.log(data));
+        this.name = '';
     }
     
 }
