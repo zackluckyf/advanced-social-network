@@ -5,6 +5,12 @@
         <div>Birthday: {{ (userInformation | async)?.birthDate }}</div>
     </div>
     <div>
-        <input type="text" name="delete" [(ngModel)]="name"><button (click)="deleteUser()" class=".btn .btn-danger">Delete User</button>
+        Name: <input type="text" name="delete" [(ngModel)]="name">
+        <button (click)="deleteUser()" class=".btn .btn-danger">Delete User</button>
+    </div>
+    <div>
+        Name: <input type="text" name="create-name" [(ngModel)]="createName"> 
+        Age: <input type="number" name="create-age" [(ngModel)]="createAge">
+        <button (click)="newUser()" class=".btn .btn-danger">Create User</button>
     </div>
 </div>

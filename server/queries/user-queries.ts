@@ -66,10 +66,25 @@ let deleteUser = async (name: string) => {
   };
 }
 
+let createUser = async (user: any) => {
+  try {
+    let res = await models.test_data.findOrCreate({
+      where: {
+        name: user.name,
+        age: user.age
+      }
+    });
+    return res;
+  } catch(e) {
+    e => console.log(e.stack)
+  };
+}
+
 module.exports = {
   getUser: getUser,
   getAllUsers: getAllUsers,
   getUserPosts: getUserPosts,
   getUserComments: getUserComments,
-  deleteUser: deleteUser
+  deleteUser: deleteUser,
+  createUser: createUser
 };

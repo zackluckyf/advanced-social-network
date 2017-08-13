@@ -5,7 +5,7 @@ import { FormsModule }   from '@angular/forms';
 import { ProfileRoutingModule } from './profile-routing.module';
 
 import { ShellComponent } from './shell/shell.component';
-import { ProfileService } from './profile.service';
+import { ProfileService } from './shared/services/profile.service';
 
 @NgModule({
   imports: [
