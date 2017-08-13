@@ -168,4 +168,29 @@ router.post('/user/:name/:age', (req, res) => {
     })
 });
 
+/**
+ * @api {put} /user/:name/:age Change User Age
+ * @apiName ChangeUserAge
+ * @apiGroup Users
+ * 
+ * @apiParam {name} a user's name.
+ * @apiParam {age} a user's age.
+ * 
+ * @apiSuccess {Success}      -.success        Success object.
+ * 
+ */
+router.put('/user/:name/:age', (req, res) => {
+  let user = {
+    name: req.params.name,
+    age: req.params.age
+  }
+  queries.changeUserAge(user)
+    .then(success => {
+      res.status(200).json(success);
+    })
+    .catch(error => {
+      res.status(500).send(error);
+    })
+});
+
 module.exports = router;

@@ -46,4 +46,15 @@ export class ProfileService {
         .catch(error => Observable.throw(error));
     }
 
+    changeUserAge(user: any): Observable<any>{
+        let name = user.name;
+        let age = user.age;
+        let headers= new Headers();
+
+        return this.http.put(`/api/user/${name}/${age}`, new RequestOptions({
+            headers: headers
+        }))
+        .catch(error => Observable.throw(error));
+    }
+
 }

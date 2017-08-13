@@ -23,6 +23,8 @@ export class ShellComponent implements OnInit {
     name: string;
     createName: string;
     createAge: number;
+    modifyName: string;
+    modifyAge: number;
 
 
     constructor(private router: Router, private _profileService: ProfileService) { }
@@ -55,8 +57,21 @@ export class ShellComponent implements OnInit {
             },
             err => console.error('create user error', err)
         );
-        
+    }
 
+    changeUserAge(){
+        let user = {
+            name: this.modifyName,
+            age: this.modifyAge
+        }
+        this._profileService.changeUserAge(user).subscribe(
+            data => {
+                console.log('changed user age', data);
+                this.modifyName = null;
+                this.modifyAge = null;
+            },
+            err => console.error('changed user age error', err)
+        );
     }
     
 }

@@ -80,11 +80,29 @@ let createUser = async (user: any) => {
   };
 }
 
+let changeUserAge = async (user: any) => {
+  try {
+    let res = await models.test_data.update({
+      age: user.age
+    }, {
+      where: {
+        name: user.name
+      }, 
+      returning: true,
+      plain: true
+    });
+    return res;
+  } catch(e) {
+    e => console.log(e.stack)
+  };
+}
+
 module.exports = {
   getUser: getUser,
   getAllUsers: getAllUsers,
   getUserPosts: getUserPosts,
   getUserComments: getUserComments,
   deleteUser: deleteUser,
-  createUser: createUser
+  createUser: createUser,
+  changeUserAge: changeUserAge
 };
