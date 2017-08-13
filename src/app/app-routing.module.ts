@@ -13,6 +13,7 @@ const routes: Routes = [
     // { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
     // { path: 'merchandise', loadChildren: './merchandise/merchandise.module#MerchandiseModule' },
     // { path: 'profile', loadChildren: './profile/profile.module#ProfileModule'},
+    { path: 'error-page/:status/:statusText/:url', component: PathNotFoundComponent},
     { path: '**', component: PathNotFoundComponent, pathMatch: 'full' }
 ];
 

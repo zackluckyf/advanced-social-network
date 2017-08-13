@@ -6,6 +6,8 @@ import { environment } from './environments/environment';
 
 if (environment.production) {
   enableProdMode();
+  // cli doesn't have option to not have logs in production...
+  // window.console.log = function(){};
 }
 
 export function main() {

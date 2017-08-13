@@ -36,7 +36,7 @@ export class ShellComponent implements OnInit {
             data => console.log('delete user data', data),
             err => {
                 // console.error('delete user error', err)
-                this.router.navigate([`/error-page/${err.status}/${err.statusText}/${err.url}`])
+                this.router.navigate([`/error-page`, err.status, err.statusText, err.url])
             }
         );
         this.name = '';
