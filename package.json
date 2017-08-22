@@ -25,9 +25,9 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-redux/form": "^6.5.2",
-    "@angular-redux/router": "^6.3.1",
-    "@angular-redux/store": "^6.5.6",
+    "@angular-redux/form": "6.5.2",
+    "@angular-redux/router": "6.3.1",
+    "@angular-redux/store": "6.5.6",
     "@angular/animations": "4.3.1",
     "@angular/common": "4.3.1",
     "@angular/compiler": "4.3.1",
