@@ -12,7 +12,7 @@
     "update-documentation": "apidoc -i server/ -o apidoc/",
     "start": "node ./dist/server.js",
     "cluster": "node ./dist/cluster.js",
-    "hmr": "ng serve -o -hmr",
+    "hmr": "ng serve -o -hmr --proxy-config proxy.conf.json",
     "build": "ng build --prod && ngc && webpack --config webpack.server.config.js",
     "test": "ng test",
     "lint": "ng lint",
