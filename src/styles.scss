@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.css";
+
+// global styles 
+
+// elements 
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-top: 5rem;
+}
+
+a { 
+  cursor: pointer; 
+  outline: none !important;
+}
+
+button { 
+  outline: none !important;
+}
