@@ -20,6 +20,7 @@ import { PathNotFoundComponent } from './path-not-found.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { MerchandiseModule } from './merchandise/merchandise.module';
 import { ProfileModule } from './profile/profile.module';
+import { MessagesModule } from './messages/messages.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ProfileModule } from './profile/profile.module';
     DashboardModule,
     MerchandiseModule,
     ProfileModule,
+    MessagesModule,
     SharedModule,
     FormsModule,
     HttpModule,
