@@ -25,6 +25,7 @@ export class ShellComponent implements OnInit {
         [
           {
             conversationalPartner: 'Zack',
+            mostRecentMessage: new Date(2017, 6, 21),
             messages: [
               {
                 date: new Date(2016, 8, 30),
@@ -40,6 +41,7 @@ export class ShellComponent implements OnInit {
           },
           {
             conversationalPartner: 'Rachael',
+            mostRecentMessage: new Date(2017, 7, 23, 21, 40),
             messages: [
               {
                 date: new Date(2017, 7, 21),
