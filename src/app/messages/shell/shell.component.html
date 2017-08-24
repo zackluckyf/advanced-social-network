@@ -3,7 +3,7 @@
   <div class="row">
 
     <!--left 40% conversational partners-->
-    <div class="col-md-4">
+    <div class="col-md-4 offset-md-1">
       <div *ngFor="let partner of conversations$ | async" (click)="selectedConversation(partner)"  class="card card-inverse card-primary mb-3 text-center">
         {{ partner?.conversationalPartner }}
       </div>
