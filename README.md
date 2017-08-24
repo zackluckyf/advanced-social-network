@@ -40,7 +40,7 @@ Project utilizing Angular, Node, Express, PostgreSQL, Sequelize, Typescript, SCS
 
 ## Roadmap
 
-Project Tracking on trello: https://trello.com/socialnetwork38
+Project Tracking on trello: https://trello.com/advancedsocialnetwork
 
 
 ## Getting Started
