@@ -4,27 +4,31 @@
 
     <!--left 40% conversational partners-->
     <div class="col-md-4">
-      <div *ngFor="let partner of conversations$ | async" (click)="selectedConversation(partner)"  class="card card-outline-primary mb-3 text-center">
+      <div *ngFor="let partner of conversations$ | async" (click)="selectedConversation(partner)"  class="card card-inverse card-primary mb-3 text-center">
         {{ partner?.conversationalPartner }}
       </div>
     </div>
 
     <!--right 60% messages-->
     <div class="col-md-6 card">
-      <div *ngFor="let message of selectedConversationalPartner?.messages" class="card">
+      <div *ngFor="let message of selectedConversationalPartner?.messages" class="message-divider">
         <div class="text-center">
           {{ formatDate(message.date) }}
         </div>
         <div *ngIf="selectedConversationalPartner.conversationalPartner === message.name" class="text-left">
           <div>
-            <b>{{ message.name }}</b><br>
-            {{ message.message }}
+            <b>{{ message.name }}</b>
+            <div>
+              {{ message.message }}
+            </div>
           </div>
         </div>
         <div *ngIf="selectedConversationalPartner.conversationalPartner !== message.name" class="text-right">
           <div>
-            <b>{{ message.name }}</b><br>
-            {{ message.message }}
+            <b>{{ message.name }}</b>
+            <div>
+              {{ message.message }}
+            </div>
           </div>
         </div>
       </div>  
