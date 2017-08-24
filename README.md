@@ -10,6 +10,8 @@ Project utilizing Angular, Node, Express, PostgreSQL, Sequelize, Typescript, SCS
 [![DevDependency Status](https://david-dm.org/zackluckyf/advanced-social-network/dev-status.svg)](https://david-dm.org/zackluckyf/badges#info=devDependencies)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php) 
 
+[Roadmap](#roadmap)
+
 [Getting Started](#getting-started)
 
 [Prerequisites](#prerequisites)
@@ -35,6 +37,11 @@ Project utilizing Angular, Node, Express, PostgreSQL, Sequelize, Typescript, SCS
 [License](#license)
 
 [Acknowledgments](#acknowledgments)
+
+## Roadmap
+
+Project Tracking on trello: https://trello.com/socialnetwork38
+
 
 ## Getting Started
 
