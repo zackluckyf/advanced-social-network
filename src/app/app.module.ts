@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NgReduxModule } from '@angular-redux/store';
 import { NgReduxRouterModule } from '@angular-redux/router';
@@ -35,7 +35,7 @@ import { MessagesModule } from './messages/messages.module';
     MessagesModule,
     SharedModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     NgReduxModule,
     NgReduxRouterModule,
     StoreModule,

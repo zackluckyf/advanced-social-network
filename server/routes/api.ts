@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const posts = require('./posts/posts');
-const user = require('./user/user');
+const users = require('./users/users');
 
 /* GET api listing. */
 router.get('/', (req, res) => {
@@ -26,6 +26,6 @@ router.get('/', (req, res) => {
 });
 
 router.use(posts('/posts'));
-router.use(user('/users'));
+router.use(users('/users'));
 
 module.exports = router;

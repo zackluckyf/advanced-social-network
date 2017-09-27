@@ -1,4 +1,4 @@
-let models = require('../../models').getModels();
+var models = require('../../../models').getModels();
 
 let getUser = async (userId: number) => {
     try {

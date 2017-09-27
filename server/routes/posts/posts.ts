@@ -1,9 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-// declare axios for making http requests
-const axios = require('axios');
-const API = 'https://jsonplaceholder.typicode.com';
+var queries = require('../../queries/queries');
 
 var routeBuilder = path => {
 
@@ -18,10 +16,9 @@ var routeBuilder = path => {
    * @apiSuccess {String}   -.title   The Title.
    * @apiSuccess {String}   -.body    The Body.
    */
+
   router.get(`${path}`, (req, res) => {
-    // Get posts from the mock api
-    // This should ideally be replaced with a service that connects to Postgres
-    axios.get(`${API}/posts`)
+    queries.posts.getPosts()
       .then(posts => {
         res.status(200).json(posts.data);
       })
@@ -32,6 +29,5 @@ var routeBuilder = path => {
   
   return router;
 }
-
 
 module.exports = routeBuilder;

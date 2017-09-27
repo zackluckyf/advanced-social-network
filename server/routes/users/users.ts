@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var queries = require('../../queries/user-queries');
+var queries = require('../../queries/queries');
 
 var routeBuilder = path => {
   /**
@@ -18,7 +18,7 @@ var routeBuilder = path => {
    * 
    */
   router.get(`${path}/:id`, (req, res) => {
-    queries.getUser(req.params.id)
+    queries.users.getUser(req.params.id)
       .then(user => {
         res.status(200).json(user);
       })
@@ -39,7 +39,7 @@ var routeBuilder = path => {
    * 
    */
   router.get(`${path}/:id/allposts`, (req, res) => {
-    queries.getUserPosts(req.params.id)
+    queries.users.getUserPosts(req.params.id)
       .then(user => {
         res.status(200).json(user);
       })
@@ -60,7 +60,7 @@ var routeBuilder = path => {
    * 
    */
   router.get(`${path}/:id/allcomments`, (req, res) => {
-    queries.getUserComments(req.params.id)
+    queries.users.getUserComments(req.params.id)
       .then(user => {
         res.status(200).json(user);
       })
@@ -80,7 +80,7 @@ var routeBuilder = path => {
    * 
    */
   router.delete(`${path}/:name`, (req, res) => {
-    queries.deleteUser(req.params.name)
+    queries.users.deleteUser(req.params.name)
       .then(success => {
         res.status(200).json(success);
       })
@@ -105,7 +105,7 @@ var routeBuilder = path => {
       name: req.params.name,
       age: req.params.age
     }
-    queries.createUser(user)
+    queries.users.createUser(user)
       .then(success => {
         res.status(200).json(success);
       })
@@ -130,7 +130,7 @@ var routeBuilder = path => {
       name: req.params.name,
       age: req.params.age
     }
-    queries.changeUserAge(user)
+    queries.users.changeUserAge(user)
       .then(success => {
         res.status(200).json(success);
       })
@@ -151,7 +151,7 @@ var routeBuilder = path => {
    * 
    */
   router.get(`${path}`, (req, res) => {
-    queries.getAllUsers()
+    queries.users.getAllUsers()
       .then(users => {
         res.status(200).json(users);
       })

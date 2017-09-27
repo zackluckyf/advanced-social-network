@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
@@ -10,7 +10,7 @@ import { SELECT_USER, IAppState } from '../../../store';
 @Injectable()
 export class ProfileService {
 
-    constructor(private http: Http, private ngRedux: NgRedux<IAppState>) { }
+    constructor(private http: HttpClient, private ngRedux: NgRedux<IAppState>) { }
 
     getFirstUser(): void {
         this.ngRedux.dispatch({
@@ -21,38 +21,31 @@ export class ProfileService {
 
     getUserInformation(user: number): Observable<any>{
         return this.http.get(`/api/users/${user}`)
-                        .map(res => res.json())
                         .catch(error => Observable.throw(error));
     }
 
     deleteUser(name: string): Observable<any>{
-        let headers= new Headers();
+        const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
 
-        return this.http.delete(`/api/users/${name}`, new RequestOptions({
-            headers: headers
-        }))
+        return this.http.delete(`/api/users/${name}`, { headers })
         .catch(error => Observable.throw(error));
     }
 
     createUser(user: any): Observable<any>{
-        let name = user.name;
-        let age = user.age;
-        let headers= new Headers();
+        const name = user.name;
+        const age = user.age;
+        const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
 
-        return this.http.post(`/api/users/${name}/${age}`, new RequestOptions({
-            headers: headers
-        }))
+        return this.http.post(`/api/users/${name}/${age}`, { headers })
         .catch(error => Observable.throw(error));
     }
 
     changeUserAge(user: any): Observable<any>{
-        let name = user.name;
-        let age = user.age;
-        let headers= new Headers();
+        const name = user.name;
+        const age = user.age;
+        const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
 
-        return this.http.put(`/api/users/${name}/${age}`, new RequestOptions({
-            headers: headers
-        }))
+        return this.http.put(`/api/users/${name}/${age}`, { headers })
         .catch(error => Observable.throw(error));
     }
 

@@ -12,9 +12,23 @@ const compression = require('compression');
 
 const api = require('./routes/api');
 const PORT = process.env.PORT || 4000;
+const ngUniversal = require('@nguniversal/express-engine');
 var models = require('../models').getModels();
 
 enableProdMode();
+
+let angularRouter = (req, res) => {
+
+  res.render('index', {
+    req,
+    res,
+    providers: [{
+      provide: 'serverUrl',
+      useValue: `${req.protocol}://${req.get('host')}`
+    }]
+  });
+
+}
 
 const app = express();
 
@@ -49,21 +63,16 @@ app.use('/api', api);
 
 let template = readFileSync(join(__dirname, '..', 'dist', 'index.html')).toString();
 
-app.engine('html', (_, options, callback) => {
-  const opts = { document: template, url: options.req.url };
-
-  renderModuleFactory(AppServerModuleNgFactory, opts)
-    .then(html => callback(null, html));
-});
+app.engine('html', ngUniversal.ngExpressEngine({
+  bootstrap: AppServerModuleNgFactory
+}));
 
 app.set('view engine', 'html');
 app.set('views', 'src')
 
 app.get('*.*', express.static(join(__dirname, '..', 'dist')));
 
-app.get('/*', (req, res) => {
-  res.render('index', { req });
-});
+app.get('/*', angularRouter);
 
 models.sequelize.sync().then(() => {
   app.listen(app.get('port'), () => {
