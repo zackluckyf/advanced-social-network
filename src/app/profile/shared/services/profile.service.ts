@@ -5,8 +5,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { Observable } from 'rxjs/Observable';
 import { NgRedux } from '@angular-redux/store';
-import { SELECT_USER,
-         IAppState } from '../../../store';
+import { SELECT_USER, IAppState } from '../../../store';
 
 @Injectable()
 export class ProfileService {
@@ -21,7 +20,7 @@ export class ProfileService {
     }
 
     getUserInformation(user: number): Observable<any>{
-        return this.http.get(`/api/user/${user}`)
+        return this.http.get(`/api/users/${user}`)
                         .map(res => res.json())
                         .catch(error => Observable.throw(error));
     }
@@ -29,7 +28,7 @@ export class ProfileService {
     deleteUser(name: string): Observable<any>{
         let headers= new Headers();
 
-        return this.http.delete(`/api/user/${name}`, new RequestOptions({
+        return this.http.delete(`/api/users/${name}`, new RequestOptions({
             headers: headers
         }))
         .catch(error => Observable.throw(error));
@@ -40,7 +39,7 @@ export class ProfileService {
         let age = user.age;
         let headers= new Headers();
 
-        return this.http.post(`/api/user/${name}/${age}`, new RequestOptions({
+        return this.http.post(`/api/users/${name}/${age}`, new RequestOptions({
             headers: headers
         }))
         .catch(error => Observable.throw(error));
@@ -51,7 +50,7 @@ export class ProfileService {
         let age = user.age;
         let headers= new Headers();
 
-        return this.http.put(`/api/user/${name}/${age}`, new RequestOptions({
+        return this.http.put(`/api/users/${name}/${age}`, new RequestOptions({
             headers: headers
         }))
         .catch(error => Observable.throw(error));

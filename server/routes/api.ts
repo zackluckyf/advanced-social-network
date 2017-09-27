@@ -7,26 +7,25 @@ const user = require('./user/user');
 /* GET api listing. */
 router.get('/', (req, res) => {
   let array = [];
-  router.stack.filter(item => item.route)
-              .forEach(item => {
-                array.push({
-                  route: item.route.path, 
-                  methods: item.route.methods 
-                })
-              });
-  router.stack.filter(item => item.name === 'router')
-              .forEach(item => {
-                item.handle.stack.forEach(handler => {
-                  array.push({
-                    route: handler.route.path,
-                    methods: handler.route.methods 
-                  })
-                })
-              })
+  router.stack.forEach(item => {
+    if(item.route){
+      array.push({
+        route: item.route.path, 
+        methods: item.route.methods 
+      })
+    } else {
+      item.handle.stack.forEach(handler => {
+        array.push({
+          route: handler.route.path,
+          methods: handler.route.methods 
+        })
+      })
+    }
+  });
   res.json(array);
 });
 
 router.use(posts('/posts'));
-router.use(user('/user'));
+router.use(user('/users'));
 
 module.exports = router;
