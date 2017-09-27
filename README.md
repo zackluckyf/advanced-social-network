@@ -71,7 +71,7 @@ Install the dependencies
 
 ## Development Server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm run prod` and upon completion run in a separate terminal window `ng serve` for a dev server. The app will automatically reload if you change any of the source files.
 
 Run `npm run prod` and upon completion run in a separate terminal window `npm run hmr` for a dev server with hot module replacement.
 
