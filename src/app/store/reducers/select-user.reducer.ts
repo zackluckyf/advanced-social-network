@@ -8,7 +8,7 @@ export const reducer = (state, action) => {
   switch (action.type) {
     case SELECT_USER:
     const selectedUser = action.selectedUser;
-    return { selectedUser };
+    return selectedUser;
     default:
     return { ...state };
   }

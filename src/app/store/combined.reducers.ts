@@ -9,6 +9,6 @@ import { selectUser } from './reducers';
 export const rootReducer = composeReducers(
   defaultFormReducer(),
   combineReducers({
-    selectUser: selectUser,
+    selectedUser: selectUser,
     router: routerReducer
   }));

@@ -31,6 +31,7 @@ export class ShellComponent implements OnInit {
 
     ngOnInit() {
         this.userInformation = this._profileService.getUserInformation(1).share();
+        this._profileService.getFirstUser();
     }
 
     deleteUser(){
