@@ -1,1 +1,16 @@
-<h1>dashboard shell!</h1>
+<section class="container">
+  
+  <div class="row">
+
+    <!-- centered posts from friends -->
+    <div class="col-md-10 offset-md-1 card">
+      <div *ngFor="let post of posts$ | async" class="post-divider">
+        <div class="text-center">
+          {{ post.postText }}
+        </div>
+      </div>  
+    </div>
+
+  </div>
+
+</section>
