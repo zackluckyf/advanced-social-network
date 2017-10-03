@@ -1,10 +1,13 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { SearchService } from './search.service';
+
 @Component({
   selector: 'search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
+  providers: [ SearchService ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchComponent implements OnInit {
@@ -13,7 +16,7 @@ export class SearchComponent implements OnInit {
   queryResults: any;
   highlighted: number = 0;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private _searchService: SearchService) { }
 
   ngOnInit() {  }
 
