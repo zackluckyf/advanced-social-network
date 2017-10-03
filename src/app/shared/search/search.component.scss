@@ -1,0 +1,34 @@
+@import '../styles/bootstrap.scss';
+
+.autocomplete{
+    display: block;
+    width: 100%;
+    z-index: 1002;
+    top: 38px;
+    left: 0px;
+    position: absolute;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.3);
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: 1px solid #D5D5D5;
+    background: #ffffff;
+    color: #222222;
+    .autocomplete-panel{
+        padding: .4em;
+        border: 0 none;
+        outline: 0;
+        line-height: 1.3;
+        text-decoration: none;
+        font-size: 100%;
+        list-style: none;
+        box-sizing: border-box;
+        border-radius: 3px;
+        background: #ffffff;
+        color: #222222;
+        margin-bottom: 0px !important;
+    }
+}
+
+.highlighted{
+    background-color: dodgerblue;
+}

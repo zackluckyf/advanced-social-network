@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './header/header.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -10,7 +11,13 @@ import { HeaderComponent } from './header/header.component';
     CommonModule,
     FormsModule
   ],
-  declarations: [HeaderComponent],
-  exports: [HeaderComponent]
+  declarations: [
+    HeaderComponent,
+    SearchComponent
+  ],
+  exports: [
+    HeaderComponent,
+    SearchComponent
+  ]
 })
 export class SharedModule { }

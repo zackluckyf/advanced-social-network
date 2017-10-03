@@ -13,17 +13,7 @@
       <a class="nav-link" href="#">Contact</a>
     </li>
   </ul>
-  <div class="row search">
-    <input [(ngModel)]="searchText" (ngModelChange)="searchTextChange()" type="text" name="search" class="form-control">
-    <div *ngIf="queryResults?.length > 0" class="autocomplete">
-      <ul class="autocomplete-panel">
-        <li *ngFor="let query of queryResults; let i = index" [ngClass]="{'highlighted': highlighted === i }" 
-        (mouseenter)="setIndex(i)" (click)="nav('/profile'); queryResults = []; searchText = ''">
-          {{ query.displayName }}
-        </li>
-      </ul>
-    </div>
-  </div>
+  <search class="row search"></search>
   <ul class="nav navbar-nav">
     <li class="nav-item">
       <a class="nav-link" (click)="nav('/profile')">Profile <i class="fa fa-user-circle" aria-hidden="true"></i></a>
