@@ -97,6 +97,32 @@ let changeUserAge = async (user: any) => {
   };
 }
 
+let getListOfUsers = async (query: string) => {
+  try {
+    let res = await models.users.findAll({
+        attributes: [ ['first_name', 'firstName'], ['last_name', 'lastName'] ],
+        where: {
+          $or: [
+            {
+              first_name: {
+                $ilike: `%${query}%`
+              }
+            },
+            {
+              last_name: {
+                $ilike: `%${query}%`
+              }
+            }
+          ]
+        },
+        limit: 5
+      });
+    return res;
+  } catch(e) {
+    e => console.log(e.stack)
+  };
+}
+
 module.exports = {
   getUser: getUser,
   getAllUsers: getAllUsers,
@@ -104,5 +130,6 @@ module.exports = {
   getUserComments: getUserComments,
   deleteUser: deleteUser,
   createUser: createUser,
-  changeUserAge: changeUserAge
+  changeUserAge: changeUserAge,
+  getListOfUsers: getListOfUsers
 };

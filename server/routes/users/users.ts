@@ -160,6 +160,17 @@ var routeBuilder = path => {
       });
   });
 
+  router.get(`${path}/query/:query`, (req, res) => {
+    let query = req.params.query;
+    queries.users.getListOfUsers(query)
+      .then(users => {
+        res.status(200).json(users);
+      })
+      .catch(error => {
+        res.status(500).send(error)
+      });
+  });
+
 
   return router;
 }
