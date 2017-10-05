@@ -160,7 +160,20 @@ var routeBuilder = path => {
       });
   });
 
-  router.get(`${path}/query/:query`, (req, res) => {
+  /**
+   * @api {get} /search/:query Get All Users that match query
+   * @apiName GetListOfUsers
+   * @apiGroup Users
+   * 
+   * @apiParam {query} search query.
+   * 
+   * @apiSuccess {Users[]}  -                    Array of users.
+   * @apiSuccess {Users}    -                    User.
+   * @apiSuccess {String}   -.firstName          The First Name.
+   * @apiSuccess {String}   -.lastName           The Last Name.
+   * 
+   */
+  router.get(`${path}/search/:query`, (req, res) => {
     let query = req.params.query;
     queries.users.getListOfUsers(query)
       .then(users => {

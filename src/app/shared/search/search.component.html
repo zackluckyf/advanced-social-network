@@ -1,10 +1,10 @@
 <div>
     <input [(ngModel)]="searchText" (ngModelChange)="searchTextChange()" type="text" name="search" class="form-control">
-    <div *ngIf="queryResults?.length > 0" class="autocomplete">
+    <div *ngIf="queryResults | async" class="autocomplete">
       <ul class="autocomplete-panel">
-        <li *ngFor="let query of queryResults; let i = index" [ngClass]="{'highlighted': highlighted === i }" 
-        (mouseenter)="setIndex(i)" (click)="nav('/profile'); queryResults = []; searchText = ''">
-          {{ query.displayName }}
+        <li *ngFor="let query of queryResults | async; let i = index" [ngClass]="{'highlighted': highlighted === i }" 
+        (mouseenter)="setIndex(i)" (click)="navWithParams('/profile', query.id); queryResults = null; searchText = ''">
+          {{ query.firstName + ' ' + query.lastName }}
         </li>
       </ul>
     </div>

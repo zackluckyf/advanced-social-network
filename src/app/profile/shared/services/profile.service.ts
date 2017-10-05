@@ -12,13 +12,6 @@ export class ProfileService {
 
     constructor(private http: HttpClient, private ngRedux: NgRedux<IAppState>) { }
 
-    getFirstUser(): void {
-        this.ngRedux.dispatch({
-            type: SELECT_USER,
-            selectedUser: 1
-        });
-    }
-
     getUserInformation(user: number): Observable<any>{
         return this.http.get(`/api/users/${user}`)
                         .catch(error => Observable.throw(error));

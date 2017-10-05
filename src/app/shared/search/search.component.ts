@@ -1,6 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { Observable } from 'rxjs/Observable';
+
 import { SearchService } from './search.service';
 
 @Component({
@@ -13,24 +15,20 @@ import { SearchService } from './search.service';
 export class SearchComponent implements OnInit {
 
   searchText: string;
-  queryResults: any;
+  queryResults: Observable<any[]>;
   highlighted: number = 0;
 
   constructor(private router: Router, private _searchService: SearchService) { }
 
-  ngOnInit() {  }
+  ngOnInit() { }
 
-  nav(location: string){
-    this.router.navigate([location]);
+  navWithParams(location: string, ...params){
+    this.router.navigate([location, ...params]);
   }
 
   searchTextChange(){
     if(this.searchText.length > 2){
-      this.queryResults = [
-        { displayName: 'Zack Smith', name: 'zack-smith' },
-        { displayName: 'Rachael Smith', name: 'rachael-smith' },
-        { displayName: 'Joe Cowboy', name: 'joe-cowboy' }
-      ]
+      this.queryResults = this._searchService.query(this.searchText);
     }
   }
 

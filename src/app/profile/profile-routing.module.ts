@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ShellComponent } from './shell/shell.component';
 
 const routes: Routes = [
-  { path: 'profile', component: ShellComponent}
+  { path: 'profile/:id', component: ShellComponent}
 ];
 
 @NgModule({

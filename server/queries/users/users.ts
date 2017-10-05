@@ -100,7 +100,7 @@ let changeUserAge = async (user: any) => {
 let getListOfUsers = async (query: string) => {
   try {
     let res = await models.users.findAll({
-        attributes: [ ['first_name', 'firstName'], ['last_name', 'lastName'] ],
+        attributes: [ 'id', ['first_name', 'firstName'], ['last_name', 'lastName'] ],
         where: {
           $or: [
             {
