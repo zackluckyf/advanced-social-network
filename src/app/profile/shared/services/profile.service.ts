@@ -17,22 +17,6 @@ export class ProfileService {
                         .catch(error => Observable.throw(error));
     }
 
-    deleteUser(name: string): Observable<any>{
-        const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-
-        return this.http.delete(`/api/users/${name}`, { headers })
-        .catch(error => Observable.throw(error));
-    }
-
-    createUser(user: any): Observable<any>{
-        const name = user.name;
-        const age = user.age;
-        const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-
-        return this.http.post(`/api/users/${name}/${age}`, { headers })
-        .catch(error => Observable.throw(error));
-    }
-
     changeUserAge(user: any): Observable<any>{
         const name = user.name;
         const age = user.age;

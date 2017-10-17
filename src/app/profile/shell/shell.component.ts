@@ -20,9 +20,6 @@ export class ShellComponent implements OnInit {
 
     selectedUser: number;
     userInformation: Observable<any>;
-    name: string;
-    createName: string;
-    createAge: number;
     modifyName: string;
     modifyAge: number;
 
@@ -35,31 +32,6 @@ export class ShellComponent implements OnInit {
             // needed to manually detect changes due to on push change detection strategy
             this.cdr.detectChanges();
         });
-    }
-
-    deleteUser(){
-        this._profileService.deleteUser(this.name).subscribe(
-            data => console.log('delete user data', data),
-            err => {
-                this.router.navigate([`/error-page`, err.status, err.statusText, err.url])
-            }
-        );
-        this.name = '';
-    }
-
-    newUser(){
-        let user = {
-            name: this.createName,
-            age: this.createAge
-        }
-        this._profileService.createUser(user).subscribe(
-            data => {
-                console.log('create user data', data);
-                this.createName = null;
-                this.createAge = null;
-            },
-            err => console.error('create user error', err)
-        );
     }
 
     changeUserAge(){

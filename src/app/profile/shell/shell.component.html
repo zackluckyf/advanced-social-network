@@ -1,21 +1,12 @@
 <div class="margin-left">
     <div>
-        <div>First Name: {{ (userInformation | async)?.firstName }}</div>
-        <div>Last Name: {{ (userInformation | async)?.lastName }}</div>
+        <div>{{ (userInformation | async)?.firstName }} {{  (userInformation | async)?.lastName }} </div>
         <div>Birthday: {{ (userInformation | async)?.birthDate }}</div>
-    </div>
-    <div>
-        Name: <input type="text" name="delete" [(ngModel)]="name">
-        <button (click)="deleteUser()" class=".btn .btn-danger">Delete User</button>
-    </div>
-    <div>
-        Name: <input type="text" name="create-name" [(ngModel)]="createName"> 
-        Age: <input type="number" name="create-age" [(ngModel)]="createAge">
-        <button (click)="newUser()" class=".btn .btn-danger">Create User</button>
+        <div>Motto: {{ (userInformation | async)?.motto }}</div>
     </div>
     <div>
         Name: <input type="text" name="modify-name" [(ngModel)]="modifyName"> 
         Age: <input type="number" name="modify-age" [(ngModel)]="modifyAge">
-        <button (click)="changeUserAge()" class=".btn .btn-danger">Change User Age</button>
+        <button (click)="changeUserAge()" class="btn btn-primary">Change User Age</button>
     </div>
 </div>
