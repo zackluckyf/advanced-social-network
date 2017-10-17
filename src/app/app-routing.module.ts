@@ -9,10 +9,11 @@ import { PathNotFoundComponent } from './path-not-found.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    // ready to be converted to lazy load when possible with angular universal
-    // { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
-    // { path: 'merchandise', loadChildren: './merchandise/merchandise.module#MerchandiseModule' },
-    // { path: 'profile', loadChildren: './profile/profile.module#ProfileModule'},
+    { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
+    { path: 'merchandise', loadChildren: './merchandise/merchandise.module#MerchandiseModule' },
+    { path: 'profile', loadChildren: './profile/profile.module#ProfileModule'},
+    { path: 'account-deletion', loadChildren: './account-deletion/account-deletion.module#AccountDeletionModule'},
+    { path: 'registration', loadChildren: './registration/registration.module#RegistrationModule'},
     { path: 'error-page/:status/:statusText/:url', component: PathNotFoundComponent},
     { path: '**', component: PathNotFoundComponent, pathMatch: 'full' }
 ];

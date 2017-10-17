@@ -55,6 +55,8 @@ After getting Node and NPM install the Angular cli
 
 `npm install -g @angular/cli`
 
+Basics of cli usage is covered here: https://github.com/angular/angular-cli/wiki
+
 In order to view the documentation 
 
 `npm install -g apidoc http-server`

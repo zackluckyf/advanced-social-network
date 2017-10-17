@@ -17,10 +17,7 @@ import { StoreModule } from './store/store.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { PathNotFoundComponent } from './path-not-found.component';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { MerchandiseModule } from './merchandise/merchandise.module';
-import { ProfileModule } from './profile/profile.module';
-import { MessagesModule } from './messages/messages.module';
+import { AccountDeletionModule } from './account-deletion/account-deletion.module';
 
 @NgModule({
   declarations: [
@@ -29,17 +26,14 @@ import { MessagesModule } from './messages/messages.module';
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ecommerce'}),
-    DashboardModule,
-    MerchandiseModule,
-    ProfileModule,
-    MessagesModule,
     SharedModule,
     FormsModule,
     HttpClientModule,
     NgReduxModule,
     NgReduxRouterModule,
     StoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AccountDeletionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
