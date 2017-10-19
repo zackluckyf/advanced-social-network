@@ -14,6 +14,7 @@ const routes: Routes = [
     { path: 'profile', loadChildren: './profile/profile.module#ProfileModule'},
     { path: 'account-deletion', loadChildren: './account-deletion/account-deletion.module#AccountDeletionModule'},
     { path: 'registration', loadChildren: './registration/registration.module#RegistrationModule'},
+    { path: 'login', loadChildren: './login/login.module#LoginModule'},
     { path: 'error-page/:status/:statusText/:url', component: PathNotFoundComponent},
     { path: '**', component: PathNotFoundComponent, pathMatch: 'full' }
 ];
