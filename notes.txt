@@ -8,20 +8,10 @@ var SEQUELIZE = require('sequelize'),
         dialect: 'postgres'
     });
 
-var testModel = sequelize.define('testModel', {
-    title     : SEQUELIZE.TEXT,
-    id_list  : { type : SEQUELIZE.ARRAY(SEQUELIZE.INTEGER), defaultValue: null}
-}, {
-    tableName : 'test',
-    createdAt : false,
-    updatedAt : false,
-    deletedAt : false
-});
-
-testModel.create({title : 'testing 2', id_list: [1, 2]});
-
-Useful for making a friends list?
-
 figure out the testing issues at some point and change it back, could be hard with lack of interest in using mockbackend
 
-"continuous-integration": "npm run build && ng test --watch=false && ng e2e",
+"continuous-integration": "npm run build && ng test --watch=false && ng e2e"
+
+https://www.jokecamp.com/tutorial-passportjs-authentication-in-nodejs/
+
+finish up passportjs
