@@ -25,6 +25,26 @@ router.get('/', (req, res) => {
   res.json(array);
 });
 
+// authentication routes
+router.get('/logout', (req, res) => {
+  console.log('logging out');
+  req.logout();
+  res.json({ location: '/login' });
+});
+
+const ensureAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    // req.user is available for use here
+    return next(); 
+  }
+  // denied. redirect to login
+  res.redirect('/')
+}
+
+router.get('/protected', ensureAuthenticated, (req, res) => {
+  res.json({ text: "access granted. secure stuff happens here" });
+});
+
 router.use(posts('/posts'));
 router.use(users('/users'));
 
