@@ -14,6 +14,7 @@ const api = require('./routes/api');
 const PORT = process.env.PORT || 4000;
 const ngUniversal = require('@nguniversal/express-engine');
 var models = require('../models').getModels();
+var passport = require('passport');
 
 enableProdMode();
 
