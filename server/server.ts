@@ -17,8 +17,7 @@ var models = require('../models').getModels();
 
 enableProdMode();
 
-let angularRouter = (req, res) => {
-
+var angularRouter = (req, res) => {
   res.render('index', {
     req,
     res,
@@ -27,7 +26,6 @@ let angularRouter = (req, res) => {
       useValue: `${req.protocol}://${req.get('host')}`
     }]
   });
-
 }
 
 const app = express();
