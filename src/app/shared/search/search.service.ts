@@ -11,7 +11,8 @@ export class SearchService {
     constructor(private http: HttpClient) { }
 
     query(userQuery: string): Observable<any> {
-        return this.http.get(`/api/users/search/${userQuery}`)
+        const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+        return this.http.get(`/api/users/search/${userQuery}`, { headers })
                         .catch(error => Observable.throw(error));
     }
     
