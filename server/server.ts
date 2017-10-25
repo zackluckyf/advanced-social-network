@@ -52,16 +52,13 @@ if(process.env.NODE_ENV === 'production' || process.env.HEROKU){
   app.use(forceSsl);
 }
 
-// set variables
-
 // set port variable
 app.set('port', (PORT));
 
 // Set our api routes
 app.use('/api', api);
 
-let template = readFileSync(join(__dirname, '..', 'dist', 'index.html')).toString();
-
+// Set up Angular routing and Angular Universal
 app.engine('html', ngUniversal.ngExpressEngine({
   bootstrap: AppServerModuleNgFactory
 }));
@@ -70,7 +67,6 @@ app.set('view engine', 'html');
 app.set('views', 'src')
 
 app.get('*.*', express.static(join(__dirname, '..', 'dist')));
-
 app.get('/*', angularRouter);
 
 models.sequelize.sync().then(() => {
