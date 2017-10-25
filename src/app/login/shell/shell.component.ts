@@ -20,7 +20,7 @@ export class ShellComponent implements OnInit {
   }
 
   authenticate(){
-    this._loginService.authenticate(this.username, this.password);
+    this._loginService.authenticate(this.username, this.password).subscribe();
   }
 
 
