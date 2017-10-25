@@ -13,9 +13,9 @@ export class DashboardService {
     constructor(private http: HttpClient, private ngRedux: NgRedux<IAppState>) { }
 
     getAllUserPosts(id: number): Observable<any>{
-        return this.http.get(`/api/users/${id}/allposts`)
+        const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+        return this.http.get(`/api/users/${id}/allposts`, { headers })
                         .catch(error => Observable.throw(error));
     }
-
 
 }
