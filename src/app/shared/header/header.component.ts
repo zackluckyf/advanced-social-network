@@ -21,9 +21,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(){
-    this._headerService.logout().subscribe(data => {
-      this.nav(data.location);
-    });
+    this._headerService.logout().subscribe(data => this.nav('/login'));
   }
 
 }
