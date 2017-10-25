@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { NgReduxModule } from '@angular-redux/store';
 import { NgReduxRouterModule } from '@angular-redux/router';
@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 // app modules
 import { StoreModule } from './store/store.module';
+
+// interceptors
+import { ValidationInterceptor } from './authorization/validation-interceptor';
 
 // app components/modules
 
@@ -35,7 +38,11 @@ import { AccountDeletionModule } from './account-deletion/account-deletion.modul
     AppRoutingModule,
     AccountDeletionModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: ValidationInterceptor,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
