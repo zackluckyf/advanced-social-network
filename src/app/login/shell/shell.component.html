@@ -3,7 +3,7 @@
 		<form #loginForm="ngForm" class="form-signin">       
 		    <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
 			  <hr class="colorgraph"><br>
-			  <input #un="ngModel" type="text" class="form-control" name="username" placeholder="Username" required autofocus="" [(ngModel)]="username" />
+			  <input #un="ngModel" type="text" class="form-control" name="username" placeholder="Username" required autofocus="" [(ngModel)]="email" />
         <div [hidden]="un.valid || un.pristine" class="alert alert-danger">
           Username is required
         </div>

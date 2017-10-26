@@ -10,9 +10,9 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  authenticate(name: string, password: string): Observable<any>{
+  authenticate(email: string, password: string): Observable<any>{
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    const body = JSON.stringify({ name, password });
+    const body = JSON.stringify({ email, password });
     return this.http.post(`/api/authentication/login`, body, { headers })
     .catch(error => Observable.throw(error));
   }

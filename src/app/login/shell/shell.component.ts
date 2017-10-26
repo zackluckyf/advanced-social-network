@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 
 import { LoginService } from '../shared/login.service';
 
@@ -10,17 +10,25 @@ import { LoginService } from '../shared/login.service';
 })
 export class ShellComponent implements OnInit {
 
-  username: string;
+  email: string;
   password: string;
 
-  constructor(private _loginService: LoginService) { }
+  constructor(private _loginService: LoginService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
 
   }
 
   authenticate(){
-    this._loginService.authenticate(this.username, this.password).subscribe();
+    this._loginService.authenticate(this.email, this.password).subscribe(data => {
+      this.email = '';
+      this.password = '';
+      this.cdr.detectChanges();
+    }, err => {
+      this.email = '';
+      this.password = '';
+      this.cdr.detectChanges();
+    });
   }
 
 

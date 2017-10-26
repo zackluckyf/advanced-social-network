@@ -25,8 +25,8 @@ export class ValidationInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).do((event: HttpEvent<any>) => {
-      if (event instanceof HttpResponse && event.body === 'Authorized!') {
-        this.nav('/profile');
+      if (event instanceof HttpResponse && event.body && event.body.message === 'Authorized') {
+        this.nav(`/profile/${event.body.id}`);
       }
     }, (err: any) => {
       if (err instanceof HttpErrorResponse) {
