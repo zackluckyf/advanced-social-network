@@ -37,6 +37,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// Passport
+app.use(passport.initialize());
+
 // Compression setup
 app.use(compression());
 
