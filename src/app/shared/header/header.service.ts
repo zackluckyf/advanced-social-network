@@ -11,8 +11,9 @@ export class HeaderService {
     constructor(private http: HttpClient) { }
 
     logout(): Observable<any> {
+        localStorage.clear();
         const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-        return this.http.get(`/api/logout`, { headers })
+        return this.http.get(`/api/authentication/logout`, { headers })
                         .catch(error => Observable.throw(error));
     }
     
