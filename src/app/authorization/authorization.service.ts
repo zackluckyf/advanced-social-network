@@ -8,6 +8,11 @@ export class AuthService {
   public getToken(): string {
     return localStorage.getItem('token');
   }
+
+  public setToken(token: string){
+    localStorage.setItem('token', token);
+  }
+
   public isAuthenticated(): boolean {
     // get the token
     const token = this.getToken();
