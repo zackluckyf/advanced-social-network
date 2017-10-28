@@ -12,11 +12,11 @@ import { AppRoutingModule } from './app-routing.module';
 // app modules
 import { StoreModule } from './store/store.module';
 
-// interceptors
+// interceptors and auth service
+import { AuthService } from './authorization/authorization.service';
 import { ValidationInterceptor } from './authorization/validation-interceptor';
 
 // app components/modules
-
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { PathNotFoundComponent } from './path-not-found.component';
@@ -38,11 +38,14 @@ import { AccountDeletionModule } from './account-deletion/account-deletion.modul
     AppRoutingModule,
     AccountDeletionModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: ValidationInterceptor,
-    multi: true,
-  }],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ValidationInterceptor,
+      multi: true,
+    },
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
