@@ -3,26 +3,55 @@ var router = express.Router();
 
 var models = require('../../../models').getModels();
 
-var passport = require('passport');
+var _ = require("lodash");
+var bodyParser = require("body-parser");
+var passport = require("passport");
 var LocalStrategy = require('passport-local').Strategy;
+var jwt = require('jsonwebtoken');
+var passportJWT = require("passport-jwt");
+var ExtractJwt = passportJWT.ExtractJwt;
+var JwtStrategy = passportJWT.Strategy;
 
 const localOptions = { usernameField: 'email' };
 
-passport.use(new LocalStrategy(localOptions,
-  (email, password, done) => {
-    models.users.findOne({ 
-      where: {
-        email: email
-      }
-    }).then(user => {
-      if (user == null) {
-        return done(null, false, { message: 'Incorrect Username' })
-      }
-      if (user.password === password) {
-        return done(null, user)
-      }
-      return done(null, false, { message: 'Incorrect Password' })
-    }).catch(err => done(err));
+var jwtOptions = { 
+  secretOrKey: 'secret',
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
+};
+
+var token = '';
+
+passport.use(new JwtStrategy(jwtOptions, (jwt_payload, next) => {
+  console.log('payload received', jwt_payload);
+  models.users.findOne({ 
+    where: {
+      id: jwt_payload.id
+    }
+  }).then(user => {
+    if (user) {
+      next(null, user);
+    } else {
+      next(null, false);
+    }
+  }).catch(err => next(err));
+}));
+
+passport.use(new LocalStrategy(localOptions,(email, password, done) => {
+  models.users.findOne({ 
+    where: {
+      email: email
+    }
+  }).then(user => {
+    if (user == null) {
+      return done(null, false, { message: 'Incorrect Username' })
+    }
+    if (user.password === password) {
+      var payload = { id: user.id };
+      token = jwt.sign(payload, jwtOptions.secretOrKey, { expiresIn: 1000000})
+      return done(null, user)
+    }
+    return done(null, false, { message: 'Incorrect Password' })
+  }).catch(err => done(err));
 }));
 
 passport.serializeUser((user, cb) => {
@@ -53,7 +82,7 @@ var routeBuilder = path => {
   });
 
   router.post(`${path}/login`, passport.authenticate('local', { session: false }), (req, res) => {
-    res.status(200).send({ message: 'Authorized', id: req.user.id });
+    res.json({ message: "Authorized", token: `Bearer ${token}` });
   });
 
   return router;
