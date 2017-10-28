@@ -12,20 +12,30 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 
+import { AuthService } from './authorization.service';
+
 // setup to route properly for validation
 
 @Injectable()
 export class ValidationInterceptor implements HttpInterceptor {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private auth: AuthService) { }
 
   nav(location: string){
     this.router.navigate([location]);
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    
+    req = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${this.auth.getToken()}`
+      }
+    });
+
     return next.handle(req).do((event: HttpEvent<any>) => {
       if (event instanceof HttpResponse && event.body && event.body.message === 'Authorized') {
+        this.auth.setToken(event.body.token);
         this.nav(`/profile/${event.body.id}`);
       }
     }, (err: any) => {
