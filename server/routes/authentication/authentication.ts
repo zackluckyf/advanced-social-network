@@ -82,7 +82,7 @@ var routeBuilder = path => {
   });
 
   router.post(`${path}/login`, passport.authenticate('local', { session: false }), (req, res) => {
-    res.json({ message: "Authorized", token: `Bearer ${token}` });
+    res.json({ message: "Authorized", token: token });
   });
 
   return router;
