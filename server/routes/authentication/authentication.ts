@@ -19,7 +19,8 @@ var jwtOptions = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
 };
 
-var token = '';
+var token;
+var payload;
 
 passport.use(new JwtStrategy(jwtOptions, (jwt_payload, next) => {
   console.log('payload received', jwt_payload);
@@ -46,7 +47,7 @@ passport.use(new LocalStrategy(localOptions,(email, password, done) => {
       return done(null, false, { message: 'Incorrect Username' })
     }
     if (user.password === password) {
-      var payload = { id: user.id };
+      payload = { id: user.id };
       token = jwt.sign(payload, jwtOptions.secretOrKey, { expiresIn: 1000000})
       return done(null, user)
     }
@@ -82,7 +83,7 @@ var routeBuilder = path => {
   });
 
   router.post(`${path}/login`, passport.authenticate('local', { session: false }), (req, res) => {
-    res.json({ message: "Authorized", token: token });
+    res.json({ message: "Authorized", id: payload.id, token: token });
   });
 
   return router;
