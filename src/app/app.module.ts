@@ -28,7 +28,7 @@ import { AccountDeletionModule } from './account-deletion/account-deletion.modul
     PathNotFoundComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({appId: 'ecommerce'}),
+    BrowserModule.withServerTransition({appId: 'social-network'}),
     SharedModule,
     FormsModule,
     HttpClientModule,

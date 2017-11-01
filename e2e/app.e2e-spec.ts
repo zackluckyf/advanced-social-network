@@ -1,6 +1,6 @@
 import { HomePage } from './app.po';
 
-describe('ecommerce-app App', () => {
+describe('social-network App', () => {
   let page: HomePage;
 
   beforeEach(() => {
