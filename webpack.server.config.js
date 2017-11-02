@@ -1,6 +1,5 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
-const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -8,7 +7,7 @@ module.exports = {
     cluster: './server/cluster.ts'
   },
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.js', '.ts']
   },
   target: 'node',
    externals: [nodeExternals({
@@ -27,14 +26,5 @@ module.exports = {
     rules: [
       { test: /\.ts$/, loader: 'ts-loader' }
     ]
-  },
-  plugins: [
-		new CompressionPlugin({
-			asset: "[path].gz[query]",
-			algorithm: "gzip",
-			test: /\.(js|html)$/,
-			threshold: 10240,
-			minRatio: 0.8
-		})
-	]
+  }
 }

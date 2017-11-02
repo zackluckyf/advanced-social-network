@@ -1,16 +1,27 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+
 // import decode from 'jwt-decode';
 
-// do some work with this to setup jwt for passport
+
 
 @Injectable()
 export class AuthService {
+
+  // https://medium.com/@zainzafar/localstorage-with-angular-universal-2a111fb4af72
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object){}
+
   public getToken(): string {
-    return localStorage.getItem('token');
+    if (isPlatformBrowser(this.platformId)) {
+        return localStorage.getItem('token');
+    }
   }
 
-  public setToken(token: string){
-    localStorage.setItem('token', token);
+  public setToken(token: string) {
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('token', token);
+    }
   }
 
   public isAuthenticated(): boolean {
