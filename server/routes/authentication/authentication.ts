@@ -15,7 +15,7 @@ var JwtStrategy = passportJWT.Strategy;
 const localOptions = { usernameField: 'email' };
 
 var jwtOptions = { 
-  secretOrKey: 'secret',
+  secretOrKey: process.env.SECRET || 'secret',
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
 };
 
