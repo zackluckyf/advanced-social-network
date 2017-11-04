@@ -4,12 +4,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../shared/login.service';
 
 @Component({
-  selector: 'app-shell',
-  templateUrl: './shell.component.html',
-  styleUrls: ['./shell.component.scss'],
+  selector: 'login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ShellComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   email: string;
   password: string;
