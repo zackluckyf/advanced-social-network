@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-var _ = require("lodash");
-var bodyParser = require("body-parser");
 var passport = require("passport");
 var LocalStrategy = require('passport-local').Strategy;
 var jwt = require('jsonwebtoken');
@@ -11,6 +9,7 @@ var ExtractJwt = passportJWT.ExtractJwt;
 var JwtStrategy = passportJWT.Strategy;
 const nodemailer = require('nodemailer');
 var models = require('../../../models').getModels();
+var queries = require('../../queries/queries');
 
 const localOptions = { usernameField: 'email' };
 
@@ -91,6 +90,36 @@ var routeBuilder = path => {
 
   router.post(`${path}/login`, passport.authenticate('local', { session: false }), (req, res) => {
     res.json({ message: "Authorized", id: payload.id, token: token });
+  });
+
+    /**
+   * @api {post} /user/:name/:age Create User
+   * @apiName CreateUser
+   * @apiGroup Users
+   * 
+   * @apiParam {name} a user's name.
+   * @apiParam {age} a user's age.
+   * 
+   * @apiSuccess {Success}      -.success        Success object.
+   * 
+   */
+  router.post(`${path}/register`, (req, res) => {
+    let user = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      birthday: req.body.birthday, 
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password
+    }
+    console.log({...user});
+    // queries.users.createUser(user)
+    //   .then(success => {
+    //     res.status(200).json(success);
+    //   })
+    //   .catch(error => {
+    //     res.status(500).send(error);
+    //   })
   });
 
   return router;

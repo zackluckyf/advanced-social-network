@@ -89,30 +89,6 @@ var routeBuilder = path => {
       })
   });
 
-  /**
-   * @api {post} /user/:name/:age Create User
-   * @apiName CreateUser
-   * @apiGroup Users
-   * 
-   * @apiParam {name} a user's name.
-   * @apiParam {age} a user's age.
-   * 
-   * @apiSuccess {Success}      -.success        Success object.
-   * 
-   */
-  router.post(`${path}/:name/:age`, (req, res) => {
-    let user = {
-      name: req.params.name,
-      age: req.params.age
-    }
-    queries.users.createUser(user)
-      .then(success => {
-        res.status(200).json(success);
-      })
-      .catch(error => {
-        res.status(500).send(error);
-      })
-  });
 
   /**
    * @api {put} /user/:name/:age Change User Age
