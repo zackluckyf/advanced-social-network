@@ -89,7 +89,7 @@ Run `npm run update-documentation` to update the documentation.
 
 If already using that port simply update the documentation and then http-server apidoc/ -p 8004 or whatever port you prefer.
 
-The architecture pattern flows with angular services call node/express rest api endpoints that are in server/routes/ and grouped in subfolders. Those routes call queries in server/queries grouped in the same subfolders which execute queries on the database. 
+The architecture pattern flows with angular services call node/express rest api endpoints that are in server/routes/ and grouped in subfolders. Those routes call queries in server/queries grouped in mostly (authentication uses users) the same subfolders which execute queries on the database. 
 
 ## Test Environment
 
