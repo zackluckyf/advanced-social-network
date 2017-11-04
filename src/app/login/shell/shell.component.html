@@ -5,7 +5,7 @@
 			  <hr class="colorgraph"><br>
 			  <input #un="ngModel" type="text" class="form-control" name="username" placeholder="Username" required autofocus="" [(ngModel)]="email" />
         <div [hidden]="un.valid || un.pristine" class="alert alert-danger">
-          Username is required
+          Username/Email is required
         </div>
 			  <input #pw="ngModel" type="password" class="form-control" name="password" placeholder="Password" required [(ngModel)]="password" />     		  
         <div [hidden]="pw.valid || pw.pristine" class="alert alert-danger">

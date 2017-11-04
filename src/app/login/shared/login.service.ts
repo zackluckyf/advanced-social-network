@@ -17,4 +17,11 @@ export class LoginService {
     .catch(error => Observable.throw(error));
   }
 
+  reset(email: string): Observable<any>{
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    const body = JSON.stringify({ email });
+    return this.http.post(`/api/authentication/password-reset`, body, { headers })
+    .catch(error => Observable.throw(error));
+  }
+
 }
