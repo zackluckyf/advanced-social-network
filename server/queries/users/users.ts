@@ -123,6 +123,39 @@ let getListOfUsers = async (query: string) => {
   };
 }
 
+let authUser = async (email: string) => {
+  try {
+    let res = await models.users.findOne({ 
+      where: {
+        $or: [
+          {
+            email: email
+          },
+          {
+            username: email
+          }
+        ]
+      }
+    });
+    return res;
+  } catch(e) {
+    e => console.log(e.stack)
+  };
+}
+
+let authJwt = async (jwt: string) => {
+  try {
+    let res = await models.users.findOne({ 
+      where: {
+        id: jwt
+      }
+    });
+    return res;
+  } catch(e) {
+    e => console.log(e.stack)
+  };
+}
+
 module.exports = {
   getUser: getUser,
   getAllUsers: getAllUsers,
@@ -131,5 +164,7 @@ module.exports = {
   deleteUser: deleteUser,
   createUser: createUser,
   changeUserAge: changeUserAge,
-  getListOfUsers: getListOfUsers
+  getListOfUsers: getListOfUsers,
+  authUser: authUser,
+  authJwt: authJwt
 };

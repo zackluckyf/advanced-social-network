@@ -22,12 +22,8 @@ var token;
 var payload;
 
 passport.use(new JwtStrategy(jwtOptions, (jwt_payload, next) => {
-  console.log('payload received', jwt_payload);
-  models.users.findOne({ 
-    where: {
-      id: jwt_payload.id
-    }
-  }).then(user => {
+  queries.users.authJwt(jwt_payload.id)
+  .then(user => {
     if (user) {
       next(null, user);
     } else {
@@ -37,18 +33,8 @@ passport.use(new JwtStrategy(jwtOptions, (jwt_payload, next) => {
 }));
 
 passport.use(new LocalStrategy(localOptions,(email, password, done) => {
-  models.users.findOne({ 
-    where: {
-      $or: [
-        {
-          email: email
-        },
-        {
-          username: email
-        }
-      ]
-    }
-  }).then(user => {
+  queries.users.authUser(email)
+  .then(user => {
     if (user == null) {
       return done(null, false, { message: 'Incorrect Username' })
     }
