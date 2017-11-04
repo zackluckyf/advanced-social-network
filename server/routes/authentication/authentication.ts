@@ -20,12 +20,19 @@ const jwtOptions = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
 };
 
-// if you forget these you check heroku config vars and use the or operator
+// If doing development work just set these vars to a gmail account and password 
+// Thanks to answer from https://stackoverflow.com/questions/19877246/nodemailer-with-gmail-and-nodejs/#answer-27160641
+// You need to make sure you're logged in and navigate to the below link and enable
+// https://www.google.com/settings/security/lesssecureapps
+
+let developmentEmail = '';
+let developmentPassword = '';
+
 let transporterConfig = {
     'service': 'gmail',
     'auth': {
-      'user': process.env.GMAIL_USER,
-      'pass': process.env.GMAIL_PASSWORD
+      'user': process.env.GMAIL_USER || developmentEmail,
+      'pass': process.env.GMAIL_PASSWORD || developmentPassword
     }
   } 
 
