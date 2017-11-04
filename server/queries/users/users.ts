@@ -1,6 +1,6 @@
 var models = require('../../../models').getModels();
 
-let getUser = async (userId: number) => {
+let getUserNameAndBirthday = async (userId: number) => {
     try {
       let res = await models.users.find({
         attributes: [ ['first_name', 'firstName'], ['last_name', 'lastName'], ['birth_date', 'birthDate'] ],
@@ -123,7 +123,7 @@ let getListOfUsers = async (query: string) => {
   };
 }
 
-let authUser = async (email: string) => {
+let getUser = async (email: string) => {
   try {
     let res = await models.users.findOne({ 
       where: {
@@ -143,7 +143,7 @@ let authUser = async (email: string) => {
   };
 }
 
-let authJwt = async (jwt: string) => {
+let getUserJwt = async (jwt: string) => {
   try {
     let res = await models.users.findOne({ 
       where: {
@@ -157,7 +157,7 @@ let authJwt = async (jwt: string) => {
 }
 
 module.exports = {
-  getUser: getUser,
+  getUserNameAndBirthday: getUserNameAndBirthday,
   getAllUsers: getAllUsers,
   getUserPosts: getUserPosts,
   getUserComments: getUserComments,
@@ -165,6 +165,6 @@ module.exports = {
   createUser: createUser,
   changeUserAge: changeUserAge,
   getListOfUsers: getListOfUsers,
-  authUser: authUser,
-  authJwt: authJwt
+  getUser: getUser,
+  getUserJwt: getUserJwt
 };

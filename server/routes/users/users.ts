@@ -18,7 +18,7 @@ var routeBuilder = path => {
    * 
    */
   router.get(`${path}/:id`, (req, res) => {
-    queries.users.getUser(req.params.id)
+    queries.users.getUserNameAndBirthday(req.params.id)
       .then(user => {
         res.status(200).json(user);
       })
