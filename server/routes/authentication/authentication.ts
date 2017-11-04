@@ -40,7 +40,14 @@ passport.use(new JwtStrategy(jwtOptions, (jwt_payload, next) => {
 passport.use(new LocalStrategy(localOptions,(email, password, done) => {
   models.users.findOne({ 
     where: {
-      email: email
+      $or: [
+        {
+          email: email
+        },
+        {
+          username: email
+        }
+      ]
     }
   }).then(user => {
     if (user == null) {
