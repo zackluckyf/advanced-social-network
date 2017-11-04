@@ -11,7 +11,9 @@
         <div [hidden]="pw.valid || pw.pristine" class="alert alert-danger">
           Password is required
         </div>
-			  <button class="btn btn-lg btn-primary btn-block" (click)="authenticate()">Login</button>  			
+			  <button class="btn btn-lg btn-primary btn-block" (click)="authenticate()">Login</button> 
+				<button class="btn btn-sm btn-default btn-block" (click)="nav('./forgot-password')">Forgot Password?</button> 
+				<button class="btn btn-sm btn-default btn-block" (click)="nav('/registration')">Create Account</button> 
 		</form>			
 	</div>
 </div>

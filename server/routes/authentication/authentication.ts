@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-var models = require('../../../models').getModels();
-
 var _ = require("lodash");
 var bodyParser = require("body-parser");
 var passport = require("passport");
@@ -11,6 +9,8 @@ var jwt = require('jsonwebtoken');
 var passportJWT = require("passport-jwt");
 var ExtractJwt = passportJWT.ExtractJwt;
 var JwtStrategy = passportJWT.Strategy;
+const nodemailer = require('nodemailer');
+var models = require('../../../models').getModels();
 
 const localOptions = { usernameField: 'email' };
 

@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { LoginService } from '../shared/login.service';
 
@@ -13,7 +14,7 @@ export class ShellComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private _loginService: LoginService, private cdr: ChangeDetectorRef) { }
+  constructor(private _loginService: LoginService, private cdr: ChangeDetectorRef, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -29,6 +30,10 @@ export class ShellComponent implements OnInit {
       this.password = '';
       this.cdr.detectChanges();
     });
+  }
+
+  nav(location: string){
+    this.router.navigate([location], {relativeTo: this.route});
   }
 
 

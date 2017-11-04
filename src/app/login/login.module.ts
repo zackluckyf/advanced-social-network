@@ -6,6 +6,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginService } from './shared/login.service';
 
 import { ShellComponent } from './shell/shell.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { ShellComponent } from './shell/shell.component';
     FormsModule,
     LoginRoutingModule
   ],
-  declarations: [ShellComponent],
+  declarations: [ShellComponent, ForgotPasswordComponent],
   providers: [ LoginService ]
 })
 export class LoginModule { }

@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ShellComponent } from './shell/shell.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const routes: Routes = [
-  { path: '', component: ShellComponent }
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: '', component: ShellComponent },
 ];
 
 @NgModule({
