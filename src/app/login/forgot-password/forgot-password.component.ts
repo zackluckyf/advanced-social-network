@@ -17,7 +17,7 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit() {
   }
 
-  authenticate(){
+  reset(){
     this._loginService.reset(this.email).subscribe(data => {
       this.email = '';
       this.cdr.detectChanges();
