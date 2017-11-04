@@ -1,5 +1,33 @@
-<div>
-  Name: <input type="text" name="create-name" [(ngModel)]="createName"> 
-  Age: <input type="number" name="create-age" [(ngModel)]="createAge">
-  <button (click)="newUser()" class="btn btn-success">Create User</button>
+<div class="container">
+	<div class="wrapper">
+		<form #loginForm="ngForm" class="form-signin">       
+		    <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+			  <hr class="colorgraph"><br>
+        <input #fn="ngModel" type="text" class="form-control" name="firstName" placeholder="First name" required autofocus="" [(ngModel)]="firstName" />
+        <div [hidden]="fn.valid || fn.pristine" class="alert alert-danger">
+          First name is required
+        </div>
+        <input #ln="ngModel" type="text" class="form-control" name="lastName" placeholder="Last name" required [(ngModel)]="lastName" />
+        <div [hidden]="ln.valid || ln.pristine" class="alert alert-danger">
+          Last name is required
+        </div>
+        <input #bd="ngModel" type="date" class="form-control" name="birthday" placeholder="Birthday" required [(ngModel)]="birthday" />
+        <div [hidden]="bd.valid || bd.pristine" class="alert alert-danger">
+          Birthday is required
+        </div>
+			  <input #un="ngModel" type="text" class="form-control" name="username" placeholder="Username" required [(ngModel)]="username" />
+        <div [hidden]="un.valid || un.pristine" class="alert alert-danger">
+          Username is required
+        </div>
+        <input #em="ngModel" type="text" class="form-control" name="email" placeholder="Email" required [(ngModel)]="email" />
+        <div [hidden]="em.valid || em.pristine" class="alert alert-danger">
+          Email is required
+        </div>
+			  <input #pw="ngModel" type="password" class="form-control" name="password" placeholder="Password" required [(ngModel)]="password" />     		  
+        <div [hidden]="pw.valid || pw.pristine" class="alert alert-danger">
+          Password is required
+        </div>
+			  <button class="btn btn-lg btn-primary btn-block" (click)="newUser()">Create Account</button>
+		</form>			
+	</div>
 </div>

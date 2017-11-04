@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 import { RegistrationService } from '../shared/registration.service';
@@ -11,27 +12,44 @@ import { RegistrationService } from '../shared/registration.service';
 })
 export class ShellComponent implements OnInit {
 
-  createName: string;
-  createAge: number;
+  firstName: string;
+  lastName: string;
+  birthday: Date;
+  username: string;
+  email: string;
+  password: string;
 
-  constructor(private _registrationService: RegistrationService) { }
+  constructor(private router: Router, private route: ActivatedRoute,private _registrationService: RegistrationService) { }
 
   ngOnInit() {
   }
 
   newUser(){
     let user = {
-        name: this.createName,
-        age: this.createAge
+        firstName: this.firstName,
+        lastName: this.lastName,
+        birthday: this.birthday, 
+        username: this.username,
+        email: this.email,
+        password: this.password
     }
     this._registrationService.createUser(user).subscribe(
         data => {
             console.log('create user data', data);
-            this.createName = null;
-            this.createAge = null;
+            this.firstName = null;
+            this.lastName = null;
+            this.birthday = null;
+            this.username = null;
+            this.email = null;
+            this.password = null;
+            this.nav('/login')
         },
         err => console.error('create user error', err)
     );
+  }
+
+  nav(location: string){
+    this.router.navigate([location], {relativeTo: this.route});
   }
 
 }

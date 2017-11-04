@@ -11,10 +11,9 @@ export class RegistrationService {
   constructor(private http: HttpClient) { }
 
   createUser(user: any): Observable<any>{
-    const name = user.name;
-    const age = user.age;
+    const body = JSON.stringify({ ...user });
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    return this.http.post(`/api/users/${name}/${age}`, { headers })
+    return this.http.post(`/api/authentication/register`, body, { headers })
     .catch(error => Observable.throw(error));
   }
 
