@@ -19,12 +19,8 @@ export class ForgotPasswordComponent implements OnInit {
 
   reset(){
     this._loginService.reset(this.email).subscribe(data => {
-      this.email = '';
-      this.cdr.detectChanges();
       // call toast service notifying of successful email
     }, err => { 
-      this.email = '';
-      this.cdr.detectChanges();
       // call toast service notifying of unsuccessful email 
     });
   }

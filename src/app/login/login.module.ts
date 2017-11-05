@@ -5,8 +5,9 @@ import { FormsModule }   from '@angular/forms';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginService } from './shared/login.service';
 
-import { ShellComponent } from './shell/shell.component';
+import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,11 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     FormsModule,
     LoginRoutingModule
   ],
-  declarations: [ShellComponent, ForgotPasswordComponent],
+  declarations: [
+    LoginComponent, 
+    ForgotPasswordComponent, 
+    ResetPasswordComponent
+  ],
   providers: [ LoginService ]
 })
 export class LoginModule { }
