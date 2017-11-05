@@ -1,10 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { NgReduxModule } from '@angular-redux/store';
 import { NgReduxRouterModule } from '@angular-redux/router';
+import { ToasterModule, ToasterService } from 'angular2-toaster';
 
 // routing module
 import { AppRoutingModule } from './app-routing.module';
@@ -29,14 +31,16 @@ import { AccountDeletionModule } from './account-deletion/account-deletion.modul
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'social-network'}),
+    BrowserAnimationsModule,
     SharedModule,
     FormsModule,
     HttpClientModule,
     NgReduxModule,
     NgReduxRouterModule,
+    ToasterModule,
     StoreModule,
-    AppRoutingModule,
-    AccountDeletionModule
+    AccountDeletionModule,
+    AppRoutingModule
   ],
   providers: [
     {

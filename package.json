@@ -40,6 +40,7 @@
     "@angular/router": "4.3.1",
     "@nguniversal/express-engine": "1.0.0-beta.2",
     "@nguniversal/module-map-ngfactory-loader": "^1.0.0-beta.3",
+    "angular2-toaster": "^4.0.1",
     "axios": "^0.16.2",
     "bootstrap": "4.0.0-alpha.6",
     "compression": "^1.7.0",

@@ -1,17 +1,7 @@
-Sequelize arrays 
-
-'use strict';
-
-var SEQUELIZE = require('sequelize'),
-    sequelize = new SEQUELIZE('...', '...', '...', {
-        host: '...',
-        dialect: 'postgres'
-    });
-
 figure out the testing issues at some point and change it back, could be hard with lack of interest in using mockbackend
 
 "continuous-integration": "npm run build && ng test --watch=false && ng e2e"
 
-https://www.jokecamp.com/tutorial-passportjs-authentication-in-nodejs/
+notes on using toaster in angular 2 
 
-finish up passportjs
+https://github.com/stabzs/Angular2-Toaster
