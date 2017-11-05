@@ -10,11 +10,13 @@ module.exports = {
     extensions: ['.js', '.ts']
   },
   target: 'node',
-   externals: [nodeExternals({
-     whitelist: [
-       /^@angular\/material/
-     ]
-   })],
+    externals: [nodeExternals({
+      whitelist: [
+        /^@angular\/material/,
+        /^@ng-bootstrap\/ng-bootstrap/,
+        /^angular2\-toaster/,
+      ]
+    })],
   node: {
     __dirname: true
   },
