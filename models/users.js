@@ -2,14 +2,29 @@
 
 module.exports = (sequelize, DataTypes) => {
   var users = sequelize.define('users', {
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
+    firstName: {
+      field: 'first_name', 
+      type: DataTypes.STRING
+    },
+    lastName: {
+      field: 'last_name', 
+      type: DataTypes.STRING
+    },
+    birthDate: {
+      field: 'birth_date', 
+      type: DataTypes.DATE
+    },
+    resetPasswordToken: {
+      field: 'reset_password_token', 
+      type: DataTypes.STRING
+    },
+    resetPasswordExpires: {
+      field: 'reset_password_expires', 
+      type: DataTypes.STRING
+    },
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    birth_date: DataTypes.DATE,
-    username: DataTypes.STRING,
-    reset_password_token: DataTypes.STRING,
-    reset_password_expires: DataTypes.DATE
+    username: DataTypes.STRING
   }, {
     classMethods: {
       associate: (models) => {

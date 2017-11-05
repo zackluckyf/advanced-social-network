@@ -2,8 +2,14 @@
 
 module.exports = (sequelize, DataTypes) => {
   var posts = sequelize.define('posts', {
-    user_id: DataTypes.INTEGER,
-    post_text: DataTypes.STRING
+    userId: {
+      field: 'user_id', 
+      type: DataTypes.INTEGER
+    },
+    postText: {
+      field: 'post_text', 
+      type: DataTypes.INTEGER
+    }
   }, {
     classMethods: {
       associate: (models) => {
