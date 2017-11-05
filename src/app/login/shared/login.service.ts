@@ -24,4 +24,11 @@ export class LoginService {
     .catch(error => Observable.throw(error));
   }
 
+  changePassword(password: string, passwordResetToken: string): Observable<any>{
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    const body = JSON.stringify({ password, passwordResetToken });
+    return this.http.post(`/api/authentication/change-password`, body, { headers })
+    .catch(error => Observable.throw(error));
+  }
+
 }
