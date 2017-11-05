@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+import * as moment from 'moment';
 var passport = require("passport");
 var LocalStrategy = require('passport-local').Strategy;
 var jwt = require('jsonwebtoken');
@@ -20,13 +21,15 @@ const jwtOptions = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
 };
 
-// If doing development work just set these vars to a gmail account and password 
+// If doing development work with the password reset stuff just set these vars to your gmail account and password
+// and change the from variable to your gmail
 // Thanks to answer from https://stackoverflow.com/questions/19877246/nodemailer-with-gmail-and-nodejs/#answer-27160641
 // You need to make sure you're logged in and navigate to the below link and enable
 // https://www.google.com/settings/security/lesssecureapps
 
 let developmentEmail = '';
 let developmentPassword = '';
+let from = '"ZackFanning" <zackfsocialnetwork@gmail.com>';
 
 let transporterConfig = {
     'service': 'gmail',
@@ -133,22 +136,20 @@ var routeBuilder = path => {
           return next(err)
         };
         user.resetPasswordToken = resetToken;
-        user.resetPasswordExpires = Date.now() + 3600000;
-        // save isn't working I think
-        user.save({ fields: ['reset_password_token', 'reset_password_expires']})
+        user.resetPasswordExpires = moment().add(1, 'd').format('YYYY-MM-DD');
+        user.save()
           .then(success => {
             const message = {
               subject: 'Reset Password for Social Network',
               message: `${'You are receiving this because you (or someone else) have requested the reset of your password for your account.\n\n' +
               'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-              'http://'}${req.headers.host}/api/authentication/reset-password/${resetToken}\n\n` +
+              'http://'}${req.headers.host}/login/reset-password/${resetToken}\n\n` +
               `If you did not request this, please ignore this email and your password will remain unchanged. \n`
             };
 
             const transporter = nodemailer.createTransport(transporterConfig);
-
             const mailOptions = {
-              from: '"ZackFanning" <zackfsocialnetwork@gmail.com>',
+              from: from,
               to: user.email,
               subject: message.subject,
               text: message.message
@@ -161,9 +162,50 @@ var routeBuilder = path => {
             });     
             res.status(200).json({ message: 'Please check your email for the link to reset your password.'});
           })
-          .catch(err => res.status(400).json({ error: 'Your request could not be processed as entered. Please try again.'}))
+          .catch(err => {
+            res.status(400).json({ error: 'Your request could not be processed as entered. Please try again.'})
+          })
       });
     })
+  });
+
+  router.post(`${path}/change-password`, (req, res) => {
+    queries.users.changePassword(req.body.passwordResetToken)
+      .then(user => {
+        // moment().diff(Date) gets the difference between the input date and the current date
+        let isTokenValid = moment().diff(moment(user.resetPasswordExpires, 'YYYY-MM-DD')) < 0;
+        if(!isTokenValid){
+          throw 'Your token has expired. Please attempt to reset your password again.';
+        }
+        user.password = req.body.password;
+        user.resetPasswordToken = null;
+        user.resetPasswordExpires = null;
+
+        user.save()
+          .then(success => {
+            const message = {
+              subject: 'Password Changed',
+              message: 'You are receiving this email because you changed your password. \n\n' +
+                'If you did not request this change, please contact us immediately.'
+            };
+
+            const transporter = nodemailer.createTransport(transporterConfig);
+            const mailOptions = {
+              from: from,
+              to: user.email,
+              subject: message.subject,
+              text: message.message
+            };
+
+            transporter.sendMail(mailOptions, (error, info) => {
+              if(error) {
+                return console.log(error);
+              }
+            });     
+        res.status(200).json({ message: 'Password succesfully changed.'});
+      })
+      .catch(err => res.status(400).json({ error: err.message }))
+    });
   });
 
   return router;

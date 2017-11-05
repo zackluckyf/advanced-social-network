@@ -1,9 +1,10 @@
 var models = require('../../../models').getModels();
+import * as moment from 'moment';
 
 let getUserNameAndBirthday = async (userId: number) => {
     try {
       let res = await models.users.find({
-        attributes: [ ['first_name', 'firstName'], ['last_name', 'lastName'], ['birth_date', 'birthDate'] ],
+        attributes: [ 'firstName', 'lastName', 'birthDate' ],
         where: {
           id: userId
         }
@@ -12,23 +13,23 @@ let getUserNameAndBirthday = async (userId: number) => {
     } catch(e) {
       e => console.log(e.stack)
     } 
-}
+};
 
 let getAllUsers = async () => {
   try {
     let res = await models.users.findAll({
-        attributes: [ ['first_name', 'firstName'], ['last_name', 'lastName'] ]
+        attributes: [ 'firstName', 'lastName' ]
       });
       return res;
     } catch(e) {
       e => console.log(e.stack)
     };
-}
+};
 
 let getUserPosts = async (userId: number) => {
   try {
     let res = await models.posts.findAll({
-      attributes: [ ['post_text', 'postText'] ],
+      attributes: [ 'postText' ],
       where: {
         user_id: userId
       }
@@ -37,12 +38,12 @@ let getUserPosts = async (userId: number) => {
   } catch(e) {
     e => console.log(e.stack)
   };
-}
+};
 
 let getUserComments = async (userId: number) => {
   try {
     let res = await models.comments.findAll({
-      attributes: [ ['comment_text', 'commentText'] ],
+      attributes: [ 'commentText' ],
       where: {
         user_id: userId
       }
@@ -51,7 +52,7 @@ let getUserComments = async (userId: number) => {
   } catch(e) {
     e => console.log(e.stack)
   };
-}
+};
 
 let deleteUser = async (name: string) => {
   try {
@@ -95,12 +96,12 @@ let changeUserAge = async (user: any) => {
   } catch(e) {
     e => console.log(e.stack)
   };
-}
+};
 
 let getListOfUsers = async (query: string) => {
   try {
     let res = await models.users.findAll({
-        attributes: [ 'id', ['first_name', 'firstName'], ['last_name', 'lastName'] ],
+        attributes: [ 'id', 'firstName', 'lastName' ],
         where: {
           $or: [
             {
@@ -121,7 +122,7 @@ let getListOfUsers = async (query: string) => {
   } catch(e) {
     e => console.log(e.stack)
   };
-}
+};
 
 let getUser = async (email: string) => {
   try {
@@ -141,7 +142,7 @@ let getUser = async (email: string) => {
   } catch(e) {
     e => console.log(e.stack)
   };
-}
+};
 
 let getUserJwt = async (jwt: string) => {
   try {
@@ -154,7 +155,20 @@ let getUserJwt = async (jwt: string) => {
   } catch(e) {
     e => console.log(e.stack)
   };
-}
+};
+
+let changePassword = async (passwordResetToken: string) => {
+  try {
+    let res = await models.users.findOne({
+      where: {
+        reset_password_token: passwordResetToken
+      }
+    });
+    return res;
+  } catch(e) {
+    e => console.log(e.stack)
+  };
+};
 
 module.exports = {
   getUserNameAndBirthday: getUserNameAndBirthday,
@@ -166,5 +180,6 @@ module.exports = {
   changeUserAge: changeUserAge,
   getListOfUsers: getListOfUsers,
   getUser: getUser,
-  getUserJwt: getUserJwt
+  getUserJwt: getUserJwt,
+  changePassword: changePassword
 };
