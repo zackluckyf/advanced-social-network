@@ -3,14 +3,14 @@
   <ul class="nav navbar-nav">
     <li class="nav-item active">
       <!--setup internal nav to about me page-->
-      <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+      <a class="nav-link" (click)="nav('/about')">About</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" target="_blank" href="https://github.com/zackluckyf/advanced-social-network#social-network">Github</a>
     </li>
     <li class="nav-item">
       <!--contact info page-->
-      <a class="nav-link" href="#">Contact</a>
+      <a class="nav-link" (click)="nav('/contact')">Contact</a>
     </li>
   </ul>
   <search class="row search"></search>
