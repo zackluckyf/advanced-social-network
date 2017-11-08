@@ -22,7 +22,6 @@ import { ValidationInterceptor } from './authorization/validation-interceptor';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { PathNotFoundComponent } from './path-not-found.component';
-import { AccountDeletionModule } from './account-deletion/account-deletion.module';
 
 @NgModule({
   declarations: [
@@ -39,7 +38,6 @@ import { AccountDeletionModule } from './account-deletion/account-deletion.modul
     NgReduxRouterModule,
     ToasterModule,
     StoreModule,
-    AccountDeletionModule,
     AppRoutingModule
   ],
   providers: [
