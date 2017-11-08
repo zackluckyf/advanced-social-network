@@ -14,7 +14,7 @@
     "cluster": "node ./dist/cluster.js",
     "hmr": "ng serve -o -hmr --proxy-config proxy.conf.json",
     "build": "ng build --prod && ng build -app 1 --prod --output-hashing=false && webpack --config webpack.server.config.js --progress --colors",
-    "test": "ng test",
+    "test": "snyk test && ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "prod": "npm run build && npm start",
@@ -43,7 +43,7 @@
     "angular2-toaster": "^4.0.1",
     "axios": "^0.16.2",
     "bootstrap": "4.0.0-alpha.6",
-    "compression": "^1.7.0",
+    "compression": "^1.7.1",
     "core-js": "^2.5.1",
     "cors": "^2.8.4",
     "enhanced-resolve": "3.3.0",
@@ -91,6 +91,7 @@
     "tslint": "~5.3.2",
     "typescript": "2.3.3",
     "uglify-js": "^2.8.29",
-    "webpack-node-externals": "^1.5.4"
+    "webpack-node-externals": "^1.5.4",
+    "snyk": "^1.49.1"
   }
 }
