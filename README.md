@@ -6,7 +6,7 @@ Project utilizing Angular, Node, Express, PostgreSQL, Sequelize, Typescript, SCS
 
 [![Build](https://travis-ci.org/zackluckyf/advanced-social-network.svg?branch=master)](https://travis-ci.org/zackluckyf/advanced-social-network)
 [![Heroku](https://heroku-badge.herokuapp.com/?app=zack-social-network)](https://zack-social-network.herokuapp.com)
-[![Known Vulnerabilities](https://snyk.io/test/github/snyk/goof/badge.svg)](https://snyk.io/test/github/zackluckyf/advanced-social-network)
+[![Known Vulnerabilities](https://snyk.io/test/github/zackluckyf/advanced-social-network/badge.svg)](https://snyk.io/test/github/zackluckyf/advanced-social-network)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php) 
 
 [Roadmap](#roadmap)
