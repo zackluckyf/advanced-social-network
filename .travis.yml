@@ -18,6 +18,7 @@ before_install:
 - export CHROME_BIN=chromium-browser
 - npm install -g npm@5.3
 - npm install -g @angular/cli
+- npm install -g snyk
 - npm cache verify
 - npm prune
 - npm update
