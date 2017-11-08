@@ -1,4 +1,63 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
 version: v1.7.1
-ignore: {}
-patch: {}
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:mime:20170907':
+    - '@angular/cli > url-loader > mime':
+        reason: Not ready for hassle of upgrading Angular dependencies
+        expires: '2017-12-08T23:17:07.389Z'
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - karma > socket.io > debug:
+        patched: '2017-11-08T23:15:12.444Z'
+    - karma > socket.io > socket.io-client > debug:
+        patched: '2017-11-08T23:15:12.444Z'
+    - karma > socket.io > socket.io-client > engine.io-client > debug:
+        patched: '2017-11-08T23:15:12.444Z'
+    - karma > socket.io > socket.io-adapter > socket.io-parser > debug:
+        patched: '2017-11-08T23:15:12.444Z'
+    - karma > socket.io > socket.io-client > socket.io-parser > debug:
+        patched: '2017-11-08T23:15:12.444Z'
+    - karma > socket.io > socket.io-parser > debug:
+        patched: '2017-11-08T23:15:12.444Z'
+    - karma > socket.io > socket.io-adapter > debug:
+        patched: '2017-11-08T23:15:12.444Z'
+    - '@angular/cli > webpack-dev-server > chokidar > fsevents > node-pre-gyp > tar-pack > debug':
+        patched: '2017-11-08T23:15:12.444Z'
+    - '@angular/cli > webpack > watchpack > chokidar > fsevents > node-pre-gyp > tar-pack > debug':
+        patched: '2017-11-08T23:15:12.444Z'
+    - karma > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
+        patched: '2017-11-08T23:15:12.444Z'
+    - karma > socket.io > engine.io > debug:
+        patched: '2017-11-08T23:15:12.444Z'
+  'npm:ms:20170412':
+    - karma > socket.io > engine.io > debug > ms:
+        patched: '2017-11-08T23:15:12.444Z'
+    - karma > socket.io > socket.io-adapter > debug > ms:
+        patched: '2017-11-08T23:15:12.444Z'
+    - karma > socket.io > socket.io-client > debug > ms:
+        patched: '2017-11-08T23:15:12.444Z'
+    - karma > socket.io > socket.io-client > engine.io-client > debug > ms:
+        patched: '2017-11-08T23:15:12.444Z'
+    - karma > socket.io > socket.io-adapter > socket.io-parser > debug > ms:
+        patched: '2017-11-08T23:15:12.444Z'
+    - karma > socket.io > socket.io-client > socket.io-parser > debug > ms:
+        patched: '2017-11-08T23:15:12.444Z'
+    - karma > socket.io > socket.io-parser > debug > ms:
+        patched: '2017-11-08T23:15:12.444Z'
+    - karma > socket.io > debug > ms:
+        patched: '2017-11-08T23:15:12.444Z'
+  'npm:tough-cookie:20170905':
+    - '@angular/cli > webpack > watchpack > chokidar > fsevents > node-pre-gyp > request > tough-cookie':
+        patched: '2017-11-08T23:15:12.444Z'
+    - karma > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
+        patched: '2017-11-08T23:15:12.444Z'
+    - '@angular/cli > webpack-dev-server > chokidar > fsevents > node-pre-gyp > request > tough-cookie':
+        patched: '2017-11-08T23:15:12.444Z'
+  'npm:uglify-js:20150824':
+    - '@angular/cli > postcss-url > directory-encoder > handlebars > uglify-js':
+        patched: '2017-11-08T23:15:12.444Z'
+  'npm:uglify-js:20151024':
+    - '@angular/cli > postcss-url > directory-encoder > handlebars > uglify-js':
+        patched: '2017-11-08T23:15:12.444Z'
