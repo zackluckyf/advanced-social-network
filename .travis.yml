@@ -24,6 +24,7 @@ before_install:
 - npm update
 install:
 - npm install
+- snyk test
 after_install:
 - npm rebuild node-sass
 - ./node_modules/protractor/bin/webdriver-manager update
@@ -41,3 +42,5 @@ deploy:
   app: zack-social-network
   on:
     condition: all_branches
+after_deploy:
+- snyk monitor

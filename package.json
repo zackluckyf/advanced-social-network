@@ -20,7 +20,7 @@
     "prod": "npm run build && npm start",
     "prod-cluster": "npm run build && npm run cluster",
     "all-tests": "ng test --watch=false && ng e2e",
-    "continuous-integration": "npm run build && snyk auth && snyk test",
+    "continuous-integration": "npm run build",
     "heroku-postbuild": "npm run build",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
