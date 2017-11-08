@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { DOCUMENT } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 
@@ -14,11 +16,17 @@ export class PathNotFoundComponent implements OnInit {
   statusText: string = 'The page you are looking for does not exist';
   url: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, 
+              @Inject(PLATFORM_ID) private platformId: Object,
+              @Inject(DOCUMENT) private document: any) { }
 
   ngOnInit() {
     this.router.events.subscribe((val) => {
-      this.url = `${window.location.protocol}//${window.location.host}${window.location.pathname}`;
+      if (isPlatformBrowser(this.platformId)) {
+        this.url = this.document.location.href;
+      } else {
+        // server side still
+      }
     });
   }
 
