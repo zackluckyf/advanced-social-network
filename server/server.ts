@@ -29,11 +29,11 @@ const whitelist = [
 
 const corsOptions = {
   origin: (origin, callback) => {
-    if (whitelist.includes(origin)) {
-      console.log(origin);
+    // have to add !origin for when it isnt a CORS request
+    // otherwise it blocks on same server and stuff like postman I would assume
+    if (whitelist.includes(origin) || !origin) {
       callback(null, true);
     } else {
-      console.log(origin);
       callback(new Error('Not allowed by CORS'));
     }
   }
@@ -47,13 +47,13 @@ const template = fs.readFileSync(path.join(DIST_FOLDER, 'browser', 'index.html')
 
 // Middleware
 app.use(helmet());
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 app.enable('trust proxy');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(compression());
-// app.options('*', cors());
+app.options('*', cors());
 
 
 // maybe only for heroku? more research needed
