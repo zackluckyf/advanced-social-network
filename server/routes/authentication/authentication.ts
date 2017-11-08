@@ -10,9 +10,16 @@ var ExtractJwt = passportJWT.ExtractJwt;
 var JwtStrategy = passportJWT.Strategy;
 const nodemailer = require('nodemailer');
 const nodeCrypto = require('crypto');
+var RateLimit = require('express-rate-limit');
 
 var models = require('../../../models').getModels();
 var queries = require('../../queries/queries');
+
+const loginLimiter = new RateLimit({
+  windowMs: 15*60*1000, // 15 minutes 
+  max: 20, // limit each IP to 20 requests per windowMs 
+  delayMs: 0 // disable delaying - full speed until the max limit is reached 
+});
 
 const localOptions = { usernameField: 'email' };
 
@@ -118,7 +125,7 @@ var routeBuilder = path => {
     //   })
   });
 
-  router.post(`${path}/login`, passport.authenticate('local', { session: false }), (req, res) => {
+  router.post(`${path}/login`, loginLimiter, passport.authenticate('local', { session: false }), (req, res) => {
     res.json({ message: "Authorized", id: payload.id, token: token });
   });
 

@@ -10,6 +10,8 @@ import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
 const compression = require('compression');
+const cors = require('cors');
+const helmet = require('helmet');
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('../dist/server/main.bundle');
 const api = require('./routes/api');
 const PORT = process.env.PORT || 4000;
@@ -19,16 +21,40 @@ var passport = require('passport');
 
 enableProdMode();
 
+const whitelist = [ 
+  'https://zack-social-network.herokuapp.com/',
+  'http://localhost:4000',
+  'http://localhost:4200'
+];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (whitelist.includes(origin)) {
+      console.log(origin);
+      callback(null, true);
+    } else {
+      console.log(origin);
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+};
+
 const app = express();
 
 const template = fs.readFileSync(path.join(DIST_FOLDER, 'browser', 'index.html')).toString();
 
-// Middleware
+// cors middleware lines are an issue currently
 
+// Middleware
+app.use(helmet());
+// app.use(cors(corsOptions));
+app.enable('trust proxy');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(compression());
+// app.options('*', cors());
+
 
 // maybe only for heroku? more research needed
 let forceSsl = (req, res, next) => {
