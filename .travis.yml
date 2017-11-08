@@ -24,6 +24,7 @@ before_install:
 - npm update
 install:
 - npm install
+- snyk protect
 - snyk test
 after_install:
 - npm rebuild node-sass
