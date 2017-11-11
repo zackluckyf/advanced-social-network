@@ -1,4 +1,6 @@
-import * as moment from 'moment';
+'use strict';
+
+var moment = require('moment');
 
 module.exports = (sequelize, DataTypes) => {
   var users = sequelize.define('users', {

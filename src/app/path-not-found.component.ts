@@ -1,7 +1,6 @@
-import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
-import { isPlatformBrowser, isPlatformServer } from '@angular/common';
-import { DOCUMENT } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { Component, OnInit, } from '@angular/core';
+
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -14,20 +13,16 @@ export class PathNotFoundComponent implements OnInit {
 
   status: number = 404;
   statusText: string = 'The page you are looking for does not exist';
-  url: string;
 
-  constructor(private router: Router, 
-              @Inject(PLATFORM_ID) private platformId: Object,
-              @Inject(DOCUMENT) private document: any) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.router.events.subscribe((val) => {
-      if (isPlatformBrowser(this.platformId)) {
-        this.url = this.document.location.href;
-      } else {
-        // server side still
-      }
-    });
+    this.route.paramMap.subscribe(params => {
+         let paramStatus = params.get('status');
+         let paramStatusText = decodeURIComponent(params.get('statusText') === null ? '': params.get('statusText'));
+         this.status = Number(paramStatus) || this.status;
+         this.statusText = paramStatusText || this.statusText;
+     })
   }
 
 }
