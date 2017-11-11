@@ -69,7 +69,7 @@ let deleteUser = async (name: string) => {
 
 let createUser = async (user: any) => {
   try {
-    let res = await models.test_data.create({
+    let res = await models.users.create({
       where: {
         firstName: user.firstName,
         lastName: user.lastName,
