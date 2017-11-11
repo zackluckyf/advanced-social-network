@@ -35,15 +35,16 @@ export class ShellComponent implements OnInit {
     }
     this._registrationService.createUser(user).subscribe(
         data => {
-            console.log('create user data', data);
             this.firstName = null;
             this.lastName = null;
             this.birthday = null;
             this.username = null;
             this.email = null;
             this.password = null;
+            // setup toast here?
             this.nav('/login')
         },
+        // setup toadt here
         err => console.error('create user error', err)
     );
   }
