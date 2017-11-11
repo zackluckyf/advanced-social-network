@@ -5,3 +5,7 @@ figure out the testing issues at some point and change it back, could be hard wi
 notes on using toaster in angular 2 
 
 https://github.com/stabzs/Angular2-Toaster
+
+validation with sequelize 
+
+http://docs.sequelizejs.com/manual/tutorial/models-definition.html#model-validations
