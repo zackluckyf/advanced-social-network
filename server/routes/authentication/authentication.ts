@@ -115,14 +115,13 @@ var routeBuilder = path => {
       email: req.body.email,
       password: req.body.password
     }
-    console.log({...user});
-    // queries.users.createUser(user)
-    //   .then(success => {
-    //     res.status(200).json(success);
-    //   })
-    //   .catch(error => {
-    //     res.status(500).send(error);
-    //   })
+    queries.users.createUser(user)
+      .then(success => {
+        res.status(200).json(success);
+      })
+      .catch(error => {
+        res.status(500).send(error);
+      })
   });
 
   router.post(`${path}/login`, loginLimiter, passport.authenticate('local', { session: false }), (req, res) => {

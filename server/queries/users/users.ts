@@ -69,10 +69,14 @@ let deleteUser = async (name: string) => {
 
 let createUser = async (user: any) => {
   try {
-    let res = await models.test_data.findOrCreate({
+    let res = await models.test_data.create({
       where: {
-        name: user.name,
-        age: user.age
+        firstName: user.firstName,
+        lastName: user.lastName,
+        birthday: user.birthday,
+        username: user.username,
+        email: user.email,
+        password: user.password
       }
     });
     return res;
