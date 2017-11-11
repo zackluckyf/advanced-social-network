@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     firstName: {
       field: 'first_name', 
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
         isAlpha: true,
         notEmpty: true
@@ -15,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     lastName: {
       field: 'last_name', 
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
         isAlpha: true,
         notEmpty: true
@@ -23,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     birthDate: {
       field: 'birth_date', 
       type: DataTypes.DATE,
+      allowNull: false,
       validate: {
         isDate: true,
         isBefore: moment(new Date()).format('YYYY-MM-DD')
@@ -38,19 +41,26 @@ module.exports = (sequelize, DataTypes) => {
     },
     email: {
       type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
       validate: {
         isEmail: true,
         notEmpty: true
       }
     },
-    password: {
-      type: DataTypes.STRING,
-      notEmpty: true
-    },
     username: {
       type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
       validate: {
         isAlphanumeric: true,
+        notEmpty: true
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
         notEmpty: true
       }
     }
