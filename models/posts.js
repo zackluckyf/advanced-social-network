@@ -4,11 +4,17 @@ module.exports = (sequelize, DataTypes) => {
   var posts = sequelize.define('posts', {
     userId: {
       field: 'user_id', 
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      validate: {
+        isNumeric: true
+      }
     },
     postText: {
       field: 'post_text', 
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true
+      }
     }
   }, {
     classMethods: {

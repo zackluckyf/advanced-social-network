@@ -4,15 +4,24 @@ module.exports = (sequelize, DataTypes) => {
   var comments = sequelize.define('comments', {
     userId: {
       field: 'user_id', 
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      validate: {
+        isNumeric: true
+      }
     },
     postId: {
       field: 'post_id', 
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      validate: {
+        isNumeric: true
+      }
     },
     postText: {
       field: 'post_text', 
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true
+      }
     }
   }, {
     classMethods: {
