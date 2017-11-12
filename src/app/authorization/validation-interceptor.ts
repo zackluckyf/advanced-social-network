@@ -19,7 +19,7 @@ import { AuthService } from './authorization.service';
 @Injectable()
 export class ValidationInterceptor implements HttpInterceptor {
 
-  constructor(private router: Router, private auth: AuthService) { }
+  constructor(private router: Router, private auth: AuthService) {}
 
   nav(location: string){
     this.router.navigate([location]);
@@ -49,18 +49,3 @@ export class ValidationInterceptor implements HttpInterceptor {
     });
   }
 }
-
-// authentication token example
-
-// export class AuthInterceptor implements HttpInterceptor {
-//   constructor(private auth: AuthService) {}
- 
-//   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-//     // Get the auth header from the service.
-//     const authHeader = this.auth.getAuthorizationHeader();
-//     // Clone the request to add the new header.
-//     const authReq = req.clone({headers: req.headers.set('Authorization', authHeader)});
-//     // Pass on the cloned request instead of the original request.
-//     return next.handle(authReq);
-//   }
-// }
