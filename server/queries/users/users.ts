@@ -70,14 +70,12 @@ let deleteUser = async (name: string) => {
 let createUser = async (user: any) => {
   try {
     let res = await models.users.create({
-      where: {
         firstName: user.firstName,
         lastName: user.lastName,
         birthday: user.birthday,
         username: user.username,
         email: user.email,
         password: user.password
-      }
     });
     return res;
   } catch(e) {

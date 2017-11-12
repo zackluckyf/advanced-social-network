@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true
       }
     },
-    birthDate: {
+    birthday: {
       field: 'birth_date', 
       type: DataTypes.DATE,
       allowNull: false,
