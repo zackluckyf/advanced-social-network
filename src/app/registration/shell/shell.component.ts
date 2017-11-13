@@ -1,6 +1,9 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { ToasterService } from 'angular2-toaster';
+
+import { Toast } from '../../shared/models/toast.model';
 
 import { RegistrationService } from '../shared/registration.service';
 
@@ -19,7 +22,10 @@ export class ShellComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private router: Router, private route: ActivatedRoute,private _registrationService: RegistrationService) { }
+  constructor(private router: Router, 
+              private route: ActivatedRoute, 
+              private toasterService: ToasterService, 
+              private _registrationService: RegistrationService) { }
 
   ngOnInit() {
   }
@@ -41,16 +47,19 @@ export class ShellComponent implements OnInit {
             this.username = null;
             this.email = null;
             this.password = null;
-            // setup toast here?
+            this.popToast({ status: 'success', title: 'Successfully Registered!', body: `Enjoy your new account ${user.firstName}` });
             this.nav('/login')
         },
-        // setup toadt here
-        err => console.error('create user error', err)
+        err => this.popToast({ status: 'warning', title: 'Unsuccessful Registration', body: err.error.message })
     );
   }
 
   nav(location: string){
     this.router.navigate([location], {relativeTo: this.route});
+  }
+
+  popToast(toast: Toast) {
+    this.toasterService.pop(toast.status, toast.title, toast.body);
   }
 
 }

@@ -120,7 +120,7 @@ var routeBuilder = path => {
         res.status(200).json(success);
       })
       .catch(error => {
-        res.status(500).send(error);
+        res.status(500).send({ message: error.errors[0].message });
       })
   });
 
