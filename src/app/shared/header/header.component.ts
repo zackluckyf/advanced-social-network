@@ -7,14 +7,17 @@ import { HeaderService } from './header.service';
   selector: 'shared-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  providers: [ HeaderService ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
 
+  userId: number;
+
   constructor(private router: Router, private _headerService: HeaderService) { }
 
-  ngOnInit() {  }
+  ngOnInit() { 
+    this._headerService.$userId.subscribe(data => this.userId = data);
+  }
 
   nav(location: string){
     this.router.navigate([location]);

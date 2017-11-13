@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToasterService } from 'angular2-toaster';
 
 import { LoginService } from '../shared/login.service';
+import { HeaderService } from '../../shared/header/header.service';
 
 @Component({
   selector: 'login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
               private cdr: ChangeDetectorRef, 
               private router: Router, 
               private route: ActivatedRoute,
-              private toasterService: ToasterService) { }
+              private toasterService: ToasterService,
+              private _headerService: HeaderService) { }
 
   ngOnInit() {
 
@@ -28,6 +30,7 @@ export class LoginComponent implements OnInit {
 
   authenticate(){
     this._loginService.authenticate(this.email, this.password).subscribe(data => {
+      this._headerService.setUserId(data.id);
       this.email = '';
       this.password = '';
       this.cdr.detectChanges();
