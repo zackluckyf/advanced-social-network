@@ -9,7 +9,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isAlpha: true,
+        isAlpha: {
+          msg: 'First name can only contain alphabetic characters'
+        },
         notEmpty: true
       }
     },
@@ -18,7 +20,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isAlpha: true,
+        isAlpha: {
+          msg: 'Last name can only contain alphabetic characters'
+        },
         notEmpty: true
       }
     },
@@ -28,7 +32,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         isDate: true,
-        isBefore: moment(new Date()).format('YYYY-MM-DD')
+        isBefore: {
+          args: moment(new Date()).format('YYYY-MM-DD'),
+          msg: 'Birthday cannot be in the future'
+        }
       }
     },
     resetPasswordToken: {
@@ -41,7 +48,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     email: {
       type: DataTypes.STRING,
-      unique: true,
+      unique: {
+        msg: 'Email already registered'
+      },
       allowNull: false,
       validate: {
         isEmail: true,
@@ -50,7 +59,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     username: {
       type: DataTypes.STRING,
-      unique: true,
+      unique: {
+        msg: 'Username already in use'
+      },
       allowNull: false,
       validate: {
         isAlphanumeric: true,
