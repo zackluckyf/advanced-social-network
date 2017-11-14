@@ -142,7 +142,7 @@ var routeBuilder = path => {
           return next(err)
         };
         user.resetPasswordToken = resetToken;
-        user.resetPasswordExpires = moment().add(1, 'd').format('YYYY-MM-DD');
+        user.resetPasswordExpires = moment().add(15, 'm').format('YYYY-MM-DD HH:mm');
         user.save()
           .then(success => {
             const message = {
@@ -165,11 +165,11 @@ var routeBuilder = path => {
               if(error) {
                 return console.log(error);
               }
-            });     
-            res.status(200).json({ message: 'Please check your email for the link to reset your password.'});
+            });
+            res.status(200).json({ message: 'Please check your email for the link to reset your password. Reset link expires in 15 minutes' });
           })
           .catch(err => {
-            res.status(400).json({ error: 'Your request could not be processed as entered. Please try again.'})
+            res.status(400).json({ message: 'Your request could not be processed as entered. Please try again.'})
           })
       });
     })
@@ -179,7 +179,7 @@ var routeBuilder = path => {
     queries.users.changePassword(req.body.passwordResetToken)
       .then(user => {
         // moment().diff(Date) gets the difference between the input date and the current date
-        let isTokenValid = moment().diff(moment(user.resetPasswordExpires, 'YYYY-MM-DD')) < 0;
+        let isTokenValid = moment().diff(moment(user.resetPasswordExpires, 'YYYY-MM-DD HH:mm')) < 0;
         if(!isTokenValid){
           throw 'Your token has expired. Please attempt to reset your password again.';
         }
@@ -207,10 +207,10 @@ var routeBuilder = path => {
               if(error) {
                 return console.log(error);
               }
-            });     
+            });
         res.status(200).json({ message: 'Password succesfully changed.'});
       })
-      .catch(err => res.status(400).json({ error: err.message }))
+      .catch(err => res.status(400).json({ message: err.message }))
     });
   });
 
