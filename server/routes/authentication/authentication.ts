@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-
 import * as moment from 'moment';
 var passport = require("passport");
 var LocalStrategy = require('passport-local').Strategy;
@@ -15,19 +14,6 @@ var RateLimit = require('express-rate-limit');
 var models = require('../../../models').getModels();
 var queries = require('../../queries/queries');
 
-const loginLimiter = new RateLimit({
-  windowMs: 15*60*1000, // 15 minutes 
-  max: 20, // limit each IP to 20 requests per windowMs 
-  delayMs: 0 // disable delaying - full speed until the max limit is reached 
-});
-
-const localOptions = { usernameField: 'email' };
-
-const jwtOptions = { 
-  secretOrKey: process.env.SECRET || 'secret',
-  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
-};
-
 // If doing development work with the password reset stuff just set these vars to your gmail account and password
 // and change the from variable to your gmail
 // Thanks to answer from https://stackoverflow.com/questions/19877246/nodemailer-with-gmail-and-nodejs/#answer-27160641
@@ -38,18 +24,32 @@ let developmentEmail = '';
 let developmentPassword = '';
 let from = '"ZackFanning" <zackfsocialnetwork@gmail.com>';
 
-let transporterConfig = {
-    'service': 'gmail',
-    'auth': {
-      'user': process.env.GMAIL_USER || developmentEmail,
-      'pass': process.env.GMAIL_PASSWORD || developmentPassword
+const config = {
+  loginLimiter: new RateLimit({
+    windowMs: 15*60*1000, // 15 minutes 
+    max: 20, // limit each IP to 20 requests per windowMs 
+    delayMs: 0 // disable delaying - full speed until the max limit is reached 
+  }),
+  // passport local and jwt
+  localOptions: { usernameField: 'email' },
+  jwtOptions: { 
+    secretOrKey: process.env.SECRET || 'secret',
+    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
+  },
+  // nodemailer transport object
+  transporterConfig: {
+    service: 'gmail',
+    auth: {
+      user: process.env.GMAIL_USER || developmentEmail,
+      pass: process.env.GMAIL_PASSWORD || developmentPassword
     }
   } 
+}
 
 let token;
 let payload;
 
-passport.use(new JwtStrategy(jwtOptions, (jwt_payload, next) => {
+passport.use(new JwtStrategy(config.jwtOptions, (jwt_payload, next) => {
   queries.users.getUserJwt(jwt_payload.id)
   .then(user => {
     if (user) {
@@ -60,7 +60,7 @@ passport.use(new JwtStrategy(jwtOptions, (jwt_payload, next) => {
   }).catch(err => next(err));
 }));
 
-passport.use(new LocalStrategy(localOptions,(email, password, done) => {
+passport.use(new LocalStrategy(config.localOptions,(email, password, done) => {
   queries.users.getUser(email)
   .then(user => {
     if (user == null) {
@@ -68,7 +68,7 @@ passport.use(new LocalStrategy(localOptions,(email, password, done) => {
     }
     if (user.password === password) {
       payload = { id: user.id };
-      token = jwt.sign(payload, jwtOptions.secretOrKey, { expiresIn: 1000000})
+      token = jwt.sign(payload, config.jwtOptions.secretOrKey, { expiresIn: 1000000})
       return done(null, user)
     }
     return done(null, false, { message: 'Incorrect Password' })
@@ -124,7 +124,7 @@ var routeBuilder = path => {
       })
   });
 
-  router.post(`${path}/login`, loginLimiter, passport.authenticate('local', { session: false }), (req, res) => {
+  router.post(`${path}/login`, config.loginLimiter, passport.authenticate('local', { session: false }), (req, res) => {
     res.json({ message: "Authorized", id: payload.id, token: token });
   });
 
@@ -153,7 +153,7 @@ var routeBuilder = path => {
               `If you did not request this, please ignore this email and your password will remain unchanged. \n`
             };
 
-            const transporter = nodemailer.createTransport(transporterConfig);
+            const transporter = nodemailer.createTransport(config.transporterConfig);
             const mailOptions = {
               from: from,
               to: user.email,
@@ -195,7 +195,7 @@ var routeBuilder = path => {
                 'If you did not request this change, please contact us immediately.'
             };
 
-            const transporter = nodemailer.createTransport(transporterConfig);
+            const transporter = nodemailer.createTransport(config.transporterConfig);
             const mailOptions = {
               from: from,
               to: user.email,
