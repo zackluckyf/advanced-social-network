@@ -23,7 +23,6 @@ export class ForgotPasswordComponent implements OnInit {
 
   reset(){
     this._loginService.reset(this.email).subscribe(data => {
-      alert(JSON.stringify(data, null, 4));
       this.popToast({ status: 'success', title: 'Email Sent', body: data.message });
     }, err => { 
       this.popToast({ status: 'warning', title: 'Email Failed', body: err.error.message });
