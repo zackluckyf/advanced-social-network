@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <input [(ngModel)]="searchText" (ngModelChange)="searchTextChange()" type="text" name="search" class="form-control">
     <div *ngIf="queryResults | async" class="autocomplete">
       <ul class="autocomplete-panel">
@@ -8,4 +8,4 @@
         </li>
       </ul>
     </div>
-  </div>
+</div>

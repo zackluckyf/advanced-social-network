@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 
 import { HeaderService } from './header/header.service';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -15,11 +16,13 @@ import { HeaderService } from './header/header.service';
   ],
   declarations: [
     HeaderComponent,
-    SearchComponent
+    SearchComponent,
+    FooterComponent
   ],
   exports: [
     HeaderComponent,
-    SearchComponent
+    SearchComponent,
+    FooterComponent
   ],
   providers: [ HeaderService ]
 })

@@ -1,6 +1,6 @@
 @import '../styles/bootstrap.scss';
 
-.autocomplete{
+.autocomplete {
     display: block;
     width: 100%;
     z-index: 1002;
@@ -13,7 +13,7 @@
     border: 1px solid #D5D5D5;
     background: #ffffff;
     color: #222222;
-    .autocomplete-panel{
+    .autocomplete-panel {
         padding: .4em;
         border: 0 none;
         outline: 0;
@@ -29,6 +29,10 @@
     }
 }
 
-.highlighted{
+.highlighted {
     background-color: dodgerblue;
+}
+
+.container {
+    width: 100%;
 }

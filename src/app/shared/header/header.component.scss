@@ -1,8 +1,19 @@
 @import '../styles/bootstrap.scss';
 
 
-.search{
+.search {
     position: relative;
     margin-right: auto;
+    margin-left: auto;
+    width: 70%;
+    display: inline-block;
+}
+
+.left-half {
+    width: 60%;
+}
+
+.align-right {
+    display: inline-block;
     margin-left: auto;
 }
