@@ -6,6 +6,10 @@ ignore:
     - '@angular/cli > url-loader > mime':
         reason: Not ready for hassle of upgrading Angular dependencies
         expires: '2017-12-08T23:17:07.389Z'
+  'npm:jquery:20170829':
+    - bootstrap > jquery:
+        reason: won't accept other options
+        expires: '2017-12-17T01:58:22.604Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:debug:20170905':
