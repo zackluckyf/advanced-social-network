@@ -3,7 +3,7 @@ import * as moment from 'moment';
 
 const getUserNameAndBirthday = (userId: number) => {
   return models.users.find({
-    attributes: [ 'firstName', 'lastName', 'birthDate' ],
+    attributes: [ 'firstName', 'lastName', 'birthday' ],
     where: {
       id: userId
     }
