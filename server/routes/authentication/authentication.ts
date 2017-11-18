@@ -64,7 +64,7 @@ passport.use(new LocalStrategy(config.localOptions,(email, password, done) => {
   queries.users.getUser(email)
   .then(user => {
     if (user == null) {
-      return done(null, false, { message: 'Incorrect Username' })
+      return done(null, false, { message: 'Incorrect Username/Email' })
     }
     if (user.password === password) {
       payload = { id: user.id };
@@ -112,11 +112,11 @@ var routeBuilder = path => {
       .catch(error => next(error))
   });
 
-  router.post(`${path}/login`, config.loginLimiter, passport.authenticate('local', { session: false }), (req, res) => {
+  router.post(`${path}/login`, config.loginLimiter, passport.authenticate('local', { session: false }), (req, res, next) => {
     res.json({ message: "Authorized", id: payload.id, token: token });
   });
 
-  router.get(`${path}/logout`, (req, res) => {
+  router.get(`${path}/logout`, (req, res, next) => {
     req.logout();
     res.status(200).send({ message: 'Logged Out' });
   });
