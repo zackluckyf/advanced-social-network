@@ -94,6 +94,14 @@ var routeBuilder = path => {
    * @apiName CreateUser
    * @apiGroup Authentication
    * 
+   * @apiParam {Body}     -                    Post Body.
+   * @apiParam {String}   -.firstName          User First Name.
+   * @apiParam {String}   -.lastName           User Last Name.
+   * @apiParam {Date}     -.birthday           Users Birthday.
+   * @apiParam {String}   -.username           Users Username.
+   * @apiParam {String}   -.email              Users Email.
+   * @apiParam {String}   -.password           Users Password.
+   *
    * 
    * @apiSuccess {Success}      -.success        Success object.
    * 
@@ -112,15 +120,48 @@ var routeBuilder = path => {
       .catch(error => next(error))
   });
 
+  /**
+   * @api {post} /authentication/login User Login
+   * @apiName UserLogin
+   * @apiGroup Authentication
+   * 
+   * @apiParam {Body}     -                    Post Body.
+   * @apiParam {String}   -.email              Users Email/Username.
+   * @apiParam {String}   -.password           Users Password.
+   *
+   * 
+   * @apiSuccess {Success}      -.success        Success object.
+   * 
+   */
   router.post(`${path}/login`, config.loginLimiter, passport.authenticate('local', { session: false }), (req, res, next) => {
     res.json({ message: "Authorized", id: payload.id, token: token });
   });
 
+  /**
+   * @api {get} /authentication/logout User Logout
+   * @apiName UserLogout
+   * @apiGroup Authentication
+   * 
+   * @apiSuccess {Success}      -.success        Success object.
+   * 
+   */
   router.get(`${path}/logout`, (req, res, next) => {
     req.logout();
     res.status(200).send({ message: 'Logged Out' });
   });
 
+  /**
+   * @api {post} /authentication/password-reset Password Reset
+   * @apiName PasswordReset
+   * @apiGroup Authentication
+   * 
+   * @apiParam {Body}     -                    Post Body.
+   * @apiParam {String}   -.email              Users Email/Username.
+   *
+   * 
+   * @apiSuccess {Success}      -.success        Success object.
+   * 
+   */
   router.post(`${path}/password-reset`, (req, res, next) => {
     queries.users.getUser(req.body.email)
     .then(user => {
@@ -163,6 +204,18 @@ var routeBuilder = path => {
     })
   });
 
+  /**
+   * @api {post} /authentication/change-password Change Password
+   * @apiName ChangePassword
+   * @apiGroup Authentication
+   * 
+   * @apiParam {Body}     -                    Post Body.
+   * @apiParam {String}   -.passwordResetToken Users Password Reset Token.
+   *
+   * 
+   * @apiSuccess {Success}      -.success        Success object.
+   * 
+   */
   router.post(`${path}/change-password`, (req, res) => {
     queries.users.changePassword(req.body.passwordResetToken)
       .then(user => {
