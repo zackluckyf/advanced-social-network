@@ -86,14 +86,6 @@ passport.deserializeUser((id, cb) => {
   });
 });
 
-const ensureAuthentication = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    // req.user is available for use here
-    return next(); 
-  }
-  // denied. redirect to login
-  res.status(401).send({ message: 'Unauthorized' });
-}
 
 var routeBuilder = path => {
 
@@ -213,7 +205,4 @@ var routeBuilder = path => {
   return router;
 }
 
-module.exports = {
-  routeBuilder: routeBuilder,
-  ensureAuthentication: ensureAuthentication
-}
+module.exports = routeBuilder;
