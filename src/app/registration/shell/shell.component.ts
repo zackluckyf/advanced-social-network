@@ -50,7 +50,12 @@ export class ShellComponent implements OnInit {
             this.popToast({ status: 'success', title: 'Successfully Registered!', body: `Enjoy your new account ${user.firstName}` });
             this.nav('/login')
         },
-        err => this.popToast({ status: 'warning', title: 'Unsuccessful Registration', body: err.error.message })
+        err => {
+          if(err.error){
+            err.message = err.error.message
+          }
+          this.popToast({ status: 'warning', title: 'Unsuccessful Registration', body: err.message })
+        }
     );
   }
 

@@ -1,8 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { ToasterService } from 'angular2-toaster';
-
 import { LoginService } from '../shared/login.service';
 import { HeaderService } from '../../shared/header/header.service';
 
@@ -21,7 +19,6 @@ export class LoginComponent implements OnInit {
               private cdr: ChangeDetectorRef, 
               private router: Router, 
               private route: ActivatedRoute,
-              private toasterService: ToasterService,
               private _headerService: HeaderService) { }
 
   ngOnInit() {
@@ -43,10 +40,6 @@ export class LoginComponent implements OnInit {
 
   nav(location: string){
     this.router.navigate([location], {relativeTo: this.route});
-  }
-
-  popToast() {
-    this.toasterService.pop('success', 'Args Title', 'Args Body');
   }
 
 }

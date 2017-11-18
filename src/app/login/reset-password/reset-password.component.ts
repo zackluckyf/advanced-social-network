@@ -40,6 +40,9 @@ export class ResetPasswordComponent implements OnInit {
       this.password = '';
       this.cdr.detectChanges();
       this.nav('/login/forgot-password');
+      if(err.error){
+        err.message = err.error.message
+      }
       this.popToast({ status: 'warning', title: 'Password Change Failed', body: err.error.message });
     });
   }
