@@ -23,7 +23,7 @@ var passport = require('passport');
 enableProdMode();
 
 const whitelist = [ 
-  'https://zack-social-network.herokuapp.com/',
+  'https://zack-social-network.herokuapp.com',
   'http://localhost:4000',
   'http://localhost:4200'
 ];
@@ -35,7 +35,7 @@ const corsOptions = {
     if (whitelist.includes(origin) || !origin) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      callback(new Error(`${origin} not allowed by CORS`));
     }
   }
 };
