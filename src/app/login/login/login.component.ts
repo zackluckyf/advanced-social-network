@@ -1,6 +1,10 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { ToasterService } from 'angular2-toaster';
+
+import { Toast } from '../../shared/models/toast.model';
+
 import { LoginService } from '../shared/login.service';
 import { HeaderService } from '../../shared/header/header.service';
 
@@ -19,6 +23,7 @@ export class LoginComponent implements OnInit {
               private cdr: ChangeDetectorRef, 
               private router: Router, 
               private route: ActivatedRoute,
+              private toasterService: ToasterService,
               private _headerService: HeaderService) { }
 
   ngOnInit() {
@@ -35,11 +40,19 @@ export class LoginComponent implements OnInit {
       this.email = '';
       this.password = '';
       this.cdr.detectChanges();
+      if(err.error){
+        err.message = err.error.message
+      }
+      this.popToast({ status: 'warning', title: 'Incorrect Password', body: err.error.message });
     });
   }
 
   nav(location: string){
     this.router.navigate([location], {relativeTo: this.route});
+  }
+
+  popToast(toast: Toast) {
+    this.toasterService.pop(toast.status, toast.title, toast.body);
   }
 
 }
