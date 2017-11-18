@@ -106,7 +106,7 @@ var routeBuilder = path => {
    * @apiSuccess {Success}      -.success        Success object.
    * 
    */
-  router.post(`${path}/register`, (req, res) => {
+  router.post(`${path}/register`, (req, res, next) => {
     let user = {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -116,12 +116,8 @@ var routeBuilder = path => {
       password: req.body.password
     }
     queries.users.createUser(user)
-      .then(success => {
-        res.status(200).json(success);
-      })
-      .catch(error => {
-        res.status(500).send({ message: error.errors[0].message });
-      })
+      .then(success => res.status(200).json(success))
+      .catch(error => next(error))
   });
 
   router.post(`${path}/login`, config.loginLimiter, passport.authenticate('local', { session: false }), (req, res) => {

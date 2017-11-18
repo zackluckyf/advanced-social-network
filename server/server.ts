@@ -91,6 +91,19 @@ app.get('*', (req, res) => {
   res.render('index', { req });
 });
 
+// setup generic error handling
+app.use((err, req, res, next) => {
+  console.error(err);
+  if (!err.statusCode) {
+    err.statusCode = 500; // Sets a generic server error status code if none is part of the err
+  } 
+  // handle sequelize errors especially validation errors, not the best way to check but oh well
+  if(err.name && err.name.includes('Sequelize')){
+    err.message = err.errors[0].message
+  }
+  res.status(err.statusCode).json({ message: err.message });
+});
+
 models.sequelize.sync().then(() => {
   app.listen(app.get('port'), () => {
     console.log('Node app is running on port', app.get('port'));

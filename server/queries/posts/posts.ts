@@ -3,15 +3,8 @@ var models = require('../../../models').getModels();
 const axios = require('axios');
 const API = 'https://jsonplaceholder.typicode.com';
 
-let getPosts = async () => {
-  try {
-    // Get posts from the mock api
-    // This should ideally be replaced with a service that connects to Postgres
-    let res =  await axios.get(`${API}/posts`)
-    return res;
-  } catch(e) {
-    e => console.log(e.stack)
-  };
+const getPosts = () => {
+  return axios.get(`${API}/posts`);
 }
 
 module.exports = {

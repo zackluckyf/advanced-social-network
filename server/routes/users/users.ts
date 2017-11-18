@@ -4,6 +4,7 @@ var router = express.Router();
 var queries = require('../../queries/queries');
 
 var routeBuilder = path => {
+
   /**
    * @api {get} /user/:id Request User Information
    * @apiName GetUser
@@ -17,14 +18,10 @@ var routeBuilder = path => {
    * @apiSuccess {Date}     -.birthDate          The Birth Date.
    * 
    */
-  router.get(`${path}/:id`, (req, res) => {
+  router.get(`${path}/:id`, (req, res, next) => {
     queries.users.getUserNameAndBirthday(req.params.id)
-      .then(user => {
-        res.status(200).json(user);
-      })
-      .catch(error => {
-        res.status(500).send(error);
-      })
+    .then(users => res.status(200).json(users))
+    .catch(error => next(error));
   });
 
   /**
@@ -38,14 +35,10 @@ var routeBuilder = path => {
    * @apiSuccess {String}   -.postText           The Post Text.
    * 
    */
-  router.get(`${path}/:id/allposts`, (req, res) => {
+  router.get(`${path}/:id/allposts`, (req, res, next) => {
     queries.users.getUserPosts(req.params.id)
-      .then(user => {
-        res.status(200).json(user);
-      })
-      .catch(error => {
-        res.status(500).send(error);
-      })
+    .then(users => res.status(200).json(users))
+    .catch(error => next(error));
   });
 
   /**
@@ -59,14 +52,10 @@ var routeBuilder = path => {
    * @apiSuccess {String}      -.commentText        The Comment Text.
    * 
    */
-  router.get(`${path}/:id/allcomments`, (req, res) => {
+  router.get(`${path}/:id/allcomments`, (req, res, next) => {
     queries.users.getUserComments(req.params.id)
-      .then(user => {
-        res.status(200).json(user);
-      })
-      .catch(error => {
-        res.status(500).send(error);
-      })
+    .then(users => res.status(200).json(users))
+    .catch(error => next(error));
   });
 
   /**
@@ -79,14 +68,10 @@ var routeBuilder = path => {
    * @apiSuccess {Success}      -.success        Success object.
    * 
    */
-  router.delete(`${path}/:name`, (req, res) => {
+  router.delete(`${path}/:name`, (req, res, next) => {
     queries.users.deleteUser(req.params.name)
-      .then(success => {
-        res.status(200).json(success);
-      })
-      .catch(error => {
-        res.status(500).send(error);
-      })
+    .then(success => res.status(200).json(success))
+    .catch(error => next(error));
   });
 
 
@@ -101,18 +86,14 @@ var routeBuilder = path => {
    * @apiSuccess {Success}      -.success        Success object.
    * 
    */
-  router.put(`${path}/:name/:age`, (req, res) => {
+  router.put(`${path}/:name/:age`, (req, res, next) => {
     let user = {
       name: req.params.name,
       age: req.params.age
     }
     queries.users.changeUserAge(user)
-      .then(success => {
-        res.status(200).json(success);
-      })
-      .catch(error => {
-        res.status(500).send(error);
-      })
+      .then(success => res.status(200).json(success))
+      .catch(error => next(error))
   });
 
   /**
@@ -126,14 +107,10 @@ var routeBuilder = path => {
    * @apiSuccess {String}   -.lastName           The Last Name.
    * 
    */
-  router.get(`${path}`, (req, res) => {
+  router.get(`${path}`, (req, res, next) => {
     queries.users.getAllUsers()
-      .then(users => {
-        res.status(200).json(users);
-      })
-      .catch(error => {
-        res.status(500).send(error)
-      });
+      .then(users => res.status(200).json(users))
+      .catch(error => next(error));
   });
 
   /**
@@ -149,15 +126,11 @@ var routeBuilder = path => {
    * @apiSuccess {String}   -.lastName           The Last Name.
    * 
    */
-  router.get(`${path}/search/:query`, (req, res) => {
+  router.get(`${path}/search/:query`, (req, res, next) => {
     let query = req.params.query;
     queries.users.getListOfUsers(query)
-      .then(users => {
-        res.status(200).json(users);
-      })
-      .catch(error => {
-        res.status(500).send(error)
-      });
+      .then(users => res.status(200).json(users))
+      .catch(error => next(error));
   });
 
 

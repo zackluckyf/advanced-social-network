@@ -1,54 +1,49 @@
 var models = require('../../../models').getModels();
 import * as moment from 'moment';
 
-let getUserNameAndBirthday = async (userId: number) => {
-    let res = await models.users.find({
-      attributes: [ 'firstName', 'lastName', 'birthDate' ],
-      where: {
-        id: userId
-      }
-    });
-    return res;
+const getUserNameAndBirthday = (userId: number) => {
+  return models.users.find({
+    attributes: [ 'firstName', 'lastName', 'birthDate' ],
+    where: {
+      id: userId
+    }
+  });
 };
 
-let getAllUsers = async () => {
-  let res = await models.users.findAll({
-      attributes: [ 'firstName', 'lastName' ]
-    });
-    return res;
+const getAllUsers = () => {
+  return models.users.findAll({
+    attributes: [ 'firstName', 'lastName' ]
+  });
 };
 
-let getUserPosts = async (userId: number) => {
-  let res = await models.posts.findAll({
+const getUserPosts = (userId: number) => {
+  return models.posts.findAll({
     attributes: [ 'postText' ],
     where: {
       user_id: userId
     }
   });
-  return res;
 };
 
-let getUserComments = async (userId: number) => {
-  let res = await models.comments.findAll({
+const getUserComments = (userId: number) => {
+  return models.comments.findAll({
     attributes: [ 'commentText' ],
     where: {
       user_id: userId
     }
   });
-  return res;
 };
 
-let deleteUser = async (name: string) => {
-    let res = await models.test_data.destroy({
-      where: {
-        name: name
-      }
-    });
-    return res;
+const deleteUser = (name: string) => {
+  return models.test_data.destroy({
+    where: {
+      name: name
+    }
+  });
 }
 
-let createUser = async (user: any) => {
-  let res = await models.users.create({
+const createUser = (user: any) => {
+  return models.users.create({
       firstName: user.firstName,
       lastName: user.lastName,
       birthday: user.birthday,
@@ -56,11 +51,10 @@ let createUser = async (user: any) => {
       email: user.email,
       password: user.password
   });
-  return res;
 }
 
-let changeUserAge = async (user: any) => {
-  let res = await models.test_data.update({
+const changeUserAge = (user: any) => {
+  return models.test_data.update({
     age: user.age
   }, {
     where: {
@@ -69,11 +63,10 @@ let changeUserAge = async (user: any) => {
     returning: true,
     plain: true
   });
-  return res;
 };
 
-let getListOfUsers = async (query: string) => {
-  let res = await models.users.findAll({
+const getListOfUsers = (query: string) => {
+  return models.users.findAll({
       attributes: [ 'id', 'firstName', 'lastName' ],
       where: {
         $or: [
@@ -90,12 +83,11 @@ let getListOfUsers = async (query: string) => {
         ]
       },
       limit: 5
-    });
-  return res;
+  });
 };
 
-let getUser = async (email: string) => {
-  let res = await models.users.findOne({ 
+const getUser = (email: string) => {
+  return models.users.findOne({ 
     where: {
       $or: [
         {
@@ -107,25 +99,22 @@ let getUser = async (email: string) => {
       ]
     }
   });
-  return res;
 };
 
-let getUserJwt = async (jwt: string) => {
-  let res = await models.users.findOne({ 
+const getUserJwt = (jwt: string) => {
+  return models.users.findOne({ 
     where: {
       id: jwt
     }
   });
-  return res;
 };
 
-let changePassword = async (passwordResetToken: string) => {
-  let res = await models.users.findOne({
+const changePassword = (passwordResetToken: string) => {
+  return models.users.findOne({
     where: {
       reset_password_token: passwordResetToken
     }
   });
-  return res;
 };
 
 module.exports = {
