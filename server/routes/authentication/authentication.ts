@@ -116,7 +116,7 @@ var routeBuilder = path => {
       password: req.body.password
     }
     queries.users.createUser(user)
-      .then(success => res.status(200).json(success))
+      .then(success => res.status(201).json(success))
       .catch(error => next(error))
   });
 
