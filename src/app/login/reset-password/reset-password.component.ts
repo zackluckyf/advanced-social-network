@@ -43,7 +43,7 @@ export class ResetPasswordComponent implements OnInit {
       if(err.error){
         err.message = err.error.message
       }
-      this.popToast({ status: 'warning', title: 'Password Change Failed', body: err.error.message });
+      this.popToast({ status: 'warning', title: 'Password Change Failed', body: err.message });
     });
   }
   
