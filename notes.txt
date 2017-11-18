@@ -13,5 +13,12 @@ http://docs.sequelizejs.com/manual/tutorial/models-definition.html#model-validat
 Command to clear out DB on Heroku
 heroku pg:reset DATABASE_URL --confirm zack-social-network
 
+To look at the Heroku Database
+heroku pg:psql 
+SELECT * FROM users;
+
+To get database info
+heroku pg:info
+
 link for more information in case the need arises to push and pull 
 https://devcenter.heroku.com/articles/heroku-postgresql#pg-reset
