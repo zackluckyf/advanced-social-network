@@ -36,14 +36,12 @@ export class LoginComponent implements OnInit {
       this.email = '';
       this.password = '';
       this.cdr.detectChanges();
+      this.nav(`/profile/${data.id}`)
     }, err => {
       this.email = '';
       this.password = '';
       this.cdr.detectChanges();
-      if(err.error){
-        err.message = err.error.message
-      }
-      this.popToast({ status: 'warning', title: 'Incorrect Password', body: err.error.message });
+      this.popToast({ status: 'warning', title: 'Incorrect Credentials', body: `Please supply the correct credentials` });
     });
   }
 
