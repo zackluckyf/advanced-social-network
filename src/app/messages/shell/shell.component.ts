@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import * as moment from 'moment';
 
+import { ChatService } from '../../shared/chat/chat.service';
+
 import { Conversation, Message } from '../shared/models/conversations.model'
 
 @Component({
@@ -17,48 +19,16 @@ export class ShellComponent implements OnInit {
 
   selectedConversationalPartner: Conversation; 
 
-  constructor() { }
+  constructor(private chatService: ChatService) { }
 
   ngOnInit() {
-    setTimeout(() => {
-      this._conversations.next(
-        [
-          {
-            conversationalPartner: 'Zack',
-            mostRecentMessage: new Date(2017, 6, 21),
-            messages: [
-              {
-                date: new Date(2016, 8, 30),
-                message: 'Hi',
-                name: 'Zack'
-              },
-              {
-                date: new Date(2017, 6, 21),
-                message: 'Hey Cutie',
-                name: 'Rachael'
-              }
-            ]
-          },
-          {
-            conversationalPartner: 'Rachael',
-            mostRecentMessage: new Date(2017, 7, 23, 21, 40),
-            messages: [
-              {
-                date: new Date(2017, 7, 21),
-                message: 'I love you',
-                name: 'Rachael'
-              },
-              {
-                date: new Date(2017, 7, 23, 21, 40),
-                message: 'You are the best',
-                name: 'Rachael'
-              }
-            ]
-          }
-        ]
-      )
-    }, 1000);
-    
+    this.chatService.messages.subscribe(data => {
+      if (data.conversations) {
+        this._conversations.next(data.conversations);
+      }			
+    }, err => console.log(err),
+    () => console.log('complete'));
+    this.sendMsg();
   }
 
   selectedConversation(partner: Conversation) {
@@ -78,5 +48,16 @@ export class ShellComponent implements OnInit {
     }
     return formattedDate;
   }
+
+  message = {
+		author: 'tutorialedge',
+    message: 'this is a test message',
+    date: new Date()
+	}
+
+  sendMsg() {
+		this.chatService.messages.next(JSON.stringify(this.message));
+		this.message.message = '';
+	}
 
 }
