@@ -12,26 +12,26 @@ const requireAuth = passport.authenticate('jwt', { session: false });
 /* GET api listing. */
 // Uncomment and navigate to /api to see the full route tree XD
 // router.get('/', (req, res) => {
-//   let array = [];
-//   router.stack.forEach(item => {
-//     if(item.route){
-//       array.push({
-//         route: item.route.path, 
-//         methods: item.route.methods 
-//       })
-//     } else {
-//       item.handle.stack.forEach(handler => {
-//         array.push({
-//           route: handler.route.path,
-//           methods: handler.route.methods 
-//         })
-//       })
-//     }
-//   });
-//   res.json(array);
+//     let array = [];
+//     router.stack.forEach(item => {
+//         if(item.route){
+//             array.push({
+//                 route: item.route.path, 
+//                 methods: item.route.methods 
+//             })
+//         } else {
+//             if(item.handle && item.handle.stack){
+//                 item.handle.stack.forEach(handler => {
+//                     array.push({
+//                         route: handler.route.path,
+//                         methods: handler.route.methods 
+//                     })
+//                 })
+//             }
+//         }
+//     });
+//     res.json(array);
 // });
-
-// add validation to models using: http://docs.sequelizejs.com/manual/tutorial/models-definition.html#model-validations
 
 // authentication routes
 router.use(authentication('/authentication'));
