@@ -11,7 +11,11 @@ import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 const compression = require('compression');
 const cors = require('cors');
 const helmet = require('helmet');
+var expressWs = require('express-ws')
 
+const app = express();
+// express websocket initialization
+expressWs(app);
 
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('../dist/server/main.bundle');
 const api = require('./routes/api');
@@ -24,8 +28,8 @@ enableProdMode();
 
 const whitelist = [ 
   'https://zack-social-network.herokuapp.com',
-  'http://localhost:4000',
-  'http://localhost:4200'
+  'http://localhost:4000', // uncomment for dev
+  'http://localhost:4200' // uncomment for dev
 ];
 
 const corsOptions = {
@@ -40,11 +44,8 @@ const corsOptions = {
   }
 };
 
-const app = express();
 
 const template = fs.readFileSync(path.join(DIST_FOLDER, 'browser', 'index.html')).toString();
-
-// cors middleware lines are an issue currently
 
 // Middleware
 app.use(helmet());
@@ -82,8 +83,55 @@ app.engine('html', ngExpressEngine({
 app.set('view engine', 'html');
 app.set('views', path.join(DIST_FOLDER, 'browser'));
 
+// Setup websocket + example needs re worked using the database + convept of the 3 different properties
+app.ws('/api/messaging', (ws, req) => {
+  ws.on('message', msg => {
+    console.log('message received node')
+    ws.send(JSON.stringify(
+      { 
+        conversations: [
+          {
+            conversationalPartner: 'Zack',
+            mostRecentMessage: new Date(2017, 6, 21),
+            messages: [
+              {
+                date: new Date(2016, 8, 30),
+                message: 'Hi',
+                name: 'Zack'
+              },
+              {
+                date: new Date(2017, 6, 21),
+                message: 'Hey Cutie',
+                name: 'Rachael'
+              }
+            ]
+          },
+          {
+            conversationalPartner: 'Rachael',
+            mostRecentMessage: new Date(2017, 7, 23, 21, 40),
+            messages: [
+              {
+                date: new Date(2017, 7, 21),
+                message: 'I love you',
+                name: 'Rachael'
+              },
+              {
+                date: new Date(2017, 7, 23, 21, 40),
+                message: 'You are the best',
+                name: 'Rachael'
+              }
+            ]
+          }
+        ],
+      notifications: [],
+      friendRequests: []
+    }));
+  });
+})
 // Set our api routes
 app.use('/api', api);
+
+
 
 app.get('*.*', express.static(path.join(DIST_FOLDER, 'browser')));
 
